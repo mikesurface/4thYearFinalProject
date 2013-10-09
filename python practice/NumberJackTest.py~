@@ -13,11 +13,13 @@ def main(argv):
 	matrix = Matrix(n*m,n*m,1,9)
 
 	model = Model()
-	
+	print matrix
+"""
 for row in matrix.row
 	model.add(AllDiff(row)	
 
 for column in matrix.column
 	model.add(AllDiff(column))
+"""
 
-print matrix
+main(sys.argv[1:])

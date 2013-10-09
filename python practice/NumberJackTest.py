@@ -5,14 +5,15 @@ def main(argv):
 	filename = argv[0];
 	f = open(filename,"r")
 	dimensions = f.readline().split(" ")
-	boxwidth = dimensions[0]
-	boxheight = dimensions[1]
+	boxwidth = int(dimensions[0])
+	boxheight = int(dimensions[1])
 	
 	n = boxwidth
 	m = boxheight
 	matrix = Matrix(n*m,n*m,1,9)
 
 	model = Model()
+	print matrix
 """
 for row in matrix.row
 	model.add(AllDiff(row)	
@@ -20,4 +21,5 @@ for row in matrix.row
 for column in matrix.column
 	model.add(AllDiff(column))
 """
-print matrix
+
+main(sys.argv[1:])
