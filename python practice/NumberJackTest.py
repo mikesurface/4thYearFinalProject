@@ -14,12 +14,12 @@ def main(argv):
 
 	model = Model()
 	print matrix
-"""
+
 for row in matrix.row
 	model.add(AllDiff(row)	
 
 for column in matrix.column
 	model.add(AllDiff(column))
-"""
 
+for 
 main(sys.argv[1:])
