@@ -1,0 +1,8 @@
+%Research
+
+\section{Problem History}
+One of the first examples of computing a diet to fit nutritional constraints was presented by Nobel Laureate George J. Stigler. He proposed a solution to the following problem: given a list of 77 ingredients and the recommended daily allowances (RDAs) of 10 nutrients, including calories, for an average american man, what is the minimum cost diet that they could be provided from these ingredients and still satisfy their nutritional requirements. As Stigler stresses, there are many weaknessess to his model, including the fact that the science of nutrition was at the time still very immature. However, using a heuristic method, Stigler came to the conclusion that the minimum cost for such a diet was \$39.93 (in 1939). \\
+
+With linear programming increasing a few years after his paper, the Stigler Diet problem was eventually solved properly by Jack Laderman of the Mathematical Tables Project in 1947 as a test of Dantzig's Simplex Method. Stigler's guess was remarkably accurate; the true minimum cost was \$36.69. To this day the Stiger Diet problem is a classic exercise in optimization. Many researchers since have revisited his problem, using linear programming with updated nutritional and pricing information to calculate a more accurate model.\\
+
+

@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}User Management}{2}
+\contentsline {subsection}{\numberline {1.1}Login \& Logout}{2}
+\contentsline {subsection}{\numberline {1.2}Personal Statistics \& Goals}{3}
+\contentsline {section}{\numberline {2}Meal Generation}{8}
