@@ -5,8 +5,8 @@ def main(argv):
 	filename = argv[0];
 	f = open(filename,"r")
 	dimensions = f.readline().split(" ")
-	boxwidth = dimensions[0]
-	boxheight = dimensions[1]
+	boxwidth = int(dimensions[0])
+	boxheight = int(dimensions[1])
 	
 	n = boxwidth
 	m = boxheight
