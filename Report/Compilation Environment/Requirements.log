@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.10.16)  16 OCT 2013 23:43
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.10.16)  17 OCT 2013 21:09
 entering extended mode
  %&-line parsing enabled.
 **Requirements.tex
@@ -41,27 +41,65 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \TX@delta=\dimen109
 \TX@cols=\count87
 \TX@ftn=\toks15
-) (./Requirements.aux)
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen110
+\Gin@req@width=\dimen111
+)
+(./Requirements.aux)
 \openout1 = `Requirements.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count89
+\scratchdimen=\dimen112
+\scratchbox=\box26
+\nofMPsegments=\count90
+\nofMParguments=\count91
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count92
+\MPscratchDim=\dimen113
+\MPnumerator=\count93
+\everyMPtoPDFconversion=\toks18
+)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 13.
+(Font)              <14.4> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 13.
-
-(./Requirements.toc
+(Font)              <7> on input line 14.
+ (./Requirements.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -72,80 +110,101 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `Requirements.toc'.
 
+ [1
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--19
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
 
  []
 
-[1
+[2] <Users.png, id=13, 331.2375pt x 421.575pt>
+File: Users.png Graphic file (type png)
+ <use Users.png>
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 4505) in paragraph at lines 82--82
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3] [4] <CreateNewAccount.png, id=20, 321.2pt x 200.75pt>
+File: CreateNewAccount.png Graphic file (type png)
+
+<use CreateNewAccount.png> [5] [6]
+<TailorAndSaveRequirements.png, id=27, 823.075pt x 381.425pt>
+File: TailorAndSaveRequirements.png Graphic file (type png)
+
+<use TailorAndSaveRequirements.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 4505) in paragraph at lines 150--150
 []|\OT1/cmr/m/n/12 User en-ters the fol-low-ing vi-tal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
+Underfull \hbox (badness 10000) in paragraph at lines 150--150
 \OT1/cmr/m/n/12 cu-late their re-quire-ments and
  []
 
-[2]
-Underfull \hbox (badness 5077) in paragraph at lines 122--122
+
+Underfull \hbox (badness 5077) in paragraph at lines 190--190
 []|\OT1/cmr/m/n/12 BMI is an in-di-ca-tor of be-ing
  []
 
-[3]
-Underfull \hbox (badness 1028) in paragraph at lines 162--162
+[7]
+Underfull \hbox (badness 1028) in paragraph at lines 230--230
 \OT1/cmr/m/n/12 and fat. It should ide-ally also
  []
 
-[4]
-Underfull \hbox (badness 1028) in paragraph at lines 181--181
+[8]
+Underfull \hbox (badness 1028) in paragraph at lines 249--249
 \OT1/cmr/m/n/12 and fat. It should ide-ally also
  []
 
 
-Underfull \hbox (badness 4328) in paragraph at lines 181--181
+Underfull \hbox (badness 4328) in paragraph at lines 249--249
 []|\OT1/cmr/m/n/12 Tailor Nu-tri-tional Re-quire-ments;
  []
 
-[5]
-Underfull \hbox (badness 2401) in paragraph at lines 200--200
-[]|\OT1/cmr/m/n/12 Accurate nu-tri-tonal re-quire-ments
- []
+[9] [10] [11] <MealGeneration.png, id=44, 622.325pt x 230.8625pt>
+File: MealGeneration.png Graphic file (type png)
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 241--241
+<use MealGeneration.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--319
 []|\OT1/cmr/m/n/12 User searches the in-gre-di-ents
  []
 
 
-Underfull \hbox (badness 5954) in paragraph at lines 241--241
+Underfull \hbox (badness 5954) in paragraph at lines 319--319
 \OT1/cmr/m/n/12 database, and can re-view the
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 279--279
+
+Underfull \hbox (badness 10000) in paragraph at lines 357--357
 []|\OT1/cmr/bx/n/12 Includes \OT1/cmr/m/n/12 Search In-gre-di-ents
  []
 
-[8] [9] (./Requirements.aux) ) 
+[12] [13] [14 <./Users.png (PNG copy)>] [15 <./CreateNewAccount.png (PNG copy)>
+ <./TailorAndSaveRequirements.png (PNG copy)>] [16 <./MealGeneration.png (PNG c
+opy)>] (./Requirements.aux) ) 
 Here is how much of TeX's memory you used:
- 346 strings out of 495061
- 3874 string characters out of 1182620
- 59631 words of memory out of 3000000
- 3585 multiletter control sequences out of 15000+50000
+ 1044 strings out of 495061
+ 13233 string characters out of 1182620
+ 73398 words of memory out of 3000000
+ 4253 multiletter control sequences out of 15000+50000
  9416 words of font info for 33 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 22i,8n,19p,397b,229s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmb
-x12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Requirements.pdf (9 pages, 92457 bytes).
+ 25i,9n,19p,594b,228s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx
+12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on Requirements.pdf (16 pages, 162494 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
+ 78 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
