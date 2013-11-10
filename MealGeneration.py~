@@ -82,10 +82,10 @@ def test_generation():
     oil = Ingredient("Oil",8.84,0,0,1,None,None,None,None,None,1)
     ingredients = [chicken,pasta,oil]
     
-    cal = NutrientRequirement(3000,"=",5)
-    prot = NutrientRequirement(150,"=",5)
-    carbs = NutrientRequirement(300,"=",5)
-    fat = NutrientRequirement(133,"=",5)
+    cal = NutrientRequirement(3000,"=",25)
+    prot = NutrientRequirement(150,"=",0)
+    carbs = NutrientRequirement(300,"=",0)
+    fat = NutrientRequirement(133,"=",25)
     requirements = Requirements(cal,prot,carbs,fat)
     
     generate_meal(requirements,ingredients)

@@ -35,7 +35,7 @@ class Requirements:
 		return 8
 	    
 	def to_array(self):
-	    return [self.cal,self.prot,self.carbs,self.fat,self,self.satfat,self.sugar,self.salt,self.fibre]
+	    return [self.cal,self.prot,self.carbs,self.fat,self,satfat,self.sugar,self.salt,self.fibre]
 	    
     
 class NutrientRequirement:
