@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\begin{document}
+\section{Nutritional Requirements}
+\subsection{Recommendations and Standards Agencies}
+Nutritional guidelines and standards vary from country to country and between institutions. It would be impossible to consider and represent the views of every standard organisation. The scope of this project is restricted to considering the views of two major organisations: The Scientific Advisory Committee on Nutrition (SACN) \cite{SACNHome} and the American College of Sports Medicine (ACSM) \cite{ACSMHome}. \\
+
+SACN is a British independent advisory committee who provide guidance on the nutritional content of foods, the definition of a balanced, healthy diet and the effects of nutritional issues on wider public health. In particular they advise the Food Standards Agency and the National Health Service on nutritional matters.\\
+
+The ACSM provides a similar service, but in particular focuses on the effects of nutrition on athletic performance. It includes a mixture of research groups, student bodies and certification boards for fitness professionals.\\
+
+The nutritional requirements recommended here are the intersection between the values recommended by these institutions. In this section we outline the recommended nutritional ranges for various user types. 
+\subsection{Energy}
+Energy is the fuel of human beings: when we eat our body gains energy and when we exert ourselves we expend energy. At the most basic level, the growth of a human, where growth is expressed as a change in body weight, can be expressed by the following relationship:\\
+\begin{center}
+	$G = EI - EE$
+\end{center}
+Where G is growth, EI is energy intake and EE is energy expenditure. Put simply, if you expend less energy than you consume, you will gain weight and if you expend more energy than you consume, you will lose weight. Regardless of an individuals size, gender, body composition or goals, this relationship is at the heart of reaching the goals or losing, gaining or maintaining weight.\\
+Therefore in order to achieve one of these three goals, a user must know what their daily energy intake should be with respect the their energy expenditure.\\
+
+SACN provides an extensive dietary reference for energy intake, including reference values for each population sub-category. For example the recommended caloric intake for a male 19-24 year old is 2772kcal \cite[p.~85, table~16]{SACNDietaryReference}.\\
+
+The problem with an individual using these values is that they are just statistical averages: the above example is based on a man of 178cm height. Naturally this value would not be relevant for someone significantly larger or smaller than this or with an abnormal metabolism. It is therefore necessary for an individual to have a personalised view of their EE. This can be acheived using the formulae used to calculate such averages. The general formula for this is as follows:
+\begin{center}
+$EE = BMR * PAL$
+\end{center}
+Where BMR is the person's \emph{Basal Metabolic Rate} and PAL is the \emph{Physical Activity Level}. BMR expresses the individuals metabolism at rest. PAL is a scaling factor designed to account for the energy expended through exercise. In the rest of this section we discuss how these are calculated for a user.\\
+It is worth noting that this approach has received criticism for lack of accuracy compared to other techniques such as regression based prediction equations for calculation of BMR \cite{Goran2005}. However, these approaches are not well suited to be used by an inexperienced individual and are difficult to generalise. Despite it's flaws the PAL method is widely used, and for the moment is the the best tool available for our purpose \cite[pg.~110]{SACNDietaryReference}.\\
+
+\subsubsection{Oxford Equation for BMR prediction}
+There are many formula for calculating an individuals BMR, all of which are based on statistical analysis of the energy expended by participants at rest under lab conditions. In his paper \cite{OxfordEquations}, Henry presents a series of equations for predicting BMR for each age group for males and females. This paper includes extensive analysis of existing equations and presents a reformulation of these based on new evidence. The Oxford Equations are used by SACN for EE estimation \cite[p.~104]{SACNDietaryReference}.\\
+The equations are summarised in \cite[Table.~15]{OxfordEquations}.
+
+\subsubsection{PAL: Adjusting for Exercise}
+As mentioned, PAL is a scaling factor applied to BMR to adjust for exercise. Ideally, each activity throughout the day should be considered seperately and an averaged PAL value be calculated from the sum of these activities. This approach is taken in the examples accompnaying the Oxford Equations \cite[Tables.~23-28]{OxfordEquations}. However it is outside the scope of this project to track the user's exercise.\\
+Instead we require reference values which can be chosen by users. Obviously this satisfies some degree of accuracy in exchange for a simpler equation. Reference PAL values are as follows:\\\\
+\textbf{INSERT VALUES FROM CATHERINE AND JENNIE}
+
+\subsubsection{Practical Issues in Calculating Caloric Requirements}
+Regardless of formula, there will always be some error when predicting BMR and choosing a PAL value which represents the user's level of activity. As such it is necessary for the user to adjust their caloric intake according to observed weight loss/gain with respect to the goal they have set. Therefore a prediction of their EE should only be used as a starting point, and is never set in stone.
+
+
+
+%%%%%%%%%%%%%%%%%% Macronutrient Breakdown %%%%%%%%%%%%%%%%%
+\subsection{Macronutrients: Overview and Target Ratios}
+Humans primarily derive their energy from protein, carbohydrates and lipids(fats). Each plays an individual role in nutrition and contribute to energy intake (EI). The energy provided by each is as follows:
+
+\begin{center}              %%%%%%%%%%%%% Nutrient Calorie Content Table%%%%%%%%%%%%%%
+\begin{tabular}{|l|l|}
+\hline
+	Nutrient & kcal/g \\ 
+	\hline
+	\hline
+	Protein & 4 \\
+	Carbohydrate & 4 \\
+	Fat & 9 \\
+	Alcohol & 7 \\
+\hline
+\end{tabular}
+\end{center}
+
+Note that alcohol also contributes calories and some institutions factor in alcohol consumption when calculating energy intake guidelines. However it is not an essential part of diet, so it need be considered directly when constructing a nutritionally sound diet.\\
+A person's diet can be expressed as the percentage of their daily calories which comes from each of these macronutrients. In this section we briefly discuss the role of each macronutrient, the recommended intake of each, and how these recommendations vary between the average user and the athlete.
+
+\subsubsection{Protein}
+Protein is required for maintanence of the musculature and provides the essential amino acids \cite[ch.~15]{FoodIntakeAndEnergy}. SACN and the ACSM recommend a protein intake of between 15-30\% of daily EI. However, some very active or competitive athletes may wish to exceed 30\% \cite{ACSMNutritionForAthletes}.\\
+It has often been suggested that excessive protein consumption may cause damage to the skeleton and renal function, as well as other problems\cite{ProteinCanAffectBone}. However many studies contest this, proposing that for a healthy individual with an otherwise balanced diet, there are no observable side affect of excessive protein consumption \cite{ProteinNotAffectBone,ProteinNotAffectRenal}. It is naturally outside of this projects scope to debate this issue: so we conclude that protein consumption should not be less than 15\%.
+
+\subsubsection{Carbohydrates}
+Carbohydrates are the bodies main soure of energy and responsible for maintaining the body's glycogen stores \cite[ch.~15]{FoodIntakeAndEnergy}. It is recommended that carbohydrates contribute around 50\% of daily energy intake. Again this value may vary for athletes \cite{ACSMNutritionForAthletes}.
+
+\subsubsection{Fat}
+Dietary fat provides required fatty acids and is the most calorie dense of the macronutrients. The recommended percentage intake is between 20-35\%, with 20-25\% being typical. In particular intake should not drop below 20\%: below this it is unlikely that the daily need for fatty acids will be met.
+
+	
+
+%%%%%%%%%%%%%%%%%%%%%%REMOVE FOR FINAL DOC%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+\bibliography{report}
+
+\end{document}
+
+

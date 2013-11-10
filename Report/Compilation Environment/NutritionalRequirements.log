@@ -1,0 +1,222 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.10.16)  24 OCT 2013 00:28
+entering extended mode
+ %&-line parsing enabled.
+**NutritionalRequirements.tex
+(./NutritionalRequirements.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(./NutritionalRequirements.aux)
+\openout1 = `NutritionalRequirements.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 16.
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--38
+
+ []
+
+[2]
+Overfull \hbox (8.47296pt too wide) in paragraph at lines 46--47
+\OT1/cmr/m/n/10 Humans pri-mar-ily de-rive their en-ergy from pro-tein, car-bo-
+hy-drates and lipids(fats).
+ []
+
+[3] (./NutritionalRequirements.bbl
+! Undefined control sequence.
+l.5 \newblock \url
+                  {http://www.acsm.org/}.
+? 
+! Undefined control sequence.
+l.9 \newblock \url
+                  {http://www.sacn.gov.uk/}.
+? 
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+! Undefined control sequence.
+l.47   \url
+           {http://journals.lww.com/acsm-msse/Fulltext/2009/03000/Nutrition_...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.47 ...m/acsm-msse/Fulltext/2009/03000/Nutrition_
+                                                  and_Ath%
+? 
+! Extra }, or forgotten $.
+l.48 letic_Performance.27.aspx}
+                               . Accessed: 23/10/2013.
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.49 
+     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.49 
+     
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--49
+[]\OT1/cmr/m/n/10 American Col-lege of Sports Medicine.  Nu-tri-tion and ath-
+ []
+
+
+Underfull \hbox (badness 5161) in paragraph at lines 42--49
+\OT1/cmr/m/n/10 letic per-for-mance.  \OT1/cmr/m/it/10 Medicine & Sci-ence in S
+ports & Ex-er-cise\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--49
+\OT1/cmr/m/n/10 41(3):709--731, 2009.  On-line at http://journals.lww.com/acsm-
+
+ []
+
+
+Overfull \hbox (32.9722pt too wide) in paragraph at lines 42--49
+\OT1/cmr/m/n/10 msse/Fulltext/2009/03000/Nutrition$[]\OML/cmm/m/it/10 nd[]thlet
+ic[]erformance:\OT1/cmr/m/n/10 27\OML/cmm/m/it/10 :aspx:Accessed \OT1/cmr/m/n/1
+0 :
+ []
+
+! Undefined control sequence.
+l.54   \url
+           {http://www.sacn.gov.uk/reports_position_statements/reports/sacn_...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.54   \url{http://www.sacn.gov.uk/reports_
+                                           position_statements/reports/sacn_...
+
+? 
+! Extra }, or forgotten $.
+l.55 _reference_values_for_energy.html}
+                                       , 2011.
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.57 
+     
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.57 
+     
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--57
+[]\OT1/cmr/m/n/10 Scientific Ad-vi-sory Comit-tee on Nu-tri-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--57
+\OT1/cmr/m/n/10 tion.  Di-etary ref-er-ence val-ues foren-ergy.
+ []
+
+
+Overfull \hbox (210.86232pt too wide) in paragraph at lines 51--57
+\OT1/cmr/m/n/10 http://www.sacn.gov.uk/reports$[]\OML/cmm/m/it/10 osition[]tate
+ments=reports=sacn[]ietary[]eference[]alues[]or[]nergy:html; \OT1/cmr/m/n/10 20
+11\OML/cmm/m/it/10 : Accessed \OT1/cmr/m/n/10 :
+ []
+
+) [4] (./NutritionalRequirements.aux) ) 
+Here is how much of TeX's memory you used:
+ 227 strings out of 495061
+ 2671 string characters out of 1182620
+ 51022 words of memory out of 3000000
+ 3483 multiletter control sequences out of 15000+50000
+ 5504 words of font info for 20 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 23i,6n,18p,590b,151s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on NutritionalRequirements.pdf (4 pages, 118290 bytes).
+PDF statistics:
+ 43 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
