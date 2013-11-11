@@ -7,8 +7,10 @@ SCALING_FACTOR = 1000;
 
 def compute_nutrient_bounds(requirements,uppervalues,lowervalues):
     requirements = requirements.to_array()
-    for i in range(0,4):
+    for i in range(0,8):
         requirement = requirements[i]
+        if requirement == None: #null catch
+            continue
         margin_percentage = requirement.error_margin
         margin = requirement.val * (margin_percentage / 100.0)
         uppervalues.append(int(math.floor((requirement.val + margin) *SCALING_FACTOR)))
@@ -23,10 +25,9 @@ def generate_meal(requirements,ingredients):
     print lowerbounds
 
     numIngredients = len(ingredients)           #number of nutrients being considered
-    calories = list()#arrays for ingredient quantities 
-    prot = list()
-    carbs = list()
-    fat = list()
+    
+    #extract required nutritional content
+    
 
     minCal = ingredients[0].cal;
     #value of calories in least calorific ingredient
@@ -43,7 +44,7 @@ def generate_meal(requirements,ingredients):
         if ingredient.cal < minCal:
             minCal = ingredient.cal
     
-    quantities = VarArray(numIngredients,0,int(10000))
+    quantities = VarArray(numIngredients,0,int(10000)) #decision variables
     print quantities
     print "CAL:" + str(calories)
     print "PROT:" + str(prot)

@@ -1,75 +1,88 @@
-class Requirements:
-	def __init__(self,cal,prot,carbs,fat,satfat,sugar,salt,fibre):
-		self.cal = cal
-		self.prot = prot
-		self.carbs = carbs
-		self.fat = fat
-		self.satfat = satfat
-		self.sugar = sugar
-		self.salt = salt
-		self.fibre = fibre
-	
-	def __init__(self,cal,prot,carbs,fat):
-		self.cal = cal
-		self.prot = prot
-		self.carbs = carbs
-		self.fat = fat
-		self.satfat = None
-		self.sugar = None
-		self.salt = None
-		self.fibre = None
+#Module containing representations of key components in meal generation
 
-	def __str__(self):
-		output = "Requirements:\n"
-		output += " Calories: " + str(self.cal) + "\n"
-		output += " Protein: " + str(self.prot) + "\n"
-		output += " Total Carbohydrates: " + str(self.carbs) + "\n"
-		output += " Fat: " + str(self.fat) + "\n"
-		output += " Saturated Fat: " + str(self.satfat) + "\n"
-		output += " Sugar: " + str(self.sugar) + "\n"
-		output += " Salt: " + str(self.salt) + "\n"
-		output += " Fibre: " + str(self.salt) + "\n"
-		return output
 
-	def number_of_requirements(self):
-		return 8
-	    
-	def to_array(self):
-	    return [self.cal,self.prot,self.carbs,self.fat,self,satfat,self.sugar,self.salt,self.fibre]
-	    
-    
-class NutrientRequirement:
-    def __init__(self,val,restriction,error):
-        self.val = val
-        self.restriction = restriction
-        self.error_margin = error
+"""Holds a users nutritional requirements for a meal/day."""
+class Requirements(object):
+    def __init__(self):
+       """Base constructor. Initialise an empty requirements map"""
+       self.requirements = {}
+
+    def __init__(self,requirements):
+        """Create a set of requirements from a dictionary of NutrientRequirements"""
+        self.requirements = requirements
+
+    def add_requirement(name,nutrient_requirement):
+        """Add a NutrientRequirement to the requirements set
+           Returns True if requirement is addedd successfully
+           False if parameter not of type NutrientRequirement
+        """
+        if isinstanceof(nutrient_requirement,NutrientRequirement):
+            self.requirements[name] = nutrient_requirement
+            return True
+        return False
+
+    def get_requirement(self,nutrient_name):
+        """looks in the set of requirements for a requirement on the named nutrient
+           returns the requirement if it exists, returns None otherwise.
+        """
+        return self.requirements.get(nutrient_name)
 
     def __str__(self):
-        return "Value: " + str(self.val) + " Error Margin: " + str(self.error_margin) + "%"
-        
-class Ingredient:
-	def __init__(self,name,cal,prot,carbs,fat,satfat,sugar,salt,fibre,restriction,quantity):
-		self.name = name
-		self.cal = cal
-		self.prot = prot
-		self.carbs = carbs
-		self.fat = fat
-		self.satfat = satfat
-		self.sugar = sugar
-		self.salt = salt
-		self.fibre = fibre
-		self.restriction = restriction
-		self.quantity = quantity
+        print "CALLED"
+        output = ""
+        for requirement in self.requirements.items():
+            output += str(requirement[0]) + ": " +  str(requirement[1]) + "\n"
+        return output
 
-        
+    def number_of_requirements(self):
+        return len(self.requirements)
+
+    def to_array(self):
+        return self.requirements.values()
+
+"""Holds the requirements for a specific nutrient as a required value"""
+class NutrientRequirement(object):
+    def __init__(self,val):
+        self.val = val
+
+    def __str__(self):
+        return str(str(self.name) + " Value: " + str(self.val))
+
+"""Holds a definite requirement. That is a requirement where we wish to acheive a specific value or be within an acceptable range of values"""
+class DefiniteNutrientRequirement(NutrientRequirement):
+    def __init__(self,val,error):
+        super(DefiniteNutrientRequirement,self).__init__(val)
+        self.error = error
+
+"""Holds a restricted requirement. That is a requirement which is specified only in terms of having at least or at most a certain value"""
+class RestrictedNutrientRequirement(NutrientRequirement):
+    def __init__(self,val,restriction):
+        super(RestrictedNutrientRequirement,self).__init__(val)
+        self.restriction = restriction
+
+"""Class for an ingredient and its nutritional content.
+   This base class only holds the 'Big 8' nutrients. It can be extended to include more.
+   Note this implicitly represents a serving of the ingredient (usually 1g)
+"""
+class Ingredient(object):
+    def __init__(self,name,nutrient_values):
+        self.name = name
+        self.nutrient_values = nutrient_values
+
+"""A restricted ingredient is one where we wish to limit the amount so we use no more than or at least a certain quantity"""
+class RestrictedIngredient(Ingredient):
+    def __init__(self,name,nutrient_values,restriction,threshold):
+        super(RestrictedIngredient,self).__init__(name,nutrient_values)
+        self.restriction = restriction
+        self.threshold = threshold
+
+
 def testClasses():
-    calories = NutrientRequirement(2000,"=",5)
-    protein = NutrientRequirement(100,"=",5)
-    carb = NutrientRequirement(200,"=",5)
-    fat = NutrientRequirement(50,"=",5)
-
-
-    requirementsObject = Requirements(calories,protein,carb,fat)
+    calories = DefiniteNutrientRequirement(2000,5)
+    protein = DefiniteNutrientRequirement(100,5)
+    carb = DefiniteNutrientRequirement(200,5)
+    fat = DefiniteNutrientRequirement(50,5)
+    requirementsObject = Requirements({"Calories":calories,"Protein":protein,"Carbohydrates":carb,"Fat":fat})
     print requirementsObject
 
 testClasses()
