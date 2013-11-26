@@ -90,7 +90,7 @@ def test_generation():
     requirements.add("calories",DefiniteNutrientRequirement(600,1))
     requirements.add("protein",DefiniteNutrientRequirement(30,1))
     requirements.add("carbs",DefiniteNutrientRequirement(50,1))
-    requirements.add("fat",RestrictedNutrientRequirement(30,">"))
+    requirements.add("fat",RestrictedNutrientRequirement(30,"<"))
 
     
     generate_meal(requirements,ingredients)
