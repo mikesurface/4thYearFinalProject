@@ -35,10 +35,28 @@
       <file leaf-file-name="prototypes.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/views/prototypes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="4" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+            <state line="22" column="17" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="585">
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="e#0#53#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="meal_generator_form_output.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/templates/prototype/meal_generator_form_output.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="14" selection-start="248" selection-end="248" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="210">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MealClasses.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/meals/MealClasses.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="496" max-vertical-offset="1545">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,16 +64,7 @@
       <file leaf-file-name="meal_generation_prototype.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/forms/meal_generation_prototype.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="meal_generation.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/meal_generation.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="34" selection-start="34" selection-end="34" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="150">
+            <state line="7" column="107" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
               <folding />
             </state>
           </provider>
@@ -64,7 +73,7 @@
       <file leaf-file-name="meal_generation_not_registered.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Website/templates/forms/meal_generation_not_registered.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="16" selection-start="627" selection-end="627" vertical-scroll-proportion="0.39823008" vertical-offset="0" max-vertical-offset="565">
+            <state line="6" column="41" selection-start="285" selection-end="285" vertical-scroll-proportion="0.16666667" vertical-offset="0" max-vertical-offset="540">
               <folding />
             </state>
           </provider>
@@ -118,11 +127,12 @@
       <list>
         <option value="$PROJECT_DIR$/Website/templates/user_pages/base_with_footer.html" />
         <option value="$PROJECT_DIR$/Website/templates/home.html" />
-        <option value="$PROJECT_DIR$/Website/forms/meal_generation_prototype.py" />
-        <option value="$PROJECT_DIR$/Website/templates/forms/meal_generation_not_registered.html" />
         <option value="$PROJECT_DIR$/Website/urls.py" />
         <option value="$PROJECT_DIR$/Website/templates/base_with_footer.html" />
         <option value="$PROJECT_DIR$/Website/templates/meal_pages/meal_generation.html" />
+        <option value="$PROJECT_DIR$/Website/templates/forms/meal_generation_not_registered.html" />
+        <option value="$PROJECT_DIR$/Website/forms/meal_generation_prototype.py" />
+        <option value="$PROJECT_DIR$/Website/templates/prototype/meal_generator_form_output.html" />
         <option value="$PROJECT_DIR$/Website/views/prototypes.py" />
       </list>
     </option>
@@ -261,6 +271,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="prototype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="meal_pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -333,6 +365,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="preferences.fileTypes" />
     <property name="recentsLimit" value="5" />
+    <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -578,7 +611,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -612,27 +645,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Website/forms/meal_generation_prototype.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/meal_generation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="70" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="150">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/forms/meal_generation_not_registered.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="7" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
@@ -703,23 +715,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/forms/meal_generation_prototype.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+        <state line="7" column="107" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/meals/MealGeneration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8624788" vertical-offset="508" max-vertical-offset="1575">
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/meals/MealClasses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="284" max-vertical-offset="1545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/templates/prototype/meal_generator_form_output.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="14" selection-start="248" selection-end="248" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="210">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/views/prototypes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="4" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+        <state line="22" column="17" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="585">
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/forms/meal_generation_not_registered.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="16" selection-start="627" selection-end="627" vertical-scroll-proportion="0.39823008" vertical-offset="0" max-vertical-offset="565">
+        <state line="6" column="41" selection-start="285" selection-end="285" vertical-scroll-proportion="0.16666667" vertical-offset="0" max-vertical-offset="540">
           <folding />
         </state>
       </provider>

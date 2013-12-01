@@ -5,7 +5,7 @@ INGREDIENTS = (['1g of Chicken',2.19,0.25,0,0.13],
                ['1g of Olive Oil',8.84,0,0,1],
 )
 
-RESTRICTIONS = ('equal to','less than','more than','at least','no more than')
+RESTRICTIONS = (('=','equal to'),('<','less than'),('>','more than'),('>=','at least'),('<=','no more than'),)
 
 class IngredientSelectForm(forms.Form):
     ingredient = forms.ChoiceField(choices = INGREDIENTS)

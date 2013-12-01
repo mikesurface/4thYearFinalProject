@@ -4,7 +4,7 @@
         <tr><th>Ingredient</th><th>Restriction</th></tr>
         {{ ingredients_formset.management_form }}
         {% for form in ingredients_formset %}
-            <tr><td>{{ form.ingredient }}</td><td><p>Restrictions not implemented</p></td></tr>
+            <tr><td>{#  form.ingredient #}</td><td><p>Restrictions not implemented</p></td></tr>
         {% endfor %}
     </table>
 
