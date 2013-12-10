@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
+from Website.views.IngredientsSearchPrototype import search_ingredient
 from Website.views.mainpageviews import *
 from Website.views.prototypes import meal_generation_prototype
 from Website.views.userpageviews import *
@@ -23,6 +24,8 @@ urlpatterns = patterns('',
     url(r'^(?P<username>\w{6,20})/', include(userURLs)),
     url(r'^mealgenerator/', mealgenerator_no_user),     #guides to the meal generator for a user who is not logged in (ie one time usage)
     url(r'^admin/', include(admin.site.urls)),          #admin page
+
     #prototype pages
-    url(r'^mealgenerator_prototype/(?P<numIngredients>\d+)/(?P<numRequirements>\d+)/',meal_generation_prototype)
+    url(r'^mealgenerator_prototype/(?P<numIngredients>\d+)/(?P<numRequirements>\d+)/',meal_generation_prototype),
+    url(r'^ingredients_search/(?P<search_text>\w+)/',search_ingredient),
 )

@@ -2,6 +2,9 @@
 
 
 """Holds a users nutritional requirements for a meal/day."""
+from Website.meals import UnitConversions
+
+
 class Requirements(object):
     def __init__(self):
        """Base constructor. Initialise an empty requirements map"""
@@ -13,7 +16,7 @@ class Requirements(object):
            False if parameter not of type NutrientRequirement
         """
         if isinstance(nutrient_requirement,NutrientRequirement):
-            self.requirements[name] = nutrient_requirement
+            self.requirements[name.lower()] = nutrient_requirement
             return True
         return False
 
@@ -21,7 +24,7 @@ class Requirements(object):
         """looks in the set of requirements for a requirement on the named nutrient
            returns the requirement if it exists, returns None otherwise.
         """
-        return self.requirements.get(nutrient_name)
+        return self.requirements.get(nutrient_name.lower())
 
     def __str__(self):
         output = ""
@@ -56,6 +59,10 @@ class DefiniteNutrientRequirement(NutrientRequirement):
         super(DefiniteNutrientRequirement,self).__init__(val)
         self.error_margin = error
 
+    def __str__(self):
+        output = super(DefiniteNutrientRequirement,self).__str__()
+        return output + " Error: " + str(self.error_margin)
+
 """Holds a restricted requirement. That is a requirement which is specified only in terms of having at least or at most a certain value"""
 class RestrictedNutrientRequirement(NutrientRequirement):
     def __init__(self,threshold,restriction):
@@ -65,24 +72,55 @@ class RestrictedNutrientRequirement(NutrientRequirement):
     def threshold(self):
         return self.val
 
+    def __str__(self):
+        return "Restriction: " + str(self.restriction) + " " + str(self.val)
+
 """Class for an ingredient and its nutritional content.
-   This base class only holds the 'Big 8' nutrients. It can be extended to include more.
-   Note this implicitly represents a serving of the ingredient (usually 1g)
 """
+
 class Ingredient(object):
-    def __init__(self,name,nutrient_values):
-        self.name = name
+    def __init__(self,name,nutrient_values,quantity,unit,fixed):
+        self.name = name.lower()
         self.nutrient_values = nutrient_values
+        self.quantity = quantity
+        self.unit = unit
+        self.fixed = fixed
+        if not fixed: #if the ingredient is not fixed, we can convert its values to grams
+           if unit.lower() == "oz":
+               q = quantity * UnitConversions.OZ_TO_G
+               for key in nutrient_values:
+                    nutrient_values[key] = float(nutrient_values[key]) / q
+           elif unit.lower() == "g":
+               for key in nutrient_values:
+                    nutrient_values[key] = float(nutrient_values[key]) / quantity
+
     
     def get_val(self,nutrient_name):
         return self.nutrient_values.get(nutrient_name,0) #default to 0 if no entry for nutrient
 
+    def __str__(self):
+        output = ""
+        output += (self.name + ":\n")
+        output += str(self.nutrient_values) + "\n"
+        output += ("Amount: " + str(self.quantity) + " " + str(self.unit)) + "\n"
+        return output
+
 """A restricted ingredient is one where we wish to limit the amount so we use no more than or at least a certain quantity"""
 class RestrictedIngredient(Ingredient):
-    def __init__(self,name,nutrient_,restriction,threshold):
-        super(RestrictedIngredient,self).__init__(name,nutrient_values)
+    def __init__(self,name,nutrient_values,quantity,unit,fixed,restriction,threshold):
+        super(RestrictedIngredient,self).__init__(name,nutrient_values,quantity,unit,fixed)
         self.restriction = restriction
         self.threshold = threshold
+
+    def __str__(self):
+       output = super(RestrictedIngredient,self).__str__()
+       return output + str("Restriction: " + str(self.restriction) + " " + str(self.threshold))
+
+class Quantity(object):
+    def __init__(self,name,quantity,unit):
+        self.name = name.lower()
+        self.quantity = quantity
+        self.unit = unit
 
 
 def testClasses():

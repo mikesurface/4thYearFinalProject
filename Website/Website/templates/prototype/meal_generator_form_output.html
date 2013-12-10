@@ -2,8 +2,8 @@
 {%  block sub_banner  %}OUTPUT {% endblock %}
 {% block content %}
 <table>
-     {% for req in requirements %}
-     <tr><td>Value: {{ req.val }}</td><td>Restriction: {{ req.restriction }}</td></tr>
+    {% for q in quantities %}
+    <tr><td>{{ q.name }}</td><td>{{ q.quantity }}</td><td>{{ q.unit }}</td></tr>
     {%  endfor %}
 </table>
 {% endblock %}

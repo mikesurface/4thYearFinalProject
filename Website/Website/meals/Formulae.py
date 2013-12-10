@@ -1,7 +1,4 @@
-class Conversion:
-    INCHES_TO_M = 0.0254
-    POUNDS_TO_KILOS = 0.453592
-    
+
 def validate_height_weight(value):
     try:
         value =  float(value)
