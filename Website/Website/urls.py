@@ -27,5 +27,5 @@ urlpatterns = patterns('',
 
     #prototype pages
     url(r'^mealgenerator_prototype/(?P<numIngredients>\d+)/(?P<numRequirements>\d+)/',meal_generation_prototype),
-    url(r'^ingredients_search/(?P<search_text>\w+)/',search_ingredient),
+    url(r'^ingredients_search/',search_ingredient),
 )

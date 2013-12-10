@@ -27,37 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="API_Codes.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/API_Info/API_Codes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="36" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ingredients_search.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/prototype/ingredients_search.html">
+        <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/ingredients_search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="210">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MealClasses.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/meals/MealClasses.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2115">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ingredients_search_output.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/prototype/ingredients_search_output.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="11" selection-start="422" selection-end="422" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="270">
+            <state line="39" column="0" selection-start="1076" selection-end="1076" vertical-scroll-proportion="-18.625" vertical-offset="138" max-vertical-offset="690">
               <folding />
             </state>
           </provider>
@@ -66,16 +39,25 @@
       <file leaf-file-name="foods.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/fatsecret_wrappers/foods.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="6" selection-start="800" selection-end="800" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+            <state line="14" column="30" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/footer.html">
+      <file leaf-file-name="meal_generation_prototype.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/forms/meal_generation_prototype.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="105">
+            <state line="6" column="0" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="30" selection-start="1500" selection-end="1500" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
               <folding />
             </state>
           </provider>
@@ -90,30 +72,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_message.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/templates/test_message.html">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="11" selection-start="96" selection-end="96" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="165">
+            <state line="44" column="79" selection-start="1444" selection-end="1444" vertical-scroll-proportion="-14.875" vertical-offset="303" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/urls.py">
+      <file leaf-file-name="base.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Website/static/whattoeat/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="50" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+            <state line="3" column="18" selection-start="78" selection-end="78" vertical-scroll-proportion="0.07640068" vertical-offset="0" max-vertical-offset="589">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IngredientsSearchPrototype.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="bootstrap.min.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/static/bootstrap/css/bootstrap.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="755" column="1" selection-start="11873" selection-end="11873" vertical-scroll-proportion="-14.6" vertical-offset="10814" max-vertical-offset="98610">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="88" column="10" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.0" vertical-offset="806" max-vertical-offset="1470">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IngredientsSearchPrototype.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/views/IngredientsSearchPrototype.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="4" selection-start="1995" selection-end="1995" vertical-scroll-proportion="0.82173175" vertical-offset="311" max-vertical-offset="900">
+            <state line="74" column="39" selection-start="3220" selection-end="3220" vertical-scroll-proportion="0.0" vertical-offset="681" max-vertical-offset="1260">
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
+                <marker date="1386690502000" expanded="true" signature="424:3443" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -129,22 +130,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Website/templates/prototype/meal_generator_form_output.html" />
-        <option value="$PROJECT_DIR$/Website/forms/meal_generation_prototype.py" />
-        <option value="$PROJECT_DIR$/Website/templates/forms/meal_generation_not_registered.html" />
-        <option value="$PROJECT_DIR$/Website/meals/MealClasses.py" />
-        <option value="$PROJECT_DIR$/Website/meals/MealGeneration.py" />
         <option value="$PROJECT_DIR$/Website/views/prototypes.py" />
-        <option value="$PROJECT_DIR$/Website/templates/base.html" />
         <option value="$PROJECT_DIR$/Website/templates/BaseFooterFatSecret.html" />
-        <option value="$PROJECT_DIR$/Website/templates/prototype/ingredients_search.html" />
         <option value="$PROJECT_DIR$/Website/forms/IngredientsSearchPrototype.py" />
         <option value="$PROJECT_DIR$/Website/templates/user_pages/test_message.html" />
         <option value="$PROJECT_DIR$/Website/API_Info/API_Codes.py" />
-        <option value="$PROJECT_DIR$/Website/urls.py" />
         <option value="$PROJECT_DIR$/Website/fatsecret_wrappers/foods.py" />
+        <option value="$PROJECT_DIR$/Website/templates/prototype/ingredients_search.html" />
+        <option value="$PROJECT_DIR$/Website/forms/food_search.py" />
+        <option value="$PROJECT_DIR$/Website/urls.py" />
         <option value="$PROJECT_DIR$/Website/templates/prototype/ingredients_search_output.html" />
         <option value="$PROJECT_DIR$/Website/views/IngredientsSearchPrototype.py" />
+        <option value="$PROJECT_DIR$/Website/templates/meal_pages/ingredients_search.html" />
+        <option value="$PROJECT_DIR$/Website/settings.py" />
+        <option value="$PROJECT_DIR$/Website/static/bootstrap/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/Website/static/whattoeat/css/base.css" />
+        <option value="$PROJECT_DIR$/Website/templates/base.html" />
       </list>
     </option>
   </component>
@@ -345,6 +346,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="meals" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -424,6 +473,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Website/templates/meal_pages" />
       <recent name="$PROJECT_DIR$/Website/templates" />
       <recent name="$PROJECT_DIR$/Website/views" />
       <recent name="$PROJECT_DIR$/Website/meals" />
@@ -715,7 +765,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25749424" sideWeight="0.6708075" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25518832" sideWeight="0.6708075" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -738,56 +788,94 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Website/views/userpageviews.py">
+    <entry file="file://$PROJECT_DIR$/Website/templates/test_message.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/views/mainpageviews.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="27" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/forms/meal_generation_prototype.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="130" selection-end="130" vertical-scroll-proportion="0.15280136" vertical-offset="0" max-vertical-offset="589">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/meals/MealGeneration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="20" selection-start="2049" selection-end="2049" vertical-scroll-proportion="1.237691" vertical-offset="66" max-vertical-offset="2220">
+        <state line="5" column="11" selection-start="96" selection-end="96" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="165">
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <marker date="1386632877000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/base_with_footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="416" selection-end="416" vertical-scroll-proportion="0.37168142" vertical-offset="0" max-vertical-offset="565">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/views/prototypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
+          <folding>
+            <element signature="e#0#28#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/templates/forms/meal_generation_not_registered.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="16" selection-start="878" selection-end="878" vertical-scroll-proportion="-7.125" vertical-offset="234" max-vertical-offset="780">
+          <folding>
+            <marker date="1386435867000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1386435867000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1386435867000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1386435867000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1386435867000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1386435867000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1386435867000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/forms/food_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="60" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding>
+            <marker date="1386685227000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="30" selection-start="1500" selection-end="1500" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/forms/meal_generation_prototype.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/views/IngredientsSearchPrototype.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="39" selection-start="3220" selection-end="3220" vertical-scroll-proportion="0.0" vertical-offset="681" max-vertical-offset="1260">
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+            <marker date="1386690502000" expanded="true" signature="424:3443" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="10" selection-start="2118" selection-end="2118" vertical-scroll-proportion="0.0" vertical-offset="806" max-vertical-offset="1470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/static/bootstrap/css/bootstrap-theme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6030">
           <folding />
         </state>
       </provider>
@@ -799,61 +887,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/test_message.html">
+    <entry file="file://$PROJECT_DIR$/Website/static/bootstrap/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="11" selection-start="96" selection-end="96" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/API_Info/API_Codes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="36" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="50" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/meals/MealClasses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2115">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/prototype/ingredients_search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="210">
+        <state line="755" column="1" selection-start="11873" selection-end="11873" vertical-scroll-proportion="-14.6" vertical-offset="10814" max-vertical-offset="98610">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/fatsecret_wrappers/foods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="6" selection-start="800" selection-end="800" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+        <state line="14" column="30" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/prototype/ingredients_search_output.html">
+    <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/ingredients_search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="11" selection-start="422" selection-end="422" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="270">
+        <state line="39" column="0" selection-start="1076" selection-end="1076" vertical-scroll-proportion="-18.625" vertical-offset="138" max-vertical-offset="690">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Website/views/IngredientsSearchPrototype.py">
+    <entry file="file://$PROJECT_DIR$/Website/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="4" selection-start="1995" selection-end="1995" vertical-scroll-proportion="0.82173175" vertical-offset="311" max-vertical-offset="900">
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
+        <state line="44" column="79" selection-start="1444" selection-end="1444" vertical-scroll-proportion="-14.875" vertical-offset="303" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/static/whattoeat/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="78" selection-end="78" vertical-scroll-proportion="0.07640068" vertical-offset="0" max-vertical-offset="589">
+          <folding />
         </state>
       </provider>
     </entry>

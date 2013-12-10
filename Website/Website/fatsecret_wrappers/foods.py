@@ -10,12 +10,12 @@ Note that the 'type' value determines if the food is Generic or Branded, and is 
 
 class GenericFoodDescription(object):
     def __init__(self,name,id,url,description):
-        self.name = name
+        self.name = str(name[0])
         self.id = id
-        self.url = url
-        self.description = description
+        self.url = str(url[0])
+        self.description = str(description)
 
 class BrandedFoodDescription(GenericFoodDescription):
     def __init__(self,name,id,url,description,brand):
         super(BrandedFoodDescription,self).__init__(name,id,url,description)
-        self.brand = brand
+        self.brand = str(brand)
