@@ -1,29 +1,27 @@
-<!DOCTYPE >
-<html>
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
 <head>
-    {% load static %}{# load the static tag or accessing static content #}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <title>WhatToEat.com</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href={% static "bootstrap/css/bootstrap.min.css" %} rel="stylesheet">
+
+    <!-- What to eat colour scheme and banner segmentation-->
+    <link href={% static "whattoeat/css/base.css" %} rel="stylesheet">
+
+    <link href={% static "simple-sidebar/css/simple-sidebar.css" %} rel="stylesheet">
+
     {% block stylesheet_declarations %} {% endblock %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <!--base css-->
-    <link rel="stylesheet" href={% static "whattoeat/css/base.css" %}>
-
-    <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -31,30 +29,97 @@
 </head>
 
 <body>
-<!--Main Page Heading-->
+ <!--Top banner-->
+    <div class="banner">
+        <h1>What To Eat</h1>
+    </div>
+    `   <!-- End Top banner-->
 
-<div class="banner">
-    <h1>What To Eat</h1>
+    <div class="sub_banner">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-default navbar-override" role="navigation">
+            <div class="container" >
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-left"
+                       style="padding-left: 0px; padding-top:inherit;" href="#">
+                        <h3>
+                            <small class="whitetext">{% block sub_banner %}{% endblock %}</small>
+                        </h3>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" style="color:inherit; padding-top:inherit;"
+                               data-toggle="dropdown">
+                                <h3>
+                                    <small class="whitetext">Dropdown <b class="caret"></b></small>
+                                </h3>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+
+<!-- Wrap all page content here -->
+<div id="wrapper">
+    <!-- Begin page content -->
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            {% block sidebar %}
+            {% endblock %}
+        </div>
+
+        <div id="page-content-wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="push"></div>
 </div>
 
-<!-- End main page heading-->
 
-<!-- Page sub heading -->
-
-<div class="sub_banner">
-    <h2><small id="sub_banner">{% block sub_banner %}{% endblock %}</small></h2>
+<div id="footer" class="footer">
+        {% block footer %} {% endblock %}
 </div>
 
-<!-- end page sub heading -->
-<div class="container">
-    {% block content %} {% endblock %}
 
-    <div class="row">{% block footer %} {% endblock %}</div>
-</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src={% static "bootstrap/js/bootstrap.min.js" %}></script>
+ <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
 
-<!-- Put script declarations here, so page loads even if javascript fails -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://code.jquery.com/jquery.js"></script>
-{% block script_declarations %} {% endblock %}
+   //needed to make window resize correctly
+   $('.wrapper').height($(window).height());
+   $('body').height($(window).height());
+   $('html').height($(window).height());
+
+    </script>
 </body>
 </html>

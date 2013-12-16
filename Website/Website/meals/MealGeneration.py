@@ -136,6 +136,7 @@ def test_generation():
     requirements.add("carbs",DefiniteNutrientRequirement(50,1))
     requirements.add("fat",RestrictedNutrientRequirement(30,"<"))
 
+    print generate(ingredients,requirements)
 
 
    

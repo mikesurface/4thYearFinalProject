@@ -4,7 +4,7 @@
 {% block content %}
 
 <div>
-<form action="GET" action="../prototype" id="ingredients_search">
+<form action="GET" action="." id="ingredients_search">
     {% if form.message.errors %}
         <ol>
             {% for error in form.message.errors %}
@@ -17,6 +17,11 @@
     </table>
 </form>
 </div>
+
+<ul class="pagination">
+    <li><a>&laquo;</a></li>
+    <li><a>&raquo;</a></li>
+</ul>
 
 {% if search_results and some_results_found%}
 <div>

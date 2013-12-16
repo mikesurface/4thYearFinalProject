@@ -1,0 +1,28 @@
+assign:
+  x0 in {0..10000}
+  x1 in {0..10000}
+  x2 in {0..10000}
+  
+subject to:
+  ((250*x0 + 130*x1) >= 29700)
+  ((250*x0 + 130*x1) <= 30300)
+  ((2190*x0 + 3710*x1 + 8840*x2) >= 570000)
+  ((2190*x0 + 3710*x1 + 8840*x2) <= 630000)
+  ((0*x0 + 750*x1) >= 49500)
+  ((0*x0 + 750*x1) <= 50500)
+  ((130*x0 + 15*x1 + 1000*x2) < 30000)
+  (x1 < 75)
+  MEAL GENERATOR: [85, 66, 16]
+INGREDIENTS:
+chicken:
+{'protein': 0.25, 'calories': 2.19, 'fat': 0.13}
+Amount: 100 g
+
+pasta:
+{'protein': 0.13, 'calories': 3.71, 'carbs': 0.75, 'fat': 0.015}
+Amount: 1 g
+Restriction: < 75
+oil:
+{'calories': 8.84, 'fat': 1}
+Amount: 1 g
+
