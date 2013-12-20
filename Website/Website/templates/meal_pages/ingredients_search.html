@@ -18,10 +18,24 @@
 </form>
 </div>
 
+<h2>{{ page_number }}, {{ first_cond }}, {{ test_cond }}</h2>
+
+{% if some_results_found %}
+<div>
 <ul class="pagination">
     <li><a>&laquo;</a></li>
+    {% for pn in page_numbers_to_display %}
+        {% if pn == page_number %}
+            <li class="active"><a>{{ pn }}</a></li>
+        {% else %}
+            <li><a>{{ pn }}</a></li>
+        {% endif %}
+    {% endfor %}
     <li><a>&raquo;</a></li>
 </ul>
+</div>
+{% endif %}
+
 
 {% if search_results and some_results_found%}
 <div>

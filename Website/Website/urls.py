@@ -20,12 +20,14 @@ urlpatterns = patterns('',
     url(r'^$',home_page),
     url(r'^login/', login),                             #login
     url(r'^register/' ,register),                       #register
-    url(r'^(?P<username>\w{6,20})[/]?$', user_page),    #user page
-    url(r'^(?P<username>\w{6,20})/', include(userURLs)),
+
     url(r'^mealgenerator/', mealgenerator_no_user),     #guides to the meal generator for a user who is not logged in (ie one time usage)
     url(r'^admin/', include(admin.site.urls)),          #admin page
 
     #prototype pages
     url(r'^mealgenerator_prototype/(?P<numIngredients>\d+)/(?P<numRequirements>\d+)/',meal_generation_prototype),
-    url(r'^ingredients_search',search_ingredient),
+    url(r'^search_ingredients/(?P<page_number>\d+)',search_ingredient),
+
+    url(r'^(?P<username>\w{6,20})[/]?$', user_page),    #user page
+    url(r'^(?P<username>\w{6,20})/', include(userURLs)),
 )
