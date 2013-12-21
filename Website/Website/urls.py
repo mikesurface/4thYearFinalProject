@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from Website.views.IngredientsSearchPrototype import search_ingredient
+from Website.views.search_ingredient import search_ingredient
 from Website.views.mainpageviews import *
 from Website.views.prototypes import meal_generation_prototype
 from Website.views.userpageviews import *

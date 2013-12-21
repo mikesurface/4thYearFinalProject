@@ -1,0 +1,75 @@
+{% if search_results %}
+
+    <div id="resultsbar">
+        <table class="table">
+            <tr>
+                <th><span class="largerfont">Total Results: {{ total_results }}</span></th>
+                <th><span class="largerfont">Total Pages: {{ total_pages }}</span></th>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <ul class="pagination">
+            <li> {# Skip to first page #}
+                <button type="submit" form="ingredients_search"
+                        onclick="$('#ingredients_search').attrs('action','{% url 'Website.views.search_ingredient.search_ingredient' page_number=0 %}');">
+                    &lqauo;
+                </button>
+            </li>
+
+            {% for pn in page_numbers_to_display %} {# display paginations #}
+                {% if pn == page_number %}
+                    <li class="active">
+                        <button type="submit" form="ingredients_search"
+                                onclick="$('#ingredients_search').attrs('action','{% url 'Website.views.search_ingredient.search_ingredient' page_number=pn%}');">
+                            {{ pn }}
+                        </button>
+                    </li>
+                {% else %}
+                    <li>
+                        <button type="submit" form="ingredients_search"
+                                onclick="$('#ingredients_search').attrs('action','{% url 'Website.views.search_ingredient.search_ingredient' page_number=pn %}');">
+                            {{ pn }}
+                        </button>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <li> {# skip to last page #}
+                <button type="submit" form="ingredients_search"
+                        onclick="$('#ingredients_search').attrs('action','{% url 'Website.views.search_ingredient.search_ingredient' page_number=last_page %}');">
+                    &raquo;
+                </button>
+            </li>
+        </ul>
+    </div>
+
+
+    <div>
+        <table class="table table-condensed table-striped">
+            <tr>
+                <th>Food Name</th>
+                <th>Description</th>
+            </tr>
+            {% for food in search_results %}
+                {% if food.brand %}
+                    <tr>
+                        <td>{{ food.name }} by {{ food.brand }}</td>
+                        <td>{{ food.description }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>{{ food.name }}</td>
+                        <td>{{ food.description }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+
+{% else %}
+    <div>
+        <p class="largerfont">No Results Found</p>
+    </div>
+{% endif %}
