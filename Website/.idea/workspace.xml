@@ -30,7 +30,7 @@
       <file leaf-file-name="ingredients_search.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/ingredient_search/ingredients_search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="12" selection-start="4358" selection-end="4358" vertical-scroll-proportion="0.6467391" vertical-offset="1278" max-vertical-offset="1830">
+            <state line="109" column="12" selection-start="4358" selection-end="4358" vertical-scroll-proportion="0.6702899" vertical-offset="1265" max-vertical-offset="1830">
               <folding />
             </state>
           </provider>
@@ -39,7 +39,7 @@
       <file leaf-file-name="ingredient_search_content.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/ingredient_search/ingredient_search_content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="20" selection-start="181" selection-end="181" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="615">
+            <state line="4" column="20" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
@@ -48,7 +48,7 @@
       <file leaf-file-name="ingredient_search_results.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/ingredient_search/ingredient_search_results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="24" selection-start="1245" selection-end="1245" vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="1200">
+            <state line="29" column="24" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1200">
               <folding />
             </state>
           </provider>
@@ -66,10 +66,8 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="49" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state line="28" column="49" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="585">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,7 +75,7 @@
       <file leaf-file-name="search_ingredient.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/views/search_ingredient.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="78" selection-start="5661" selection-end="5661" vertical-scroll-proportion="0.0" vertical-offset="1451" max-vertical-offset="2040">
+            <state line="136" column="78" selection-start="5661" selection-end="5661" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="2160">
               <folding />
             </state>
           </provider>
@@ -86,7 +84,7 @@
       <file leaf-file-name="food_search.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/forms/food_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="111" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+            <state line="4" column="111" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="165">
               <folding />
             </state>
           </provider>
@@ -95,11 +93,8 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="-2.7083333" vertical-offset="280" max-vertical-offset="2025">
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="23" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="2025">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -181,7 +176,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -434,17 +428,18 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.fileTypes" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="preferences.fileTypes" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -586,7 +581,27 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Website" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -612,27 +627,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Website" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -745,20 +740,20 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19139124" sideWeight="0.6708075" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4704969" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -778,6 +773,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Website/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Website/static/bootstrap/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4929" column="0" selection-start="81768" selection-end="83987" vertical-scroll-proportion="0.15625" vertical-offset="73845" max-vertical-offset="106845" />
@@ -785,9 +787,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/static/whattoeat/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="16" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <folding />
-        </state>
+        <state line="1" column="16" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/static/whattoeat/css/pagination_buttons_bootstrap_extension.css">
@@ -802,23 +802,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/static/whattoeat/css/search/search_ingredient.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="13" selection-start="153" selection-end="153" vertical-scroll-proportion="0.025466893" vertical-offset="30" max-vertical-offset="630">
-          <folding />
-        </state>
+        <state line="3" column="13" selection-start="153" selection-end="153" vertical-scroll-proportion="0.025466893" vertical-offset="30" max-vertical-offset="630" />
       </provider>
     </entry>
     <entry file="file:///usr/local/lib/python2.7/dist-packages/dajaxice/core/Dajaxice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="4" selection-start="3323" selection-end="3323" vertical-scroll-proportion="0.3327674" vertical-offset="1394" max-vertical-offset="2115">
-          <folding />
-        </state>
+        <state line="108" column="4" selection-start="3323" selection-end="3323" vertical-scroll-proportion="0.3327674" vertical-offset="1394" max-vertical-offset="2115" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/meals/output">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/settings.py">
@@ -831,19 +825,7 @@
     <entry file="file://$PROJECT_DIR$/Website/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="49" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="-2.7083333" vertical-offset="280" max-vertical-offset="2025">
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -856,14 +838,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/ingredient_search/ingredient_search_content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="20" selection-start="181" selection-end="181" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="615">
+        <state line="4" column="20" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="615">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/ingredient_search/ingredient_search_results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="24" selection-start="1245" selection-end="1245" vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="1200">
+        <state line="29" column="24" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1200">
           <folding />
         </state>
       </provider>
@@ -877,7 +859,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/templates/meal_pages/ingredient_search/ingredients_search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="12" selection-start="4358" selection-end="4358" vertical-scroll-proportion="0.6467391" vertical-offset="1278" max-vertical-offset="1830">
+        <state line="109" column="12" selection-start="4358" selection-end="4358" vertical-scroll-proportion="0.6702899" vertical-offset="1265" max-vertical-offset="1830">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="2025">
           <folding />
         </state>
       </provider>
