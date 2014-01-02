@@ -10,13 +10,13 @@
 
     <title>WhatToEat.com</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS-->
     <link href={% static "bootstrap/css/bootstrap.min.css" %} rel="stylesheet">
 
+    <!-- JQueryUI style -->
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/smoothness/jquery-ui.css" rel="stylesheet">
     <!-- What to eat colour scheme and banner segmentation-->
     <link href={% static "whattoeat/css/base.css" %} rel="stylesheet">
-
-    <link href={% static "simple-sidebar/css/simple-sidebar.css" %} rel="stylesheet">
 
     {% block stylesheet_declarations %} {% endblock %}
 
@@ -40,35 +40,37 @@
     <div class="sub_banner">
         <!-- Fixed navbar -->
         <div class="navbar navbar-default navbar-override" role="navigation">
-            <div class="container" >
-                <div class="navbar-header">
+            <div class="container navbar_container_override">
+                <div class="navbar-header navbar_text" >
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand navbar-left"
-                       style="padding-left: 0px; padding-top:inherit;" href="#">
-                        <h3>
-                            <small class="whitetext">{% block sub_banner %}{% endblock %}</small>
-                        </h3>
+                    <a class="navbar-brand navbar_text" href="#">
+                         {% block sub_banner %}
+
+                         {% endblock %}
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-right">
+                        {% block navbar_links %}
+                                {% include 'navbar_links.html' %}
+                        {% endblock %}
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" style="color:inherit; padding-top:inherit;"
+                            <a href="#" class="dropdown-toggle navbar_text"
                                data-toggle="dropdown">
-                                <h3>
-                                    <small class="whitetext">Dropdown <b class="caret"></b></small>
-                                </h3>
+                                Dropdown
+                                <b class="caret"></b>
                             </a>
+
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li class="dropdown_link"><a href="#">Action</a></li>
+                                <li class="dropdown_link"><a href="#">Another action</a></li>
+                                <li class="dropdown_link"><a href="#">Something else here</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">Nav header</li>
                                 <li><a href="#">Separated link</a></li>
@@ -85,45 +87,33 @@
 
 
 <!-- Wrap all page content here -->
-<div id="wrapper">
+<div class="wrapper">
     <!-- Begin page content -->
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            {% block sidebar %}
-            {% endblock %}
-        </div>
-
-        <div id="page-content-wrapper">
             {% block content %}
             {% endblock %}
-        </div>
-        <div class="push"></div>
+
 </div>
 
 
-<div id="footer" class="footer">
+<div class="footer">
         {% block footer %} {% endblock %}
 </div>
 
 
-<!-- Bootstrap core JavaScript
-================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+{# jquery #}
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+{# jqueryUI (depends on jquery so must come after above declaration) #}
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+{# bootstrap javascript #}
 <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+{# script to adjust element heights to fit the page #}
+<script src="{% static "whattoeat/js/base/base_adjust_elements.js" %}">   </script>
+{# correctly set the colour of all navbar links at runtime #}
+<script src={% static "whattoeat/js/base/colour_links.js" %}> </script>
 
+{% block script_declarations %}
+{% endblock %}
 
- <script> {#required for sticky footer and window resizing#}
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
-    });
-
-   //needed to make window resize correctly
-   $('.wrapper').height($(window).height());
-   $('body').height($(window).height());
-   $('html').height($(window).height());
-
-    </script>
 </body>
 </html>

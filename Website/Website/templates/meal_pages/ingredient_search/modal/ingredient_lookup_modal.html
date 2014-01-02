@@ -1,0 +1,97 @@
+{# content of a modal (dialog) displaying the full information for a given ingredient #}
+<div id = "ingredient_modal" title = "{{ food_name }}">
+    <select id="serving_selector">
+        {% for s in servings %}
+            <option value = "serving{{ forloop.counter0 }}"> {{ s.description }}</option>
+        {% endfor %}
+    </select>
+
+    {% for s in servings %}
+    <table class="table table-condensed table-responsive table-striped" id="serving{{ forloop.counter0 }}" style="display:none">
+        <tr><th>Nutrient</th><th>Quantity</th></tr>
+            <tr>
+            <td>
+                Calories
+            </td>
+            <td>
+                {{ s.nutrient_vals.calories }} kcal
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Protein
+            </td>
+            <td>
+                {{ s.nutrient_vals.protein }} g
+            </td>
+        </tr>
+         <tr>
+            <td>
+                Total Carbohydrate
+            </td>
+            <td>
+                {{ s.nutrient_vals.carbohydrate }} g
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Total Fat
+            </td>
+            <td>
+                {{ s.nutrient_vals.fat }} g
+            </td>
+        </tr>
+
+         <tr>
+
+            <td>
+                Sugar
+            </td>
+            <td>
+                {% if s.nutrient_vals.sugar %}
+                {{ s.nutrient_vals.sugar }} g
+                {% else %}
+                Unknown
+                {% endif %}
+            </td>
+        </tr>
+         <tr>
+            <td>
+                Salt
+            </td>
+            <td>
+                {% if s.nutrient_vals.salt %}
+                {{ s.nutrient_vals.salt }} mg
+                {% else %}
+                Unknown
+                {% endif %}
+            </td>
+        </tr>
+         <tr>
+            <td>
+                Fibre
+            </td>
+            <td>
+                {% if s.nutrient_vals.fibre %}
+                {{ s.nutrient_vals.fibre }} g
+                {% else %}
+                Unknown
+                {% endif %}
+            </td>
+        </tr>
+         <tr>
+            <td>
+               Saturated Fat
+            </td>
+            <td>
+                {% if s.nutrient_vals.satfat %}
+                {{ s.nutrient_vals.satfat }} g
+                {% else %}
+                Unknown
+                {% endif %}
+            </td>
+        </tr>
+
+    </table>
+    {% endfor %}
+</div>

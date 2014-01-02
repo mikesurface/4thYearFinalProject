@@ -1,7 +1,9 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from Website.views.search_ingredient import search_ingredient
+from Website.views.meal_views.ingredient_search.lookup_ingredient import lookup,lookup_test
+from Website.views.meal_views.ingredient_search.search_ingredient import get_results_page
+from Website.views.meal_views.ingredient_search.search_ingredient import search_ingredient_base
 from Website.views.mainpageviews import *
 from Website.views.prototypes import meal_generation_prototype
 from Website.views.userpageviews import *
@@ -26,7 +28,12 @@ urlpatterns = patterns('',
 
     #prototype pages
     url(r'^mealgenerator_prototype/(?P<numIngredients>\d+)/(?P<numRequirements>\d+)/',meal_generation_prototype),
-    url(r'^search_ingredients/(?P<page_number>\d+)',search_ingredient),
+    
+    url(r'^lookup_test/(?P<food_id>\d+)',lookup_test),
+    url(r'^search_ingredients/update/$', get_results_page),
+    url(r'^search_ingredients/lookup/$',lookup),
+    url(r'^search_ingredients/',search_ingredient_base),
+   
 
     url(r'^(?P<username>\w{6,20})[/]?$', user_page),    #user page
     url(r'^(?P<username>\w{6,20})/', include(userURLs)),

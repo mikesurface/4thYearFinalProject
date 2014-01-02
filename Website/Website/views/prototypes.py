@@ -11,7 +11,7 @@ from Website.meals.MealClasses import DefiniteNutrientRequirement, RestrictedNut
 
 def meal_generation_prototype(request, numIngredients, numRequirements):
     #prototype meal generation implemented 24/11/2013
-    numIngredients =  int(numIngredients)
+    numIngredients = int(numIngredients)
     numRequirements = int(numRequirements)
 
     IngredientsFormSet = formset_factory(IngredientSelectForm, extra=numIngredients)
@@ -30,28 +30,30 @@ def meal_generation_prototype(request, numIngredients, numRequirements):
                 requirement_name = form.cleaned_data['requirement']
                 val = int(form.cleaned_data['amount']) #amount required or threshold on restriction
 
-                if(form.cleaned_data['restriction']== '='):
+                if (form.cleaned_data['restriction'] == '='):
                     error = int(form.cleaned_data['error_margin'])
-                    requirements.add(requirement_name,DefiniteNutrientRequirement(val=val,error=error))
+                    requirements.add(requirement_name, DefiniteNutrientRequirement(val=val, error=error))
                 else:
                     restriction = form.cleaned_data['restriction']
-                    requirements.add(requirement_name,RestrictedNutrientRequirement(threshold=val,restriction=restriction))
+                    requirements.add(requirement_name,
+                                     RestrictedNutrientRequirement(threshold=val, restriction=restriction))
 
-
-            nutrient_vals = {"chicken":{"calories":2.19,"protein":0.25,"fat":0.13},"pasta":{"calories":3.71,"protein":0.13,"carbs":0.75,"fat":0.015},"oil":{"calories":8.84,"fat":1}}
+            nutrient_vals = {"chicken": {"calories": 2.19, "protein": 0.25, "fat": 0.13},
+                             "pasta": {"calories": 3.71, "protein": 0.13, "carbs": 0.75, "fat": 0.015},
+                             "oil": {"calories": 8.84, "fat": 1}}
             for form in ingredients_formset: # process ingredients
                 name = form.cleaned_data["ingredient"].lower()
                 values = nutrient_vals.get(form.cleaned_data["ingredient"]) #nutrient values of food
                 quantity = int(form.cleaned_data["quantity"])
                 unit = form.cleaned_data["unit"]
                 fixed = bool(form.cleaned_data["fixed"])
-                ingredients.append(Ingredient(name=name,nutrient_values=values,quantity=quantity,unit=unit,fixed=fixed))
+                ingredients.append(
+                    Ingredient(name=name, nutrient_values=values, quantity=quantity, unit=unit, fixed=fixed))
 
-
-            quantities = MealGeneration.generate(ingredients,requirements)
+            quantities = MealGeneration.generate(ingredients, requirements)
 
             #######debug########
-            f = open("output",'a')
+            f = open("output", 'a')
             f.write("AT VIEW\n")
             f.write(str(quantities) + "\n")
             f.write("Ingredients: \n")
@@ -59,18 +61,20 @@ def meal_generation_prototype(request, numIngredients, numRequirements):
                 f.write(str(ingredient) + "\n")
             for req in requirements.to_array():
                 f.write(str(req) + "\n")
-            ########debug#########
+                ########debug#########
 
             quantity_of_ingredients = []
-            for i in range(0,len(quantities)):
-                quantity_of_ingredients.append(Quantity(name = ingredients[i].name, quantity=quantities[i],unit=ingredients[i].unit))
+            for i in range(0, len(quantities)):
+                quantity_of_ingredients.append(
+                    Quantity(name=ingredients[i].name, quantity=quantities[i], unit=ingredients[i].unit))
 
-            return render_to_response("prototype/meal_generator_form_output.html",{"quantities":quantity_of_ingredients},context_instance = RequestContext(request))
+            return render_to_response("prototype/meal_generator_form_output.html",
+                                      {"quantities": quantity_of_ingredients}, context_instance=RequestContext(request))
     else:
-        ingredients_formset = IngredientsFormSet( prefix='ingredients')
-        requirements_formset = RequirementsFormSet( prefix='requirements')
+        ingredients_formset = IngredientsFormSet(prefix='ingredients')
+        requirements_formset = RequirementsFormSet(prefix='requirements')
 
-    return render_to_response("meal_pages/meal_generation.html", {
-       'requirements_formset': requirements_formset,
-       'ingredients_formset': ingredients_formset,
-                             }, context_instance=RequestContext(request))
+    return render_to_response("meal_pages/meal_generation/meal_generation.html", {
+        'requirements_formset': requirements_formset,
+        'ingredients_formset': ingredients_formset,
+    }, context_instance=RequestContext(request))

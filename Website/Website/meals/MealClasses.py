@@ -75,9 +75,9 @@ class RestrictedNutrientRequirement(NutrientRequirement):
     def __str__(self):
         return "Restriction: " + str(self.restriction) + " " + str(self.val)
 
-"""Class for an ingredient and its nutritional content.
 """
-
+Class for an ingredient and its nutritional content.
+"""
 class Ingredient(object):
     def __init__(self,name,nutrient_values,quantity,unit,fixed):
         self.name = name.lower()

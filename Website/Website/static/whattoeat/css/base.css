@@ -1,48 +1,62 @@
-html, body{
-    height:100%;
-}
 
 .banner{
+    width: 100%;
     background-color: #1E771E;
     color: #ffffff;
     padding: 15px;
+    min-height: 100px;
 }
-
-.whitetext{
-    color: #ffffff;
-}
-
-.dropdown{
-
-
-}
-
 
 .navbar-override{
     /*override Bootstraps default css for navbars to fit the website*/
-    background-color: inherit;
+    width: 100%;
+    background-color: #47A347;
     border:none;
-    color:inherit;
-    margin-top: -30px;
+    color:#ffffff;
+    margin-top: -21px;
     padding: -10px;
     padding-top: -20px;
+    padding-right:15px;
     margin-bottom:0px;
 
 }
-.sub_banner{
-    background-color: #47A347;
-    color:#ffffff;
+
+.navbar_container_override{
+    /*To be used on the 'container' class within the navbar*/
+    margin:0 15px 0 15px;
+    width:100%;
+    padding: 5px;
+}
+
+.navbar_text{
+    /*use on all text in the navbar, including the brand*/
+    color: #ffffff;
+    padding:5px;
+}
+
+.dropdown_link{
+    background-color: #ffffff;
+
+}
+
+.wrapper{
+    margin: 0 auto -40px;
+    padding: 20px 20px;
+    border-width: 0px 20px; /*0 top and bottom , 20px left and right*/
+    border-color: #99FF66;
+    border-style: solid;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 
 .footer{
+    position:relative;
+    height: 40px;
+    top: 40px;
     background-color: #47A347;
-    padding: 20px;
     color: #ffffff;
+    padding: 5px;
 }
 
-.sidebar{
-    background-color: #47A347;
-    color: #aaaaaa;
-}
 

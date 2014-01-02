@@ -1,0 +1,22 @@
+<div id="searchpanel" class="full_width_no_vertical_spacing">
+    <form method="GET" action="." id="ingredients_search">
+        {% if form.message.errors %}
+            <ol>
+                {% for error in form.message.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+        <table>
+            <tr>
+                <td>{{ form.search_text }}</td> {# form field has id '#searchbar': defined in the form declaration #}
+                <td>
+                    <button id="searchbutton"
+                            type="submit" form="ingredients_search" value="search">
+                        Search
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

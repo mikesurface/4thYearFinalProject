@@ -1,0 +1,40 @@
+{% extends 'base_with_footer.html' %}
+{% block sub_banner %}
+        Search for an ingredient.
+{% endblock %}
+
+{% load static %}
+
+{% block stylesheet_declarations %}
+    {{ block.super }}
+    <link href="{% static "whattoeat/css/pagination_buttons_bootstrap_extension.css" %}" rel="stylesheet"/>
+    <link href="{% static "whattoeat/css/ingredient_search/search_ingredient.css" %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    {# search bar #}
+    {% include 'meal_pages/ingredient_search/search_bars/ingredient_search_base_searchbar.html' %}
+    {# results section #}
+    {% include 'meal_pages/ingredient_search/results/ingredient_search_results.html' %}
+    {# container for rendering modal content #}
+    {% include 'meal_pages/ingredient_search/modal/ingredient_modal_container.html' %}
+{% endblock %}
+
+{% block script_declarations %}
+    {{ block.super }}
+<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/loadPage.js" %}"></script>
+<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/lookup_ingredient.js" %}"></script>
+<script type="text/javascript">
+    function setSearchbarSize(){
+        var searchpanel = $('#searchpanel');
+        var searchbutton  = $('#searchbutton');
+        searchpanel.width($('.wrapper').width());
+        searchbutton.width(100);
+        $('#searchbar').width(searchpanel.width() - searchbutton.width());
+    }
+    $(window).ready(setSearchbarSize());
+    $(window).resize(function(){
+        setSearchbarSize();
+    });
+</script>
+{% endblock %}

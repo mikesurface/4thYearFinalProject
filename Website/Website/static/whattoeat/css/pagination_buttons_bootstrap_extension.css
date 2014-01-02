@@ -1,5 +1,9 @@
 /*Extra CSS to supplement bootstrap so that buttons can be used instead of links in a pagination*/
-
+#active_button{
+    background-color: #428bca;
+    border-color: #428bca;
+    color:#ffffff;
+}
 
 .pagination > li > button {
   position: relative;
@@ -28,9 +32,7 @@
   background-color: #eeeeee;
 }
 
-.pagination > .active > button,
-.pagination > .active > button:hover,
-.pagination > .active > button:focus,{
+.pagination > .active > button,{
   z-index: 2;
   color: #ffffff;
   cursor: default;
