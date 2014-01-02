@@ -4,9 +4,9 @@ import requests
 import json
 import math
 from requests_oauthlib import OAuth1
-from Website.API_Info import API_Codes
-from Website.fatsecret_wrappers.foods import BrandedFoodDescription, GenericFoodDescription
-from Website.forms.food_search import FoodSearchForm
+from whattoeat.API_Info import API_Codes
+from whattoeat.fatsecret_wrappers.foods import BrandedFoodDescription, GenericFoodDescription
+from whattoeat.forms.food_search import FoodSearchForm
 
 
 NUMBER_PAGES_TO_DISPLAY = 20

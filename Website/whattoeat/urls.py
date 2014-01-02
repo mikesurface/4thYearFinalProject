@@ -1,12 +1,12 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from Website.views.meal_views.ingredient_search.lookup_ingredient import lookup,lookup_test
-from Website.views.meal_views.ingredient_search.search_ingredient import get_results_page
-from Website.views.meal_views.ingredient_search.search_ingredient import search_ingredient_base
-from Website.views.mainpageviews import *
-from Website.views.prototypes import meal_generation_prototype
-from Website.views.userpageviews import *
+from whattoeat.views.meal_views.ingredient_search.lookup_ingredient import lookup,lookup_test
+from whattoeat.views.meal_views.ingredient_search.search_ingredient import get_results_page
+from whattoeat.views.meal_views.ingredient_search.search_ingredient import search_ingredient_base
+from whattoeat.views.mainpageviews import *
+from whattoeat.views.prototypes import meal_generation_prototype
+from whattoeat.views.userpageviews import *
 
 admin.autodiscover()
 

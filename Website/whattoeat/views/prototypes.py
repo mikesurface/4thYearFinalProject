@@ -4,9 +4,9 @@ from django.shortcuts import render_to_response
 from django import forms
 from django.forms.formsets import formset_factory
 from django.template.context import RequestContext
-from Website.forms.meal_generation_prototype import IngredientSelectForm, RequirementsInputForm
-from Website.meals import MealGeneration
-from Website.meals.MealClasses import DefiniteNutrientRequirement, RestrictedNutrientRequirement, Ingredient, Quantity, Requirements
+from whattoeat.forms.meal_generation_prototype import IngredientSelectForm, RequirementsInputForm
+from whattoeat.meals import MealGeneration
+from whattoeat.meals.MealClasses import DefiniteNutrientRequirement, RestrictedNutrientRequirement, Ingredient, Quantity, Requirements
 
 
 def meal_generation_prototype(request, numIngredients, numRequirements):

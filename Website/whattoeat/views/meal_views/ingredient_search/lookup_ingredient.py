@@ -4,8 +4,8 @@ from django.template.context import RequestContext
 import requests, json
 from django.http.response import HttpResponseBadRequest
 from requests_oauthlib.oauth1_auth import OAuth1
-from Website.API_Info import API_Codes
-from Website.fatsecret_wrappers.foods import Serving
+from whattoeat.API_Info import API_Codes
+from whattoeat.fatsecret_wrappers.foods import Serving
 
 __author__ = 'michael'
 

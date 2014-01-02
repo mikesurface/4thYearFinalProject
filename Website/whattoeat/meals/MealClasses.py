@@ -2,7 +2,7 @@
 
 
 """Holds a users nutritional requirements for a meal/day."""
-from Website.meals import UnitConversions
+from whattoeat.meals import UnitConversions
 
 
 class Requirements(object):

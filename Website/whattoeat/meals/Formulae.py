@@ -1,3 +1,4 @@
+from whattoeat.meals import UnitConversions
 
 def validate_height_weight(value):
     try:
@@ -13,7 +14,7 @@ def convert_height_inches_to_metres(height):
     except Exception:
         print "Height could not be converted from imperial to metric"
 
-    height = Conversion.INCHES_TO_M * height 
+    height = UnitConversions.INCHES_TO_M * height
     return height
 
 
@@ -23,7 +24,7 @@ def convert_pounds_to_kg(weight):
     except Exception:
         print "Weight could not be converted from imperial to metric"
 
-    weight = Conversion.POUNDS_TO_KILOS * weight
+    weight = UnitConversions.POUNDS_TO_KILOS * weight
     return weight
 
 
