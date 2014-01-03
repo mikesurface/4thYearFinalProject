@@ -124,7 +124,7 @@ class Quantity(object):
 
 
 def testClasses():
-    calories = DefiniteNutrientRequirement(2000,5)
+    calories = DefiniteNutrientRequirement(200.5,5)
     protein = DefiniteNutrientRequirement(100,5)
     carb = DefiniteNutrientRequirement(200,5)
     fat = DefiniteNutrientRequirement(50,5)

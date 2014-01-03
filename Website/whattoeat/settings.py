@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whattoeat',
 
 )
 
@@ -72,7 +73,13 @@ ROOT_URLCONF = 'whattoeat.urls'
 
 WSGI_APPLICATION = 'whattoeat.wsgi.application'
 
+#User profile definition
+AUTH_PROFILE_MODULE = 'whattoeat.dietprofile'
 
+#authentication backend
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 

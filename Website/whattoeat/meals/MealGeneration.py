@@ -27,7 +27,7 @@ def generate_meal(requirements,ingredients):
     upperbounds = {}
     lowerbounds = {}
     compute_nutrient_bounds(requirements,upperbounds,lowerbounds)
-    #print upperbounds
+    print upperbounds
     #print lowerbounds
 
     numIngredients = len(ingredients)           #number of nutrients being considered
@@ -138,6 +138,5 @@ def test_generation():
 
     print generate(ingredients,requirements)
 
-
-   
+test_generation();
 
