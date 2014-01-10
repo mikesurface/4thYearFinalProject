@@ -1,0 +1,6 @@
+from django import forms
+
+INGREDIENTS = (['1g of Chicken',2.19,0.25,0,0.13],
+               ['1g of Pasta',3.71,0.13,0.75,0.015],
+               ['1g of Olive Oil',8.84,])
+

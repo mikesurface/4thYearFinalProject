@@ -1,0 +1,15 @@
+import requests
+from requests_oauthlib import OAuth1
+from Website.API_Info import API_Codes
+
+
+def search_ingredient(request,search_text,max_results = 20, format = 'json'):
+    url = API_Codes.FAT_SECRET_URL
+    auth = OAuth1(API_Codes.FAT_SECRET_API_KEY,API_Codes.FAT_SECRET_API_SECRET)
+    params = {'search_expression':search_text,
+              'method':'foods.search',
+              'format':'json',
+              'max_results':max_results}
+
+    request = requests.get(url,auth=auth,params=params)
+    

@@ -72,7 +72,7 @@ def generate_meal(requirements,ingredients):
                 raise GenerationException("Invalid restriction on " + str(nutrient))
 
     #add constraints for restricted ingredients
-    qCursor = 0 #resolves the the quantity varibale for the current ingredient
+    qCursor = 0 #resolves the the quantity variable for the current ingredient
     for ingredient in ingredients:
         if isinstance(ingredient,RestrictedIngredient):
             threshold = ingredient.threshold
@@ -138,5 +138,5 @@ def test_generation():
 
     print generate(ingredients,requirements)
 
-test_generation();
+#test_generation();
 

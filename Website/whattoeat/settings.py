@@ -74,7 +74,7 @@ ROOT_URLCONF = 'whattoeat.urls'
 WSGI_APPLICATION = 'whattoeat.wsgi.application'
 
 #User profile definition
-AUTH_PROFILE_MODULE = 'whattoeat.dietprofile'
+AUTH_PROFILE_MODULE = 'whattoeat.DietProfile'
 
 #authentication backend
 AUTHENTICATION_BACKENDS = (

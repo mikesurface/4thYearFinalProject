@@ -23,8 +23,8 @@
 
 .navbar_container_override{
     /*To be used on the 'container' class within the navbar*/
-    margin:0 15px 0 -15px;
-    width:100%;
+    margin:0 15px 0 15px;
+    width:95%;
     padding: 5px;
 }
 
@@ -59,4 +59,13 @@
     padding: 5px;
 }
 
+.error_message{
+    color: red;
+}
 
+.half_width_table{
+    width: 50%;
+}
+tr .half_width_table{
+
+}

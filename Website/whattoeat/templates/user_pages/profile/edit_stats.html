@@ -1,0 +1,89 @@
+{% extends 'base/base_footer_navbar.html' %}
+{% block sub_banner %}
+    Edit Vital Stats
+{% endblock %}
+
+{% block content %}
+<div class="edit_stats_window">
+<h3>Please enter the following</h3>
+<p>WhatToEat uses this data to personalise your meals, so be honest!</p>
+
+<form id="edit_stats_form" action="." method="POST">
+    {% csrf_token %}
+    {% if stats_form.errors %}
+        <p class="error_message"><strong>Please correct the errors below</strong></p>
+    {% endif %}
+    <table class="table">
+        <tr>
+            <td>
+                <label for="id_gender">Gender</label>
+            </td>
+            <td>
+                {{ stats_form.gender }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_age">Age</label>
+            </td>
+            <td>
+                {{ stats_form.age }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_height">Height</label>
+            </td>
+            <td>
+                {{ stats_form.height }}
+                <select id="height_unit_selector" name="height_unit">
+                    <option value="cm">cm</option>
+                    <option value="inches">inches</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_weight">Weight</label>
+            </td>
+            <td>
+                {{ stats_form.weight }}
+                <select id="weight_unit_selector" name="weight_unit">
+                    <option value="kg">kg</option>
+                    <option value="lbs">lbs</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="id_goal">Current Goal</label>
+            </td>
+            <td>
+                {{ stats_form.goal }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="num_meal_per_day_input"> Number of Meals Per Day</label>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Save and Exit" name="save">
+    <input type="submit" value="Save and Calculate Daily Requirements" name="calculate">
+</form>
+</div>
+{% endblock %}
+
+{% block script_declarations %}
+{{ block.super }}
+
+<script type="text/javascript">
+    /*Correct the height output from the model into the height field from m to cm */
+    function height_to_cm(height){
+        height_field = $('#id_height');
+        height_field.val(Math.round(height * 1000) / 10);
+    }
+    height_to_cm({{ user.profile.height }});
+</script>
+
+{% endblock %}

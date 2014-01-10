@@ -1,0 +1,32 @@
+MEAL GENERATOR: [x0 in {0..10000}, x1 in {0..10000}, x2 in {0..10000}]
+INGREDIENTS:
+chicken:
+{'protein': 25, 'calories': 219, 'fat': 13}
+Amount: 100 g
+
+pasta:
+{'protein': 0.13, 'calories': 3.71, 'carbs': 0.75, 'fat': 0.015}
+Amount: 1 g
+
+oil:
+{'calories': 8.84, 'fat': 1}
+Amount: 1 g
+
+[0, 0, 0]
+Ingredients: 
+chicken:
+{'protein': 25, 'calories': 219, 'fat': 13}
+Amount: 100 g
+
+pasta:
+{'protein': 0.13, 'calories': 3.71, 'carbs': 0.75, 'fat': 0.015}
+Amount: 1 g
+
+oil:
+{'calories': 8.84, 'fat': 1}
+Amount: 1 g
+
+ Value: 30
+ Value: 600
+ Value: 50
+ Value: 30

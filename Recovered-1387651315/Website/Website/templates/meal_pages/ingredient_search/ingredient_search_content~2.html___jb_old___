@@ -1,0 +1,44 @@
+{# Note that inline javascript has been used as it is relies on values passed by the page #}
+
+
+    <div id="searchpanel" class="full_width_no_vertical_spacing">
+        <form action="GET" action="ingredients_search_base.html" id="ingredients_search">
+            {% if form.message.errors %}
+                <ol>
+                    {% for error in form.message.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+            <table>
+                <tr>
+                    <td id="searchbar">{{ form.search_text }}</td>
+                    <td>
+                        <button id="searchbutton"
+                                type="submit" form="ingredients_search" value="search"
+                                onclick="$('#ingredients_search').attr('action','{% url 'views.search_ingredient.search_ingredient' page_number=0 %}/')"
+                                > Search
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+    {% if some_results_found %}
+        <div id="resultsbar">
+            <table class="table">
+            <tr>
+                <th><span class="largerfont">Total Results: {{ total_results }}</span></th>
+                <th><span class="largerfont">Total Pages: {{ total_pages }}</span></th>
+            </tr>
+            </table>
+        </div>
+    {% endif %}
+
+    <div id="results">
+        {# results loaded into here #}
+
+    </div>
+

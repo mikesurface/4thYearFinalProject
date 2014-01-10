@@ -1,0 +1,4 @@
+__author__ = 'michael'
+
+class GenericFoodDescription(object):
+    def __init__(self,name,

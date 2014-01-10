@@ -1,0 +1,71 @@
+{% extends 'base/base_footer_navbar.html' %}
+
+{% block sub_banner %}
+    {{ user.username }}'s Homepage
+{% endblock %}
+
+{% block content %}
+    <div id="homepage_user_stats">
+    <h3>Personal Info</h3>
+    {% if user.profile.age %}
+        <div id="user_stats_table">
+            <table class="table half_width_table">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        {{ user.get_full_name }}
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Current Goal
+                    </td>
+                    <td>
+                        {{ user.profile.goal_printable }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Gender
+                    </td>
+                    <td>
+                        {{ user.profile.gender_printable }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Age
+                    </td>
+                    <td>
+                        {{ user.profile.age }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Height
+                    </td>
+                    <td>
+                        {{ user.profile.height_in_cm }} cm ({{ user.profile.height_in_inches }} inches)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Weight
+                    </td>
+                    <td>
+                        {{ user.profile.weight }} kg ({{ user.profile.weight_in_lbs }} lbs)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% else %}
+        <p class="error_message">
+            <strong> You have not yet set your profile details. Please click the link below to do so</strong>
+        </p>
+        {% endif %}
+
+        <a href="{% url 'whattoeat.views.user_views.profile_management.edit_diet_profile' %}"> Edit Statistics</a>
+    </div>
+{% endblock %}

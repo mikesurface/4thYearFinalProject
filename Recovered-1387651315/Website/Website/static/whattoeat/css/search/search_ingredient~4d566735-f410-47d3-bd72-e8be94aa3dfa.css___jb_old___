@@ -1,0 +1,19 @@
+/*Style for standalone ingredients search*/
+/*Note that the style for the searchbar is used in the django form, as is required by django*/
+
+#searchpanel{
+    width:100%;
+    height: 60px;
+}
+
+
+#searchbar{
+    width:75%;
+    height:30px;
+
+}
+
+#searchbutton{
+    width:25%;
+    height:30px;
+}

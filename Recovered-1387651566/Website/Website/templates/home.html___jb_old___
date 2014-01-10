@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block sub_banner %} Get your nutrition on track! {% endblock sub_banner %}
+{% block content %} <p> This is the home page (to be implemented). This currently exists as a template </p> {% endblock content %}
+{% block footer %} {% include "footer.html" %} {% endblock %}
+

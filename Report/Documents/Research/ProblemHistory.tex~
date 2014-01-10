@@ -1,0 +1,23 @@
+%Research
+
+\section{Problem History}
+\subsection{Stigler's Diet
+One of the first examples of computing a diet to fit nutritional constraints was presented by Nobel Laureate George J. Stigler. He proposed a solution to the following problem: given a list of 77 ingredients and the recommended daily allowances (RDAs) of 10 nutrients, including calories, for an average american man, what is the minimum cost diet that they could be provided from these ingredients and still satisfy their nutritional requirements. As Stigler stresses, there are many weaknessess to his model, including the fact that the science of nutrition was at the time still very immature. However, using a heuristic method, Stigler came to the conclusion that the minimum cost for such a diet was \$39.93 (in 1939). \\
+
+With linear programming increasing a few years after his paper, the Stigler Diet problem was eventually solved properly by Jack Laderman of the Mathematical Tables Project in 1947 as a test of Dantzig's Simplex Method. Stigler's guess was remarkably accurate; the true minimum cost was \$36.69. To this day the Stiger Diet problem is a classic exercise in optimization. Many researchers since have revisited his problem, using linear programming with updated nutritional and pricing information to calculate a more accurate model.\\
+ 
+One of the most notable revisitings was undertaken by George B. Dantzig. After admiring Stigler's and Jack Laderman's work, Dantzig decided to model a diet for himself, with the aim of losing weight, as a linear programming problem. In his case he was not interested in minimising cost, but in maximising fullness. Sadly his model was somewhat naive and the results often highly unpalatable: on the second day of using his model the program prescribed 200 bullion cubes for breakfast. To Dantzig's credit, he attempted to eat four at once before relenting.\\
+
+It is important to note that Stigler never recommended a minimum cost diet be ued, going so far as to call the idea of cost-cutting at the dinner table "the height of absurdity". The resulting diet is highy monotonous, to the point of being barely palatable. However despite this, to this day his problem highlights some of the issues in generating nutritional meals.
+
+\subsection{The Menu Planning Problem}
+Similar to the Diet Problem, the Menu Planning Problem is concerned with generating minimum cost menus. The original formulation of the problem introduced some key terms which will be used throughout this paper.\\
+
+A food item (ingredient) is a portion of a single food. A menu item is a grouping of food items which are considered to be palatable when used in combination. One or more menu items may be combined to form menu components (meals). So for example one might have the menu items orange juice and beef stew and combine these to make a single meal. A group of meals for a given time period then forms a menu.
+
+Some have questioned whether there is any real difference between the Diet Problem and the Menu Planning Problem. However Balintfly made the realisation when forming a solution to the Menu Planning Problem that by building the diet from menu items, a more palatable diet would result. This is becase menu items, unlike single ingredients, are defined by humans as already being palatable combinations of food. 
+
+
+
+
+ 

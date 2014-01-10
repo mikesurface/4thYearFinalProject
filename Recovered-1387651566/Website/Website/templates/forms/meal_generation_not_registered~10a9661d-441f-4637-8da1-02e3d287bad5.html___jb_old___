@@ -1,0 +1,16 @@
+<form action="." method=""POST">
+    <h5>Ingredients:</h5>
+    <table>
+        <tr><th>Ingredient</th><th>Restriction</th></tr>
+
+        {% for ingredient_form in ingredient_forms %}
+            <tr><td>{{ form.ingredient }}</td><td><p>Restrictions not implemented</p></td></tr>
+        {% endfor %}
+    </table>
+    <table>
+        <h5>Set Requirements:</h5>
+        <tr><th></th></tr>
+        {% for restriction_form in restriction_forms %}
+            <tr
+    </table>
+</form>

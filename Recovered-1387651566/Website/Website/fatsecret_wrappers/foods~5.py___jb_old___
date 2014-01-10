@@ -1,0 +1,11 @@
+__author__ = 'michael'
+
+
+''' Used as a wrapper for the FatSecret foods.search method to encapsuate a food.
+See http://platform.fatsecret.com/api/Default.aspx?screen=rapiref&method=foods.search
+for service description.
+Instance variables corresponf to the data returned by the service.
+'''
+
+class GenericFoodDescription(object):
+    def __init__(self,name,id,type,

@@ -1,0 +1,13 @@
+from django.shortcuts import render_to_response
+from django import forms
+from django.forms.formsets import formset_factory
+from Website.forms.meal_generation_prototype import IngredientSelectForm, RequirementsInputForm
+
+
+def meal_generation_prototype(request, numIngredients, numRequirements):
+    #prototype meal generation implemented 24/11/2013
+
+    IngredientFormSet = formset_factory(IngredientSelectForm, extra=numIngredients)
+    RequirementsFormSet = formset_factory(RequirementsInputForm, extra=numRequirements)
+    if request.method == 'POST':
+        

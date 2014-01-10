@@ -1,0 +1,41 @@
+<form action="." method="POST" id="meal_generator">
+{% csrf_token %}
+
+    <h5>Ingredients:</h5>
+    <table>
+        <tr><th>Ingredient</th><th>Amount</th><th>Unit</th><th>Fixed?</th></tr>
+        {{ ingredients_formset.management_form }}
+        {% for form in ingredients_formset %}
+            {% if form.message.errors %}
+                <ol>
+                   {% for error in form.message.errors %}
+                      <li><strong>{{ error|escape }}</strong></li>
+                   {%  endfor %}
+                </ol>
+                {{ form.message }}
+            {% endif %}
+            <tr>
+                <td>{{form.ingredient}}</td>
+                <td>{{form.quantity}}</td>
+                <td>{{form.unit}}</td>
+                <td>{{form.fixed}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h5>Set Requirements:</h5>
+    <table>
+        <tr><th>Requirement</th><th>Restriction</th><th>Amount</th><th>Allowed Error</th></tr>
+        {{ requirements_formset.management_form }}
+        {% if requirements_formset.errors %}
+        {% for form in requirements_formset %}
+            <tr>
+                <td>{{ form.requirement }}</td>
+                <td>{{ form.restriction }}</td>
+                <td>{{ form.amount }}</td>
+                <td>{{ form.error }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <button type="submit" form="meal_generator" value="Generate Meal"><h5>Generate Meal</h5></button>
+</form>

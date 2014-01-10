@@ -1,0 +1,14 @@
+from django.shortcuts import render_to_response
+from django import forms
+from django.forms.formsets import formset_factory
+from Website.forms.meal_generation_prototype import IngredientSelectForm, RequirementsInputForm
+
+
+def meal_generation_prototype(request, numIngredients, numRequirements):
+    #prototype meal generation implemented 24/11/2013
+
+    ingredients_formset = formset_factory(IngredientSelectForm, extra=numIngredients)
+    requirements_formset = formset_factory(RequirementsInputForm, extra=numRequirements)
+    if request.method == 'POST':
+        ingre = ArticleFormSet(request.POST, request.FILES, prefix='articles')
+        book_formset = BookFormSet(request.POST, request.FILES, prefix='books')

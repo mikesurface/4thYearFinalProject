@@ -1,0 +1,29 @@
+body{
+    height:100%;
+}
+
+.banner{
+    background-color: #1E771E;
+    color: #ffffff;
+}
+
+.sub_banner{
+    background-color: #47A347;
+    padding: 20px;
+}
+
+#sub_banner{
+    color:#ffffff;
+}
+
+.footer{
+    background-color: #47A347;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.sidebar{
+    background-color: #47A347;
+    height:100%;
+}
+

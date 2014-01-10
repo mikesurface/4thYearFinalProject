@@ -1,0 +1,23 @@
+<form action="." method=""POST id="meal_generator"">
+    <h5>Ingredients:</h5>
+    <table>
+        <tr><th>Ingredient</th><th>Restriction</th></tr>
+        {{ ingredients_formset.management_form }}
+        {% for ingredient_form in ingredient_forms %}
+            <tr><td>{{ form.ingredient }}</td><td><p>Restrictions not implemented</p></td></tr>
+        {% endfor %}
+    </table>
+    <table>
+        <h5>Set Requirements:</h5>
+        <tr><th>Requirement</th><th>Restriction</th><th>Amount</th><th>Allowed Error</th></tr>
+        {% for requirement_form in requirement_forms %}
+            <tr>
+                <td>{{ requirement_form.requirement }}</td>
+                <td>{{ requirement_form.restriction }}</td>
+                <td>{{ requirement_form.amount }}</td>
+                <td>{{ requirement_form.error }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <button type="submit" form="meal_generator" value="Generate Meal"><h5>Generate Meal</h5></button>
+</form>

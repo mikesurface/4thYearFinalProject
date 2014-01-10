@@ -1,0 +1,4 @@
+__author__ = 'michael'
+
+class FoodDescription(object):
+    def __init__(self,name,

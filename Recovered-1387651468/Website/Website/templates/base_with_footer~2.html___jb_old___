@@ -1,0 +1,2 @@
+{% extends "base_old.html" %}
+{% block footer %}{% include "footer.html" %} {% endblock %}

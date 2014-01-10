@@ -1,0 +1,116 @@
+{% extends 'base/base_footer_navbar.html' %}
+{% block sub_banner %}
+Success!
+{% endblock %}
+
+{% block content %}
+<h3>Your daily requirements have been calculated as follows:</h3>
+<div class="requirements_table">
+    <table class="table table-responsive table-striped">
+        <tr>
+            <td>
+                Number of Meals Per Day
+            </td>
+            <td>
+                {{ num_meals_per_day }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Calories
+            </td>
+            {% if definite_requirements.calories %}
+                <td>Around {{ definite_requirements.calories.value_rounded }} kcal</td>
+            {% elif restricted_requirements.calories %}
+                <td> {{ restricted_requirements.calories.printable_restriction }} {{ restricted_requirements.calories.value_rounded }}</td>
+            {% else %}
+                <td> No value</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>
+                Protein
+            </td>
+            {% if definite_requirements.protein %}
+                <td>Around {{ definite_requirements.protein.value_rounded }} g</td>
+            {% elif restricted_requirements.protein %}
+                <td> {{ restricted_requirements.protein.printable_restriction }} {{ restricted_requirements.protein.value_rounded }}</td>
+            {% else %}
+                <td> No value</td>
+            {% endif %}
+        </tr>
+          <tr>
+            <td>
+                Total Carbohydrate
+            </td>
+            {% if definite_requirements.carbohydrate %}
+                <td>Around {{ definite_requirements.carbohydrate.value_rounded }} g</td>
+            {% elif restricted_requirements.carbohydrate %}
+                <td> {{ restricted_requirements.carbohydrate.printable_restriction }} {{ restricted_requirements.carbohydrate.value_rounded }}</td>
+            {% else %}
+                <td> No value</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>
+                Total Fat
+            </td>
+            {% if definite_requirements.fat %}
+                <td>Around {{ definite_requirements.fat.value_rounded }} g</td>
+            {% elif restricted_requirements.fat %}
+                <td> {{ restricted_requirements.fat.printable_restriction }} {{ restricted_requirements.fat.value_rounded }}</td>
+            {% else %}
+                <td> No value</td>
+            {% endif %}
+        </tr>
+      <tr>
+            <td>
+                Salt
+            </td>
+            {% if definite_requirements.salt %}
+                <td>Around {{ definite_requirements.salt.value_rounded }} g</td>
+            {% elif restricted_requirements.salt %}
+                <td> {{ restricted_requirements.salt.printable_restriction }} {{ restricted_requirements.salt.value_rounded }}</td>
+            {% else %}
+                <td> No value</td>
+            {% endif %}
+        </tr>
+      <tr>
+            <td>
+                Sugar
+            </td>
+            {% if definite_requirements.sugar %}
+                <td>Around {{ definite_requirements.sugar.value_rounded }} g</td>
+            {% elif restricted_requirements.sugar %}
+                <td> {{ restricted_requirements.sugar.printable_restriction }} {{ restricted_requirements.sugar.value_rounded }}</td>
+            {% else %}
+                <td> No value</td>
+            {% endif %}
+        </tr>
+      <tr>
+            <td>
+                Fibre
+            </td>
+            {% if definite_requirements.fibre %}
+                <td>Around {{ definite_requirements.fibre.value_rounded }} g</td>
+            {% elif restricted_requirements.fibre %}
+                <td> {{ restricted_requirements.fibre.printable_restriction }} {{ restricted_requirements.fibre.value_rounded }} g</td>
+            {% else %}
+                <td> No value</td>
+            {% endif %}
+        </tr>
+      <tr>
+            <td>
+                Saturated Fat
+            </td>
+            {% if definite_requirements.satfat %}
+                <td>Around {{ definite_requirements.satfat.value_rounded }} g</td>
+            {% elif restricted_requirements.satfat %}
+                <td> {{ restricted_requirements.satfat.printable_restriction }} {{ restricted_requirements.satfat.value_rounded }} g</td>
+            {% else %}
+                <td> No value</td>
+            {% endif %}
+        </tr>
+    </table>
+</div>
+{% endblock %}

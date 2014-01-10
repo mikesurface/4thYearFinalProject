@@ -6,7 +6,7 @@
 function loadPage(search_text, page_number) {
     $.ajax({
         type: 'GET',
-        url: '/search_ingredients/update/',
+        url: '/search_ingredient/update/',
         data: {
             'search_text': search_text,
             'page_number': page_number

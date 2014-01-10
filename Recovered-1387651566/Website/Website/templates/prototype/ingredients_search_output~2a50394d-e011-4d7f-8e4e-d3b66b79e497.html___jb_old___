@@ -1,0 +1,14 @@
+{% extends 'base_with_footer.html' %}
+{% block sub_banner %}Search Results{% endblock %}
+{% block content %}
+<table>
+            <tr><th>Food Name</th><th>Description</th></tr>
+    {% for food in search_results %}
+       {% if food.brand %}
+            <tr><td>{{ food.name }} by {{ food.brand }}</td><td>{{ food.description }}</td> </tr>
+       {% else %}
+            <tr><td>{{ food.name }}</td><td>{{ food.description }}</td> </tr>
+       {% endif %}
+    {% endfor %}
+</table>
+{% endblock %}

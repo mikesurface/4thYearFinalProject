@@ -1,0 +1,13 @@
+<div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li></li>
+            {% if sidebar_links %}
+                {% for link in sidebar_links %}
+                    <li><a href = "{{ link.ref }}">{{ link.text }}</a></li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+      </div>
+</div>

@@ -1,0 +1,10 @@
+.banner{
+    background-color: #1E771E;
+    color: #ffffff;
+}
+
+.sub_banner{
+    background-color: #47A347;
+    color: #ffffff;
+}
+

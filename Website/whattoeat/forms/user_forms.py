@@ -9,7 +9,6 @@ class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30)
     last_name = forms.CharField(max_length=30)
 
-
     class Meta:
         model = User
         fields = ("username","password1","password2","first_name","last_name","email")
@@ -29,4 +28,4 @@ class UserRegistrationForm(UserCreationForm):
 class DietProfileForm(forms.ModelForm):
     class Meta:
         model = DietProfile
-        fields = ("age","height","weight","num_meals_per_day")
+        fields = ("gender","age","height","weight","goal")

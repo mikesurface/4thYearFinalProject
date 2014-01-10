@@ -10,7 +10,7 @@ function lookup_ingredient(food_id,food_name){
 
     $.ajax({
         type: 'GET',
-        url: '/search_ingredients/lookup/',
+        url: '/search_ingredient/lookup/',
         data: {
             'food_id': food_id,
             'food_name': food_name
@@ -45,7 +45,7 @@ function create_food_dialog(data, textStatus, jqXHR){
     });
 
     //handle a change to the selection
-    $("#serving_selector").change(function () {
+    $('#serving_selector').change(function () {
 
         //set all of the servings to be invisible
         $("#serving_selector option").each(function () {

@@ -1,0 +1,11 @@
+<form action="." method=""POST">
+    <h5>Ingredients:</h5>
+    <table>
+        <th></th>
+        {{% for ingredient_form in ingredients_forms %}}
+            <tr><td>{{ form. }}</td></tr>
+
+
+
+    </table>
+</form>
