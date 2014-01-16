@@ -8,7 +8,7 @@ from whattoeat.views.mainpageviews import *
 from whattoeat.views.prototypes import meal_generation_prototype
 from whattoeat.views.user_views.authentication import login, logout, logout_success,register, reg_success
 from whattoeat.views.user_views.profile_management import edit_diet_profile, user_homepage
-from whattoeat.views.user_views.requirements_management import auto_calculate_requirements_fail, auto_calculate_requirements_success
+from whattoeat.views.user_views.requirements_management import auto_calculate_requirements_fail, auto_calculate_requirements_success, edit_daily_requirements, edit_requirements_success
 
 
 admin.autodiscover()
@@ -16,6 +16,9 @@ admin.autodiscover()
 requirements_urls = patterns('',
    url(r'^auto_calculate_success/$',auto_calculate_requirements_success),
    url(r'^auto_calculate_fail/$',auto_calculate_requirements_fail),
+   url(r'^edit_daily_requirements/$',edit_daily_requirements),
+  # url(r'^edit_requirements_profile/(?P<profile_name>\w+)/$',),
+   url(r'^edit_requirements_success/$',edit_requirements_success),
 )
 
 #urls for pages related to altering the users profile and requirements

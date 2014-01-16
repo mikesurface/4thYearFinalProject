@@ -11,7 +11,7 @@ def user_homepage(request):
     check_user_logged_in(request)
     args = {}
     args['user'] = request.user
-    return render_to_response('user_pages/profile/user_page.html',args)
+    return render_to_response('user_pages/profile/user_page/user_page.html',args)
 
 
 def edit_diet_profile(request):

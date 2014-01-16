@@ -1,14 +1,29 @@
 from django import forms
-from django.forms.widgets import TextInput
-
-__author__ = 'michael'
-
-class PercentageInput(TextInput):
-    input_type = 'number'
-    step = 1
+from whattoeat.models import DefiniteDietRequirement, RestrictedDietRequirement, DailyRequirementsSet, MealRequirementsSet
 
 
-class DailyRequirementsByRatiosForm(forms.Form):
-    protein = forms.IntegerField(widget=PercentageInput,min_value=0,max_value=100)
-    carbs = forms.IntegerField(widget=PercentageInput,min_value=0,max_value=100)
-    fat = forms.IntegerField(widget=PercentageInput,min_value=0,max_value=100)
+class DailyRequirementsSetForm(forms.ModelForm):
+    num_meals_per_day = forms.IntegerField(widget=forms.NumberInput({'step':1,'max':8,'min':1}))
+    
+    class Meta:
+        model = DailyRequirementsSet
+        fields = ("num_meals_per_day",)
+
+class MealRequirementsSetForm(forms.ModelForm):
+    class Meta:
+        model = MealRequirementsSet
+        fields = ("name",)
+
+class DefiniteRequirementForm(forms.ModelForm):
+     id = forms.IntegerField(widget=forms.HiddenInput())
+     class Meta:
+         model = DefiniteDietRequirement
+         fields = ("id","name","value","error")
+         #note id is required as it this form will be used in a ModelFormSet (see Django Docs)
+
+class RestrictedRequirementForm(forms.ModelForm):
+    id = forms.IntegerField(widget=forms.HiddenInput())
+    class Meta:
+        model = RestrictedDietRequirement
+        fields = ("id","name","value","restriction")
+        #note id is required as it this form will be used in a ModelFormSet (see Django Docs)

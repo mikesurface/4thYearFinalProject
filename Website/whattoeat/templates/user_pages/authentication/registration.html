@@ -14,10 +14,6 @@
     {% endif %}
     <table class="table">
         <tr>
-            <td><label for="id_email">Email</label></td>
-            <td>{{ user_form.email }}</td>
-        </tr>
-        <tr>
             <td><label for="id_username">Username</label></td>
             <td>{{ user_form.username }}</td>
         </tr>
@@ -28,6 +24,10 @@
         <tr>
             <td><label for="id_password2">Confirm Password</label></td>
             <td>{{ user_form.password2 }}</td>
+        </tr>
+         <tr>
+            <td><label for="id_email">Email</label></td>
+            <td>{{ user_form.email }}</td>
         </tr>
         <tr>
             <td><label for="id_first_name">First Name</label></td>

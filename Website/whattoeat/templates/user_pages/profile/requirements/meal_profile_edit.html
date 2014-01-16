@@ -1,0 +1,74 @@
+{% extends 'base/base_footer_navbar.html' %}
+
+{% block sub_banner %}
+    {% if daily %}
+        Edit Daily Requirements
+    {% else %}
+        Edit Requirements
+    {% endif %}
+{% endblock %}
+{% load static %}
+
+{% block content %}
+
+    {% if daily %}
+        <h3>Set you daily requirements</h3>
+        <p>First choose the number of meals you want to eat. Then set your nutritional requirements.
+            If you are unsure, click here to have WhatToEat estimate your requirements</p>
+        <form action="." method="POST" id="daily_requirements_edit">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Number of Meals Per Day</th>
+                <th>{{ req_set_form.num_meals_per_day }}</th>
+            </tr>
+        </table>
+
+    {% endif %}
+
+{# form id fields must be included; required by Django ModelFormSets (see Django Docs) #}
+{# id field should be hidden (set in form definition #}
+{# editing the id field is a sign of form tampering #}
+<h4>Definite Requirements</h4>
+{{ def_req_formset.management_form }}
+<table class="table">
+    {% for form in def_req_formset %}
+            <tr class="definite_space">
+                <td>{{ form.id }}{{ form.name }}</td>
+                <td>Around {{ form.value }}</td>
+                <td>With error margin {{ form.error }} %</td>
+                <td><p><a href="#" class="delete_definite">Remove</a></p></td>
+            </tr>
+    {% endfor %}
+    <tr>
+        <td>
+            <button type="button" id="add_definite">Add Definite Requirement</button>
+        </td>
+    </tr>
+</table>
+
+<h4>Restricted Requirements</h4>
+{{ res_req_formset.management_form }}
+<table class="table">
+    {% for form in res_req_formset %}
+            <tr class = "restricted_space">
+                <td>{{ form.id }}{{ form.name }}</td>
+                <td>{{ form.restriction }}</td>
+                <td>{{ form.value }}</td>
+                <td><p><a href="#" class="delete_restricted">Remove</a></p></td>
+            </tr>
+    {% endfor %}
+    <tr>
+        <td>
+            <button type="button" id="add_restricted">Add Restricted Requirement</button>
+        </td>
+    </tr>
+</table>
+<input type="submit" value="Save" name="save_button">
+</form>
+{% endblock %}
+
+{% block script_declarations %}
+    <script type="text/javascript"
+            src="{% static 'whattoeat/js/requirements/requirements_form_manipulation.js' %}"></script>
+{% endblock %}

@@ -12,6 +12,10 @@ def register(request):
         user_form = UserRegistrationForm(data)
         if user_form.is_valid():
             new_user = user_form.save(data)
+
+            new_user = auth.authenticate(username=request.POST['username'],
+                                    password=request.POST['password1'])
+            auth.login(request, new_user)
             return HttpResponseRedirect('/registration_success/')
 
     return render_to_response('user_pages/authentication/registration.html',
@@ -19,7 +23,7 @@ def register(request):
                               context_instance=RequestContext(request))
 
 def reg_success(request):
-    return render_to_response('user_pages/authentication/registration_success.html')
+    return render_to_response('user_pages/authentication/registration_success.html',{'user':request.user})
 
 def login(request):
     login_failed = False

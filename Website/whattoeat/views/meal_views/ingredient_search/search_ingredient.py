@@ -107,6 +107,8 @@ def search_ingredient_base(request, max_results=MAX_RESULTS):
     if max_results < 1:
         max_results = 1
 
+    args = {'user':request.user}
+
     if request.method.upper() == 'GET':
         page_number = 0
 
@@ -139,24 +141,24 @@ def search_ingredient_base(request, max_results=MAX_RESULTS):
                 page_numbers_to_display = 0
                 foods = []
 
-            return render_to_response('meal_pages/ingredient_search/ingredients_search_base.html',
-                                      {'search_results': foods,
-                                       'search_text': search_text,
-                                       'form': search_form,
-                                       'total_results': total_results,
-                                       'total_pages': total_number_pages,
-                                       'page_number': page_number,
-                                       'page_numbers_to_display': page_numbers_to_display,
-                                       'last_page': total_number_pages - 1,
-                                      })
+            #process arguments
+
+            args['search_results'] = foods
+            args['search_text'] = search_text
+            args['form'] = search_form
+            args['total_results'] = total_results
+            args['total_pages'] = total_number_pages
+            args['page_number'] = page_number
+            args['page_numbers_to_display'] = page_numbers_to_display
+            args['last_page'] = total_number_pages - 1
+
+            return render_to_response('meal_pages/ingredient_search/ingredients_search_base.html',args)
 
     #search not yet made or form is invalid
     search_form = FoodSearchForm()
-    return render_to_response('meal_pages/ingredient_search/ingredients_search_base.html',
-                          {'form': search_form,
-                           'not_searched_yet': True,
-                           #catch case where page is loaded but ingredient_search not yet conducted
-                          })
+    args['form'] = search_form
+    args['not_searched_yet'] = True
+    return render_to_response('meal_pages/ingredient_search/ingredients_search_base.html',args)
 
 
 
