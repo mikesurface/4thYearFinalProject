@@ -6,15 +6,10 @@
 function fixPageHeights() {
     $('.wrapper').height($(window).height() - ($('.banner').height() + $('.sub_banner').height() + 2 * $('.footer').height() + 10));
 }
-function fixPageWidths(){
-    $('.banner').width($(window).width());
-    $('.sub_banner').width($(window).width());
-    $('.wrapper').width($(window).width());
-}
+
 
 function adjust(){
     fixPageHeights();
-    fixPageWidths();
 }
 $(window).ready(adjust());
 $(window).resize(function(){

@@ -1,9 +1,0 @@
-{% extends "base_with_footer.html" %}
-{%  block sub_banner  %}OUTPUT {% endblock %}
-{% block content %}
-<table>
-     {% for req in requirements %}
-     <tr><td>Value: {{ req.val }}</td><td></td></tr>
-
-</table>
-{% endblock %}

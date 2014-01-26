@@ -1,0 +1,8 @@
+{% extends 'base/base_footer_navbar.html' %}
+{% block sub_banner %}
+    Sign Up
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% crispy user_form %}
+{% endblock %}

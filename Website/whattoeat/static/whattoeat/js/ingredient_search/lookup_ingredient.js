@@ -22,13 +22,14 @@ function lookup_ingredient(food_id,food_name){
 
 
 function create_food_dialog(data, textStatus, jqXHR){
-    $('#ingredient_modal_space').html(data); //render the modal contents in the page
+    var modal_space = $('#ingredient_modal_space');
+    modal_space.html(data); //render the modal contents in the page
 
 
      //make the initial serving visible
-    var initial = "#" + $("#serving_selector option:selected").val().toString();
+    var initial = $("#" + $("#serving_selector option:selected").val().toString());
 
-    $(initial).css({'display': 'block'});
+    initial.css({'display': 'block'});
 
 
     //DEFINE MODAL BEHAVIOUR
@@ -64,9 +65,11 @@ function create_food_dialog(data, textStatus, jqXHR){
       //when closed we must completely destroy the dialog
     modal.on("dialogclose",function(){
         initial.css('display','none'); //clear all trace of the dialogue when closed
-        $(this).dialog("destroy"); //destory the dialog so it does not affect others
+        modal_space.empty();
+        console.log("CLOSE:");
+        console.log($('body').html());
     });
 
-
+    console.log($('body').html());
 
 }

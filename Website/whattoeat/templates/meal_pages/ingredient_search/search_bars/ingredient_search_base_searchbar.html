@@ -1,23 +1,4 @@
-{# Note that inline javascript has been used as it is relies on values passed by the page #}
+{% load crispy_forms_tags %}
 <div id="searchpanel" >
-    <form method="GET" action="." id="ingredients_search">
-        {% if form.message.errors %}
-            <ol>
-                {% for error in form.message.errors %}
-                    <li>{{ error }}</li>
-                {% endfor %}
-            </ol>
-        {% endif %}
-        <table>
-            <tr>
-                <td>{{ form.search_text }}</td> {# form field has id '#searchbar': defined in the form declaration #}
-                <td>
-                    <button id="searchbutton"
-                            type="submit" form="ingredients_search" value="search">
-                        Search
-                    </button>
-                </td>
-            </tr>
-        </table>
-    </form>
+   {% crispy form %}
 </div>

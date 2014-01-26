@@ -1,4 +1,0 @@
-import requests
-from requests_oauthlib import OAuth1
-
-def find_ingredient(request,ingredient_id):

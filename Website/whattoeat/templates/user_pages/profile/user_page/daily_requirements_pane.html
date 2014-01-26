@@ -1,0 +1,33 @@
+<div id="homepage_daily_requirements">
+    {% with user.profile.get_daily_requirements_set as daily_req %}
+        {% if daily_req %}
+            <table class=table>
+                <tr>
+                    <th>Nutrient</th>
+                    <th>Target</th>
+                </tr>
+                {% with daily_req.get_conventional_ordering as reqs %}
+                    {% for r in reqs %}
+                        <tr>
+                            <td>{{ r.0 }}</td> {# first element is nutrient name #}
+                            <td>{{ r.1 }}</td> {# second element is requirement #}
+                        </tr>
+                    {% endfor %}
+                {% endwith %}
+            </table>
+        {% else %}
+            <h3 class="error_message">You have not set your daily nutritional requirements</h3>
+            <p>Use one of the options below to do so. We recommend you generate these from your vital statistics if you
+                are unsure.</p>
+        {% endif %}
+        <div class="button_group">
+            {% if daily_req %}
+                <p><a href="">Edit
+                    Daily Requirements</a></p>
+            {% endif %}
+            <p><a href="">Calculate
+                My Daily Requirements</a></p>
+
+        </div>
+    {% endwith %}
+</div>

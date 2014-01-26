@@ -74,11 +74,11 @@ by template blocks rather than context variables
                                 <b class="caret"></b>
                             </a>
                         <ul class="dropdown-menu">
-                            {% include 'base/logged_in_dropdown_links.html' %}
+                            {% include "base/logged_in_dropdown_links.html" %}
                         </ul>
                     </li>
                     {% else %}
-                       <li><a class="navbar_text" href="{% url 'whattoeat.views.user_views.authentication.login' %}">Sign In</a></li>
+                       <li><a class="navbar_text" href="/accounts/login/">Sign In</a></li>
 
                     {% endif %}
                 </ul>

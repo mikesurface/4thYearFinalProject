@@ -75,7 +75,7 @@ var CalendarNamespace = {
             currentDay++;
         }
 
-        // Draw blanks after end of month (optional, but makes for valid code)
+        // Draw blanks after end of month (optional, but makes for valid authentication)
         while (tableRow.childNodes.length < 7) {
             var _cell = quickElement('td', tableRow, ' ');
             _cell.style.backgroundColor = '#f3f3f3';

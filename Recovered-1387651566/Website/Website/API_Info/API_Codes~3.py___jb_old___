@@ -1,5 +1,0 @@
-__author__ = 'michael'
-
-FAT_SECRET_API_KEY = 'a272020e37614042986b70b566989a44'
-FAT_SECRET_API_SECRET = 'f072dc3360694009b660998c2060eabc'
-FAT_SECRET_URL = 'http://platform.fatsecret.com/rest/server.api'

@@ -36,13 +36,13 @@
                 {% if food.brand %}
                     <tr>
                         <td>
-                            <button type="button" onclick="lookup_ingredient({{ food.id}},'{{ food.name }}');">
+                            <button class = "btn btn-link" type="button" onclick="lookup_ingredient({{ food.id}},'{{ food.name }}');">
                                 {{ food.name }} by {{ food.brand }}
                             </button>
                         </td>
 
                         <td>
-                            <button type="button" onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
+                            <button class = "btn btn-link" type="button" onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
                             {{ food.description }}
                             </button>
                         </td>
@@ -50,12 +50,12 @@
                 {% else %}
                     <tr>
                         <td>
-                            <button type="button" onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
+                            <button class = "btn btn-link" type="button" onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
                             {{ food.name }}
                             </button>
                         </td>
                         <td>
-                            <button type="button" onclick="lookup_ingredient({{ food.id}},'{{ food.name }}');">
+                            <button class = "btn btn-link" type="button" onclick="lookup_ingredient({{ food.id}},'{{ food.name }}');">
                             {{ food.description }}
                              </button>
                         </td>

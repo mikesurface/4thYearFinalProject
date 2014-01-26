@@ -1,9 +1,0 @@
-{% extends 'base_with_footer.html' %}
-{% block sub_banner %}Search Results{% endblock %}
-{% block content %}
-<ul>
-    {% for food in search_results %}
-       {% if food.brand %}
-            <li>{{ food.name }} by {{ food.brand }}: {{ food.description }}  {{ food.url }}</li>
-
-</ul>

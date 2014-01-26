@@ -26,13 +26,9 @@
     margin-bottom:-15px;
 }
 
-
-#searchbar{
+.searchbutton{
     height:40px;
-}
-
-#searchbutton{
-    height:40px;
+    min-width: 60px
 }
 
 

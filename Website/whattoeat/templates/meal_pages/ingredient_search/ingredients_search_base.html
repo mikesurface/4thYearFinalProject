@@ -24,17 +24,4 @@
     {{ block.super }}
 <script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/loadPage.js" %}"></script>
 <script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/lookup_ingredient.js" %}"></script>
-<script type="text/javascript">
-    function setSearchbarSize(){
-        var searchpanel = $('#searchpanel');
-        var searchbutton  = $('#searchbutton');
-        searchpanel.width($('.wrapper').width());
-        searchbutton.width(100);
-        $('#searchbar').width(searchpanel.width() - searchbutton.width());
-    }
-    $(window).ready(setSearchbarSize());
-    $(window).resize(function(){
-        setSearchbarSize();
-    });
-</script>
 {% endblock %}

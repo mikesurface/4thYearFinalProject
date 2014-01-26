@@ -22,7 +22,7 @@ $(document).ready(function () {
             $(btn).parents(form_id).remove();
             var forms = $(form_id); // Get all the forms
             // Update the total number of forms (1 less than before)
-            var formCount = forms.length;
+            formCount = forms.length;
             $('#id_' + prefix + '-TOTAL_FORMS').val(formCount);
 
             // Go through the forms and set their indices, names and IDs
@@ -37,7 +37,7 @@ $(document).ready(function () {
 
     function addForm(btn, prefix) {
         var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
-        var form_id = "." + prefix  + "_space"
+        var form_id = "." + prefix  + "_space";
             // Clone a form (without event handlers) from the first form
             var row = $(form_id + ":first").clone(false).get(0);
             // Insert it after the last form
@@ -95,6 +95,5 @@ $(document).ready(function () {
     }
     removeExtraForms("definite");
     removeExtraForms("restricted");
-    console.log($('html').html());
 
 });

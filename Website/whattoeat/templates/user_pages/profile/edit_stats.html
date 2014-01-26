@@ -2,18 +2,18 @@
 {% block sub_banner %}
     Edit Vital Stats
 {% endblock %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="edit_stats_window">
 <h3>Please enter the following</h3>
 <p>WhatToEat uses this data to personalise your meals, so be honest!</p>
-
 <form id="edit_stats_form" action="." method="POST">
     {% csrf_token %}
     {% if stats_form.errors %}
         <p class="error_message"><strong>Please correct the errors below</strong></p>
+        {{ stats_form.errors }}
     {% endif %}
-    <table class="table">
+    <table class="table small_table">
         <tr>
             <td>
                 <label for="id_gender">Gender</label>
@@ -36,10 +36,7 @@
             </td>
             <td>
                 {{ stats_form.height }}
-                <select id="height_unit_selector" name="height_unit">
-                    <option value="cm">cm</option>
-                    <option value="inches">inches</option>
-                </select>
+                {{ stats_form.height_units }}
             </td>
         </tr>
         <tr>
@@ -47,11 +44,8 @@
                 <label for="id_weight">Weight</label>
             </td>
             <td>
-                {{ stats_form.weight }}
-                <select id="weight_unit_selector" name="weight_unit">
-                    <option value="kg">kg</option>
-                    <option value="lbs">lbs</option>
-                </select>
+                <span class=".rounded_decimal">{{ stats_form.weight }}</span>
+                {{ stats_form.weight_units }}
             </td>
         </tr>
         <tr>
@@ -63,11 +57,13 @@
             </td>
         </tr>
     </table>
-    <input type="submit" value="Save and Exit" name="save">
-    <input type="submit" value="Save and Calculate Daily Requirements" name="calculate">
+    <input class="btn btn-success" type="submit" value="Save and Exit" name="save">
+    <input class="btn btn-warning" type="submit" value="Save and Calculate Daily Requirements" name="calculate">
 </form>
 </div>
+
 {% endblock %}
+
 
 {% block script_declarations %}
 {{ block.super }}
@@ -79,6 +75,8 @@
         height_field.val(Math.round(height * 1000) / 10);
     }
     height_to_cm({{ user.profile.height }});
+
+
 </script>
 
 {% endblock %}

@@ -8,14 +8,17 @@
     {% endif %}
 {% endblock %}
 {% load static %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-
+    {# Display the correct form headers for daily or meal requirements set #}
     {% if daily %}
+        {# daily requirements set #}
         <h3>Set you daily requirements</h3>
         <p>First choose the number of meals you want to eat. Then set your nutritional requirements.
             If you are unsure, click here to have WhatToEat estimate your requirements</p>
-        <form action="." method="POST" id="daily_requirements_edit">
+        <form action="." method="POST" id="daily_requirements_edit" class="form-inline">
         {% csrf_token %}
         <table>
             <tr>
@@ -24,48 +27,55 @@
             </tr>
         </table>
 
+    {% else %}
+        {# meal requirements set #}
+        <form action="." method="POST" id="meal_requirements_edit" class="form-inline">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Meal Name</th>
+                <th>{{ req_set_form.name}}</th>
+            </tr>
+        </table>
     {% endif %}
 
 {# form id fields must be included; required by Django ModelFormSets (see Django Docs) #}
 {# id field should be hidden (set in form definition #}
 {# editing the id field is a sign of form tampering #}
-<h4>Definite Requirements</h4>
-{{ def_req_formset.management_form }}
-<table class="table">
-    {% for form in def_req_formset %}
-            <tr class="definite_space">
-                <td>{{ form.id }}{{ form.name }}</td>
-                <td>Around {{ form.value }}</td>
-                <td>With error margin {{ form.error }} %</td>
-                <td><p><a href="#" class="delete_definite">Remove</a></p></td>
-            </tr>
-    {% endfor %}
-    <tr>
-        <td>
-            <button type="button" id="add_definite">Add Definite Requirement</button>
-        </td>
-    </tr>
-</table>
+<div class="component_vertical_spacing">
+    <h4>Definite Requirements</h4>
+    {{ def_req_formset.management_form|crispy }}
 
-<h4>Restricted Requirements</h4>
-{{ res_req_formset.management_form }}
-<table class="table">
-    {% for form in res_req_formset %}
-            <tr class = "restricted_space">
-                <td>{{ form.id }}{{ form.name }}</td>
-                <td>{{ form.restriction }}</td>
-                <td>{{ form.value }}</td>
-                <td><p><a href="#" class="delete_restricted">Remove</a></p></td>
-            </tr>
+
+
+    {% for form in def_req_formset %}
+        <div class="definite_space"> {% crispy form %}</div>
     {% endfor %}
-    <tr>
-        <td>
-            <button type="button" id="add_restricted">Add Restricted Requirement</button>
-        </td>
-    </tr>
-</table>
-<input type="submit" value="Save" name="save_button">
+    <button class="btn btn-success formset_add_button" type="button" id="add_definite">Add Definite Requirement</button>
+</div>
+
+<div class="component_vertical_spacing">
+    <h4>Restricted Requirements</h4>
+    {{ res_req_formset.management_form|crispy }}
+
+
+
+    {% for form in res_req_formset %}
+        <div class="restricted_space">{% crispy form %}</div>
+    {% endfor %}
+    <button class="btn btn-success formset_add_button" type="button" id="add_restricted">Add Restricted Requirement
+    </button>
+</div>
+
+
+<div class="formset_submit">
+    <button class="btn btn-success btn-lg" type="submit" name="save_button">
+        Save
+    </button>
+</div>
+
 </form>
+
 {% endblock %}
 
 {% block script_declarations %}

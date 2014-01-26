@@ -56,9 +56,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'whattoeat',
 
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -76,7 +79,7 @@ WSGI_APPLICATION = 'whattoeat.wsgi.application'
 #User profile definition
 AUTH_PROFILE_MODULE = 'whattoeat.DietProfile'
 
-#authentication backend
+#accounts backend
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )

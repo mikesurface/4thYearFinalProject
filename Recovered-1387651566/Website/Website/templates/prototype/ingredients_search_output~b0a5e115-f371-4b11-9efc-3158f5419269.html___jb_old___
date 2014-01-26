@@ -1,3 +1,0 @@
-{% extends 'base_with_footer.html' %}
-{% block sub_banner %}Search Results{% endblock %}
-{% block content %}

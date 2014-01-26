@@ -1,9 +1,0 @@
-<ul>
-    <li><a href="#"> Demo Link 2</a></li>
-
-    {% if sidebar_links %}
-        {% for link in sidebar_links %}
-            <li><a href="{{ link.ref }}">{{ link.text }}</a></li>
-        {% endfor %}
-    {% endif %}
-</ul>

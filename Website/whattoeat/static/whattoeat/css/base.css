@@ -59,13 +59,58 @@
     padding: 5px;
 }
 
+.component_vertical_spacing{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .error_message{
     color: red;
 }
 
-.half_width_table{
-    width: 50%;
+.small_table{
+    max-width: 400px;
 }
-tr .half_width_table{
 
+.whattoeat-btn{
+    background-color: #FFCF79;
+    color:#333333;
+}
+
+
+.table_banner > p{
+    font-size: 20pt;
+    display: inline-block;
+    margin-right:20px;
+}
+
+.table_banner > a{
+    font-size: 15pt;
+    margin-bottom: 10px;
+}
+
+
+.formset_add_button{
+    margin-top: 10px;
+}
+
+.formset_submit{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.formset_submit > button{
+    font-size: 14pt;
+    padding: 20px;
+    width: 200px;
+}
+
+.info_pane{
+    padding: 10px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border-width:3px;
+    border-color: #999999;
+    border-style: outset;
+    height: 100%;
 }

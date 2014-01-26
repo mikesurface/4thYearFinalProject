@@ -1,9 +1,0 @@
-{% extends 'base_with_footer.html' %}
-{% block content %}
-<form method="GET" action=".">
-    <ta
-
-</form>
-
-
-{% block content %}
