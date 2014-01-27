@@ -1,6 +1,6 @@
 import math
 from django.shortcuts import render_to_response
-from whattoeat.meals.ingredient_search.forms import FoodSearchForm
+from whattoeat.meals.ingredient_search.forms import FoodSearchForm, ServingForm
 from whattoeat.meals.ingredient_search.utils import MAX_RESULTS, fatSecretSearchCall, extractResults, NUMBER_PAGES_TO_DISPLAY, pagination_numbers
 from whattoeat.utilities import build_user_args
 
@@ -68,3 +68,16 @@ def search_ingredient_base(request, max_results=MAX_RESULTS):
     args['not_searched_yet'] = True
     return render_to_response('meal_pages/ingredient_search/ingredients_search_base.html', args)
 
+def capture_test(request):
+    serving_form = ServingForm(request.GET or None)
+    if serving_form.is_valid():
+        data = serving_form.cleaned_data
+        args = {}
+        args['quantity'] = data['quantity']
+        args['units'] = data['units']
+        args['calories'] = data['calories']
+        args['satfat'] = data['satfat']
+        args['metric_quantity'] = data['metric_quantity']
+        args['metric_units'] = data['metric_units']
+
+        return render_to_response('meal_pages/ingredient_search/ingredients_capture.html',args)

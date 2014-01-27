@@ -6,6 +6,7 @@ from django import forms
 
 
 class FoodSearchForm(forms.Form):
+    '''Form for ingredients search bar'''
     search_text = forms.CharField(
         initial="Enter search text",
         required=True,
@@ -23,3 +24,25 @@ class FoodSearchForm(forms.Form):
         helper.layout = Layout(
            FieldWithButtons('search_text',PlainSubmit('search','Search',css_class="btn-success ")),
         )
+
+class ServingForm(forms.Form):
+    '''Form for displaying a serving of an ingredient, with info required to manipulate the ingredient further'''
+    calories = forms.FloatField(widget=forms.HiddenInput())
+    protein = forms.FloatField(widget=forms.HiddenInput())
+    carbs = forms.FloatField(widget=forms.HiddenInput())
+    fat = forms.FloatField(widget=forms.HiddenInput())
+    salt = forms.FloatField(widget=forms.HiddenInput())
+    sugar = forms.FloatField(widget=forms.HiddenInput())
+    fibre = forms.FloatField(widget=forms.HiddenInput())
+    satfat = forms.FloatField(widget=forms.HiddenInput())
+
+    #hidden fields
+    food_id = forms.IntegerField(widget=forms.HiddenInput())
+    serving_id = forms.IntegerField(widget=forms.HiddenInput())
+    units = forms.CharField(widget=forms.HiddenInput())
+    quantity = forms.FloatField(widget=forms.HiddenInput())
+    metric_quantity = forms.FloatField(widget=forms.HiddenInput())
+    metric_units = forms.CharField(widget=forms.HiddenInput())
+
+
+

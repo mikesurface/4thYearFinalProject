@@ -1,3 +1,5 @@
+from whattoeat.meals.ingredient_search.forms import ServingForm
+
 __author__ = 'michael'
 
 
@@ -28,13 +30,47 @@ class Serving(object):
     nutrient_values is a dictionary mapping nutrient names to their quantity in standard units (kcal for calories, grams for all else).
     See the FatSecretAPI foods.get method for more info.
     '''
-    def __init__(self,serving_description,nutrient_values,quantity,unit,num_units,measurement_description):
-        self.description = serving_description
-        self.nutrient_vals = nutrient_values
-        self.quantity = quantity
-        self.unit = unit
-        self.num_units = num_units
-        self.measurement_description = measurement_description
+    def __init__(self,food_id,serving_id,nutrient_values,quantity,units,metric_quantity=None,metric_units=None):
+        self.food_id = food_id
+        self.serving_id = serving_id
+        self.nutrient_vals = nutrient_values #nutrient values dictionary
+
+        self.quantity =quantity#the quantity in terms of a decimal multiple of the units
+        self.units = units #the unit the measurement is expressed in
+
+        #optional metric descriptions (where available)
+        #should be in g, oz or ml
+        self.metric_quantity = metric_quantity
+        self.metric_units = metric_units
+
+        #build a description
+        self.description = str(quantity) + " " + str(units)
+        if self.metric_quantity and self.metric_units:
+            self.description += " (" + str(metric_quantity) + " " + str(metric_units) + ")"
+
+       #form for displaying hidden data when required
+        initial = {
+            'food_id':food_id,
+            'serving_id':serving_id,
+            'quantity':quantity,
+            'units':units,
+            'calories':nutrient_values['calories'],
+            'protein':nutrient_values['protein'],
+            'carbs':nutrient_values['carbs'],
+            'fat':nutrient_values['fat'],
+        }
+        #now consider optional data
+        if 'satfat' in nutrient_values: initial['satfat'] = nutrient_values['satfat']
+        if 'sugar' in nutrient_values: initial['sugar'] = nutrient_values['sugar']
+        if 'salt' in nutrient_values: initial['salt'] = nutrient_values['salt']
+        if 'fibre' in nutrient_values: initial['fibre'] = nutrient_values['fibre']
+
+        if self.metric_quantity: initial['metric_quantity'] = self.metric_quantity
+        if self.metric_units: initial['metric_units'] = self.metric_units
+
+        self.form = ServingForm(initial=initial)
+
+
 
     def __str__(self):
         output = ""

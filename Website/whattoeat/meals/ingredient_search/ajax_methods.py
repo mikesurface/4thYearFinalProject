@@ -1,14 +1,8 @@
 import math
-
-__author__ = 'michael'
-
 from django.shortcuts import render_to_response
 from django.http.response import HttpResponseBadRequest
+from whattoeat.meals.ingredient_search.forms import ServingForm
 from whattoeat.meals.ingredient_search.utils import fatSecretFoodLookupCall, fatSecretSearchCall, extractResults, NUMBER_PAGES_TO_DISPLAY, pagination_numbers
-
-__author__ = 'michael'
-
-
 
 
 
@@ -33,16 +27,6 @@ def lookup(request):
         return HttpResponseBadRequest()
 
 
-
-
-
-def lookup_test(request, food_id):
-    '''
-    Test method for ingredient lookup
-    '''
-    food_id = int(food_id)
-    servings = fatSecretFoodLookupCall(food_id)
-    return render_to_response('meal_pages/ingredient_search/modal/ingredient_lookup_modal.html', {'servings': servings})
 
 def get_results_page(request, max_results=50):
     '''

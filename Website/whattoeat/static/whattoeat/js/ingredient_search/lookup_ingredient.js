@@ -68,6 +68,6 @@ function create_food_dialog(data, textStatus, jqXHR){
         modal.dialog("destroy")
     });
 
-
+    console.log(modal.html())
 
 }

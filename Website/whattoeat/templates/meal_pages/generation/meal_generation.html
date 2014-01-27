@@ -1,0 +1,10 @@
+{% extends 'base/base_footer_navbar.html' %}
+{% block sub_banner %}Meal Generator{% endblock %}
+
+{% block content %}
+{% if requirements_missing %}
+    <h3 class="error_message">You need a requirements set to generate a meal!</h3>
+    <p>At least one Meal requirements set is required to generate a meal. </p>
+{% endif %}
+
+{% endblock %}

@@ -6,7 +6,7 @@ from whattoeat.accounts.user_views import user_homepage, edit_diet_profile
 from whattoeat.base_views import home_page
 from whattoeat.forms import meal_generation_prototype
 from whattoeat.meals.ingredient_search.ajax_methods import lookup, get_results_page
-from whattoeat.meals.ingredient_search.views import search_ingredient_base
+from whattoeat.meals.ingredient_search.views import search_ingredient_base, capture_test
 from whattoeat.requirements_management.daily_requirements_views import *
 from whattoeat.requirements_management.meal_requirements_views import*
 
@@ -38,6 +38,7 @@ user_urls = patterns('',
 search_urls = patterns('',
                        url(r'^update/$', get_results_page),
                        url(r'^lookup/$', lookup),
+                       #url(r'^capture_test/$',capture_test)
 )
 
 authentication_urls = patterns('',

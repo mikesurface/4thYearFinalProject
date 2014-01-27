@@ -88,25 +88,21 @@ def extractResults(search_results):
 
     return foods
 
-def extractServing(serving):
+def extractServing(serving,food_id):
     '''
     Takes in a serving entry provided by the food.get method of FatSecretAPI and returns a Serving object
     '''
-
-
-    serving_description = serving['serving_description'] #full description of the serving (e.g. 1 cup)
-    num_units = float(serving['number_of_units']) #quantitative component of the above (1 in '1 cup')
-    measurement_description = serving['measurement_description'] #unit component ('cup' in '1 cup')
-
-    quantity = 0
-    unit = ''
+    serving_id = int(serving['serving_id'])
+    #get base quantity and units
+    quantity = float(serving['number_of_units']) #quantitative component of the above (1 in '1 cup')
+    units= serving['measurement_description'] #unit component ('cup' in '1 cup')
 
     #process nutrients
     nutrient_vals = {}
     #core (always available)
     nutrient_vals['calories'] = float(serving['calories'])
     nutrient_vals['protein'] = float(serving['protein'])
-    nutrient_vals['carbohydrate'] = float(serving['carbohydrate'])
+    nutrient_vals['carbs'] = float(serving['carbohydrate'])
     nutrient_vals['fat'] = float(serving['fat'])
     try:
         #sometimes available
@@ -115,20 +111,29 @@ def extractServing(serving):
             nutrient_vals['salt'] = float(serving['sodium']) * 2.5
         if 'sugar' in serving: nutrient_vals['sugar'] = serving['sugar']
         if 'saturated_fat' in serving: nutrient_vals['satfat'] = serving['saturated_fat']
+    except (KeyError,TypeError):
+        pass
 
+    metric_quantity = None
+    metric_units = None
+    try:
         #The following are not always available.
         #quanity and unit combine to give a standardised equivalent of the serving measurement
         #i.e. a measurement in grams, ounces or milliletres
-        if 'quantity' in serving: quantity = float(serving['metric_serving_amount']) #amount of ingredient.
-        if 'metric_serving_unit' in serving: unit = serving['metric_serving_unit'] #unit of measurement (g,oz,etc)
+        if 'metric_serving_amount' in serving: metric_quantity = float(serving['metric_serving_amount']) #amount of ingredient.
+        if 'metric_serving_unit' in serving: metric_units = serving['metric_serving_unit'] #unit of measurement (g,oz,etc)
+    except (KeyError,TypeError):
+        pass
 
-        return Serving(serving_description, nutrient_vals, quantity, unit, num_units, measurement_description)
+    return Serving(food_id=food_id,
+                       serving_id=serving_id,
+                       nutrient_values=nutrient_vals,
+                       quantity=quantity,
+                       units=units,
+                       metric_quantity = metric_quantity,
+                       metric_units = metric_units
+    )
 
-    except (KeyError, TypeError): #problem extracting unavailable info
-        return Serving(serving_description, nutrient_vals, None, None, num_units, None)
-
-    #something went completely wrong
-    return None
 
 
 def fatSecretFoodLookupCall(food_id):
@@ -168,10 +173,10 @@ def fatSecretFoodLookupCall(food_id):
     #Otherwise a list of dictionaries is returned
     if isinstance(result, collections.Mapping):
         #add only serving
-        servings.append(extractServing(result))
+        servings.append(extractServing(result,food_id))
     elif isinstance(result, list):
         for i in range(0, len(result)):
-            servings.append(extractServing(result[i]))
+            servings.append(extractServing(result[i],food_id))
 
     #if result type is neither a list nor dict, empty servings list is returned
     return servings
