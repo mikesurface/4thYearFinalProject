@@ -5,14 +5,8 @@ from Numberjack import *
 import math
 from whattoeat.solver_backend.default_values import SCALING_FACTOR, ALLOWED_REQUIREMENTS_RESTRICTIONS
 
-
-class GenerationException(Exception):
-    def __init__(self,msg):
-        self.msg = msg
-    def __str__(self):
-        return str(self.msg)
-
 class MealGeneratorException(Exception):
+    '''Exception class for MealGenerator'''
     def __init__(self,msg):
         self.msg = msg
     def __str__(self):
@@ -20,11 +14,57 @@ class MealGeneratorException(Exception):
 
     
 def number_places_decimal_accuracy():
+    '''The number of decimal places to which the solver is accurate'''
     return len(str(SCALING_FACTOR)) -1
 
 
 
 class MealGenerator(object):
+    '''
+    Defines a solver for the Single Meal Generation Problem.
+     Given Ingredients, and nutritional requirements, it may attempt to generate a meal which satisfies the requirements
+     from the specified ingredients.
+
+     Some important concepts underly its use
+     Ingredients may be specified in any unit and any quantity, such as 100g, 1 cup , 2oz etc. There are however some
+     special units which are handled differently in the case of non-fixed ingredients (see below)
+     Additionally, ingredients may be fixed or non-fixed. The following is a brief explanation of how these work:
+      If an ingredient is fixed, the solver will only attempt to use positive integer multiples of the ingredient.
+      If it is non-fixed, it will consider the smallest feasible quantity of the ingredient when solving.
+      For example, suppose we give as one of our ingredients 100g of cheese.
+      If we make this fixed, the solver can only use multiples of 100g. This should be used when we wish to use a
+      standard serving. In this case, 200 g would be a possible quantity but 150 would not.
+      If we make this non-fixed (degradable), the solver will work with 1g of the ingredient by taking a copy and
+      converting the nutritional content and quantity to the equivalent for 1g. The means that any number of grams is
+      now a possible solution, giving a greater degree of flexibility when forming a solution.
+      Note that if we had specified 100ml of an ingredient and made it degradable, the solver would use 1ml (and not 1g)
+      A special case occurs when the unit is 'oz' (ounces), 'lbs' (pounds) or 'kg' (kilograms). In this case, the solver
+      will convert the ingredient to 1g and solve as above, but the quantity in the returned meal will be expressed in
+      terms of the original unit.
+      Also, cups and similar units must be specified as follows if the ingredient is degradable:
+        1 + 1/2 a cup (i.e. 1.5 cups) should be specified as 3 half cups. That is the unit is 'half cup' and the quantity is
+        3. Such an ingredient will be degraded to 1 half cup for solving: not to quarter cups or any smaller unit.
+        Specifying this as 1.5 cups will make 1.5 the smalled feasible unit, and no real degradation will occur.
+      The above must be taken into account when specifying the ingredients to the solver.
+      Note that copies of the ingredients are taken when solving: the original ingredients as specified remain intact
+      and can be recovered/changed between meal generations
+
+      There are two forms of nutritional requirement which may be specified: Definite and Restricted:
+      A definite requirement is of the form 'give me within <error_margin> of <value> for the nutrient <nutrient_name>'
+       The error margin must be a percentage (between 0 and 100 inclusive). It is recommended that some small error
+       margin be allowed.
+       An example is 'calories within 5% of 2000kcal'
+      A restricted requirement is the form 'give me <restriction> than <threshold> for the nutrient <nutrient_name>'
+       Possible restrictions are ('<','>','<=','>=').
+       An example is 'salt < 6g'
+
+     Note that the names given to the nutrients specified in the requirements must match (case insensitive) the names
+     given to the nutrients in the ingredients. The solver will only consider the nutrients given in the requirements;
+     any extra nutrients given by ingredients will be ignored. Note that if an ingredient does not provide a nutritional
+     content for a required nutrient, it will be considered that its value for that nutrient is zero. Therefore, if it
+     is zero, there is no need to include it in the ingredients nutritional content.
+
+    '''
     def __init__(self):
         self.ingredients = {} #holds the input ingredients in their original quantities
         self.requirements = {} #holds the requirements
@@ -32,23 +72,59 @@ class MealGenerator(object):
                                   #overwritten by successive generation calls
 
     #
-    # BUILDER METHODS
+    # Ingredients Methods
     #
-
-
     def add_ingredient(self,ingredient):
+        '''
+        Add a new ingredient to the solver.
+        ingredient must be a subclass of Ingredient, or a MealGeneratorException is thrown.
+        '''
         if not isinstance(ingredient,Ingredient):
             raise MealGeneratorException("Can only add objects of type Ingredient")
         self.ingredients[ingredient.name] = ingredient
 
+    def remove_ingredient(self,name):
+        '''
+        Remove an ingredient with the given name.
+        Return the ingredient if it exists.
+        Return None if no ingredient with that name is found.
+        '''
+        return self.ingredients.pop(name.lower(),None)
+
+    def get_ingredient(self,name):
+        '''
+        Get an ingredient with the given name.
+        Return the ingredient if it exists.
+        Return None if no ingredient with that name is found.
+        '''
+        return self.ingredients.get(name.lower(),None)
+
+
+    def get_all_ingredients(self):
+        '''return all ingredients in a list'''
+        return self.ingredients.values()
+
+    def clear_ingredients(self):
+        '''Clears the ingredients in the generator'''
+        ingredients = {}
+
+    #
+    #Requirements Methods
+    #
 
     def add_definite_requirement(self,nutrient_name,target,error_margin):
+        '''Add a definite requirement on a nutrient
+        Raises a MealGeneratorException if a requirement on this nutrient already exists
+        '''
         nutrient_name = nutrient_name.lower()
         if nutrient_name in self.requirements:
             raise MealGeneratorException("A requirement already exists on nutrient: " + nutrient_name)
         self.requirements[nutrient_name] = DefiniteNutrientRequirement(val=target,error=error_margin)
 
     def add_restricted_requirement(self,nutrient_name,threshold,restriction):
+        '''Add a restricted requirement on a nutrient
+        Raises a MealGeneratorException if a requirement on this nutrient already exists
+        '''
         nutrient_name = nutrient_name.lower()
         if nutrient_name in self.requirements:
             raise MealGeneratorException("A requirement already exists on nutrient: " + nutrient_name)
@@ -57,41 +133,44 @@ class MealGenerator(object):
         self.requirements[nutrient_name] = RestrictedNutrientRequirement(threshold=threshold,restriction=restriction)
 
     def remove_requirement(self,nutrient_name):
+        '''Remove the requirement on a nutrient
+        Returns the requirement if it exists
+        Returns None if it does not
+        '''
         nutrient_name = nutrient_name.lower()
         return self.requirements.pop(nutrient_name,None)
 
     def get_requirement(self,nutrient_name):
+        '''Gets the requirement on a nutrient
+        Returns the requirement if it exists
+        Returns None otherwise
+        '''
         nutrient_name = nutrient_name.lower()
         return self.requirements.get(nutrient_name,None)
 
 
     def get_all_requirements(self):
+        '''Returns a dictionary of requirements, keyed by nutrient name'''
         return self.requirements
-
-    def remove_ingredient(self,name):
-        return self.ingredients.pop(name.lower(),None)
-
-    def get_ingredient(self,name):
-        return self.ingredients.get(name.lower(),None)
-
-    def get_all_ingredients(self):
-        return self.ingredients.values()
 
 
     def clear_requirements(self):
+        '''Clears the requirements on the generator'''
         requirement = {}
 
-    def clear_ingredients(self):
-        ingredients = {}
+
 
     def clear(self):
+        '''Clears all ingredients and requirements in the generator'''
         self.clear_requirements()
         self.clear_ingredients()
+
     #
     # GENERATION METHODS
     #
 
     def __compute_nutrient_bounds(self,uppervalues,lowervalues):
+        #Works out the upper and lower bounds for definite requirements from the error margin
         for entry in self.requirements.items():
             nutrient_name = entry[0] #the nutrient being considered
             requirement = entry[1] #the requirement for that nutrient
@@ -156,7 +235,7 @@ class MealGenerator(object):
                 elif requirement.restriction == ">=":
                     m.add(Sum(quantities,nutrient_values.get(nutrient)) >= threshold)
                 else:
-                    raise GenerationException("Invalid restriction on " + str(nutrient))
+                    raise MealGeneratorException("Invalid restriction on " + str(nutrient))
 
         #add constraints for restricted ingredients
         qCursor = 0 #resolves the the quantity variable for the current ingredient
@@ -179,7 +258,7 @@ class MealGenerator(object):
                 elif ingredient.restriction == ">=":
                     m.add(quantities[qCursor] >= threshold)
                 else:
-                    raise GenerationException("Invalid restriction on " + str(ingredient))
+                    raise MealGeneratorException("Invalid restriction on " + str(ingredient))
             qCursor += 1
 
         if printStats:
@@ -219,6 +298,37 @@ class MealGenerator(object):
 
 
     def generate(self,printStats=False):
+        '''
+        Generate a meal from the current ingredrients and requirments.
+        If a solution is found, a JSON response is returned with the following structure:
+        {'quantities':{
+            <food_name0>:{'serving':<serving0>,'unit;:<unit0>,'quantity':<quantity0>},
+            <food_name1>:{'serving':<serving1>,'unit;:<unit1>,'quantity':<quantity1>},
+            ....
+            }
+         'content':{
+            <nutrient0>:<total0>,
+            <nutrient1>:<total1>,
+            ....
+        }
+
+        'quantities' holds the amount of each ingredient in the constructed meal
+        For each entry, the serving is the serving size
+                        the unit is the unit of the serving size (eg g,oz,etc)
+                        the quantity is the number of servings in the meal
+        'content' holds the nutritional content of the meal
+        Each pair is a nutrient name and the total quantity of that nutrient in the meal.
+
+        If no solution can be found, None is returned.
+
+        The solver must contain at least one requirement and one ingredient before this is called.
+        This method may raise a MealGenerator exception under a number of circumstances.
+        If the printStats flag is set to True, the generator will print debug info including the underlying solver model
+        and variables.
+        '''
+        if len(self.ingredients) < 1 or len(self.requirements) < 1:
+            raise MealGeneratorException("Need at least one ingredient and one requirement")
+
         #do necessary conversions on ingredients
         #take a copy first
         self.ingredients_copy = deepcopy(self.ingredients)
@@ -253,15 +363,7 @@ class MealGenerator(object):
             for i in ingredients:
                 print str(i.name) + ": " + str(i.nutrient_values)
 
-        result = self.__generate_meal(ingredients,printStats)
-
-
-        if printStats:
-            print "INGREDIENTS:"
-            for ingredient in ingredients:
-                print str(ingredient) +": "  + str(ingredient.nutrient_values)
-
-
+        #Attempt to generate the meal
         output = self.__generate_meal(ingredients,printStats)
         if not output:
             return None #no solution

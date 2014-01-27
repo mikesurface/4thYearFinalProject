@@ -64,12 +64,10 @@ function create_food_dialog(data, textStatus, jqXHR){
 
       //when closed we must completely destroy the dialog
     modal.on("dialogclose",function(){
-        initial.css('display','none'); //clear all trace of the dialogue when closed
         modal_space.empty();
-        console.log("CLOSE:");
-        console.log($('body').html());
+        modal.dialog("destroy")
     });
 
-    console.log($('body').html());
+
 
 }
