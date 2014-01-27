@@ -68,7 +68,8 @@ class DietProfile(models.Model):
 
     def __str__(self):
         return (
-            "{user:" + self.user.get_full_name() + ",height:" + self.height + ",weight:" + self.weight + ",age:" + self.age
+            "{user:" + self.user.get_full_name() + ",height:" + str(self.height) + ",weight:" + str(self.weight)
+            + ",age:" + str(self.age)
             + ",gender:" + self.gender + ",goal:" + self.goal + "}"
         )
 

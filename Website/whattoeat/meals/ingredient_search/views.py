@@ -52,7 +52,7 @@ def search_ingredient_base(request, max_results=MAX_RESULTS):
 
             args['search_results'] = foods
             args['search_text'] = search_text
-            args['form'] = search_form
+            args['ingredients_search_form'] = search_form
             args['total_results'] = total_results
             args['total_pages'] = total_number_pages
             args['page_number'] = page_number
@@ -64,20 +64,7 @@ def search_ingredient_base(request, max_results=MAX_RESULTS):
 
     #search not yet made or form is invalid
     search_form = FoodSearchForm()
-    args['form'] = search_form
+    args['ingredients_search_form'] = search_form
     args['not_searched_yet'] = True
     return render_to_response('meal_pages/ingredient_search/ingredients_search_base.html', args)
 
-def capture_test(request):
-    serving_form = ServingForm(request.GET or None)
-    if serving_form.is_valid():
-        data = serving_form.cleaned_data
-        args = {}
-        args['quantity'] = data['quantity']
-        args['units'] = data['units']
-        args['calories'] = data['calories']
-        args['satfat'] = data['satfat']
-        args['metric_quantity'] = data['metric_quantity']
-        args['metric_units'] = data['metric_units']
-
-        return render_to_response('meal_pages/ingredient_search/ingredients_capture.html',args)

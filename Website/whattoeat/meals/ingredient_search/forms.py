@@ -22,7 +22,7 @@ class FoodSearchForm(forms.Form):
         helper.form_action = "."
         helper.form_show_labels = False
         helper.layout = Layout(
-           FieldWithButtons('search_text',PlainSubmit('search','Search',css_class="btn-success ")),
+           FieldWithButtons('search_text',PlainSubmit('search','Search',css_class="btn-success",css_id="ingredient_search_submit")),
         )
 
 class ServingForm(forms.Form):

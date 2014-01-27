@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="889b1f4a-d71e-4bba-86f2-2e6798dac19a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/meals/generation/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_add_ingredient_modal.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/ingredients_capture.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/generation/meal_generation.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/whattoeat/templates/meal_pages/meal_generation/meal_generation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/whattoeat/templates/meal_pages/meal_generation/meal_generation_content.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/meals/ingredient_search/ajax_methods.py" afterPath="$PROJECT_DIR$/whattoeat/meals/ingredient_search/ajax_methods.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/meals/fatsecret_wrappers/foods.py" afterPath="$PROJECT_DIR$/whattoeat/meals/fatsecret_wrappers/foods.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/templates/base/base_modal_space.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/ingredients_search_compressed.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/ingredients_search_results_compressed.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/results_display_compressed.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/pagination/search_pagination.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/ingredients_capture.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/search_bars/ingredient_search_ajax_searchbar.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/static/whattoeat/css/base.css" afterPath="$PROJECT_DIR$/whattoeat/static/whattoeat/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/meals/ingredient_search/forms.py" afterPath="$PROJECT_DIR$/whattoeat/meals/ingredient_search/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_modal.html" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_modal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_modal_container.html" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_modal_container.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/static/whattoeat/js/ingredient_search/lookup_ingredient.js" afterPath="$PROJECT_DIR$/whattoeat/static/whattoeat/js/ingredient_search/lookup_ingredient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/search_bars/ingredient_search_base_searchbar.html" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/search_bars/ingredient_search_base_searchbar.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/ingredient_search_results.html" afterPath="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/ingredient_search_results.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/models.py" afterPath="$PROJECT_DIR$/whattoeat/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/urls.py" afterPath="$PROJECT_DIR$/whattoeat/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/meals/ingredient_search/utils.py" afterPath="$PROJECT_DIR$/whattoeat/meals/ingredient_search/utils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whattoeat/meals/ingredient_search/views.py" afterPath="$PROJECT_DIR$/whattoeat/meals/ingredient_search/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -51,100 +50,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lookup_ingredient.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whattoeat/static/whattoeat/js/ingredient_search/lookup_ingredient.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="39" selection-start="665" selection-end="665" vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="1170">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ingredient_lookup_modal.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_modal.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="26" selection-start="3374" selection-end="3374" vertical-scroll-proportion="-17.458334" vertical-offset="1096" max-vertical-offset="1680">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ingredient_lookup_add_ingredient_modal.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_add_ingredient_modal.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="57" selection-start="162" selection-end="162" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="195">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whattoeat/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="24" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1110">
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="forms.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="62" selection-start="1885" selection-end="1885" vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="810">
+            <state line="18" column="34" selection-start="610" selection-end="610" vertical-scroll-proportion="0.43598056" vertical-offset="1" max-vertical-offset="810">
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="meal_generation.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/generation/meal_generation.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="321" selection-end="321" vertical-scroll-proportion="0.22018349" vertical-offset="0" max-vertical-offset="545">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="0" selection-start="2823" selection-end="2823" vertical-scroll-proportion="0.0" vertical-offset="637" max-vertical-offset="1275">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="28" selection-start="4180" selection-end="4180" vertical-scroll-proportion="0.0" vertical-offset="1126" max-vertical-offset="2760">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_methods.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/ajax_methods.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="44" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0" vertical-offset="650" max-vertical-offset="1230">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="foods.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whattoeat/meals/fatsecret_wrappers/foods.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="0" selection-start="3030" selection-end="3030" vertical-scroll-proportion="0.0" vertical-offset="682" max-vertical-offset="1275">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -167,22 +79,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/whattoeat/solver_backend/MealClasses.py" />
-        <option value="$PROJECT_DIR$/whattoeat/solver_backend/UnitConversions.py" />
-        <option value="$PROJECT_DIR$/whattoeat/solver_backend/tests/meal_generation_test.py" />
-        <option value="$PROJECT_DIR$/whattoeat/solver_backend/MealGeneration.py" />
-        <option value="$PROJECT_DIR$/whattoeat/meals/fatsecret_wrappers/foods.py" />
-        <option value="$PROJECT_DIR$/whattoeat/meals/ingredient_search/ajax_methods.py" />
-        <option value="$PROJECT_DIR$/whattoeat/meals/ingredient_search/forms.py" />
-        <option value="$PROJECT_DIR$/whattoeat/meals/ingredient_search/utils.py" />
-        <option value="$PROJECT_DIR$/whattoeat/static/whattoeat/js/ingredient_search/lookup_ingredient.js" />
-        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/ingredients_capture.html" />
-        <option value="$PROJECT_DIR$/whattoeat/meals/ingredient_search/views.py" />
-        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_modal_container.html" />
-        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_modal.html" />
-        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_add_ingredient_modal.html" />
-        <option value="$PROJECT_DIR$/whattoeat/urls.py" />
         <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/generation/meal_generation.html" />
+        <option value="$PROJECT_DIR$/whattoeat/meals/ingredient_search/forms.py" />
+        <option value="$PROJECT_DIR$/whattoeat/static/whattoeat/css/base.css" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/base/base_no_banner_navbar_or_footer.html" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/base/base_modal_space.html" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/search_bars/ingredient_search_base_searchbar.html" />
+        <option value="$PROJECT_DIR$/whattoeat/urls.py" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/pagination/search_pagination.html" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/ingredients_search_results_full.html" />
+        <option value="$PROJECT_DIR$/whattoeat/models.py" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/ingredient_search_results.html" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/ingredients_search_results_compressed.html" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/results_display_compressed.html" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/results_display_full.html" />
+        <option value="$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/ingredients_search_compressed.html" />
+        <option value="$PROJECT_DIR$/whattoeat/meals/ingredient_search/views.py" />
       </list>
     </option>
   </component>
@@ -306,6 +218,10 @@
               <option name="myItemId" value="meal_pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ingredient_search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -329,7 +245,159 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="generation" />
+              <option name="myItemId" value="ingredient_search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search_bars" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meal_pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ingredient_search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="results" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meal_pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ingredient_search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pagination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meal_pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Website" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whattoeat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,29 +437,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="generation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Website" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Website" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whattoeat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="meals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fatsecret_wrappers" />
+              <option name="myItemId" value="ingredient_search" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -870,14 +916,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1867794" sideWeight="0.71826625" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1867794" sideWeight="0.71826625" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993808" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -908,117 +954,125 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/whattoeat/solver_backend/UnitConversions.py">
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/base/base_modal_space.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="14" selection-start="119" selection-end="119" vertical-scroll-proportion="0.13793103" vertical-offset="0" max-vertical-offset="435" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/solver_backend/default_values.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="21" selection-start="45" selection-end="45" vertical-scroll-proportion="0.06896552" vertical-offset="0" max-vertical-offset="435" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/solver_backend/tests/meal_generation_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="259" column="0" selection-start="9930" selection-end="9930" vertical-scroll-proportion="0.9310345" vertical-offset="3450" max-vertical-offset="4395" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/solver_backend/MealGeneration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="369" column="0" selection-start="17528" selection-end="17528" vertical-scroll-proportion="-1.8275862" vertical-offset="6330" max-vertical-offset="6765" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/ajax_methods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="44" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="1230">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/ingredients_capture.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="39" selection-start="199" selection-end="199" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="255">
+        <state line="22" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.6055046" vertical-offset="0" max-vertical-offset="545">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/views.py">
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/search_bars/ingredient_search_base_searchbar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="2823" selection-end="2823" vertical-scroll-proportion="0.0" vertical-offset="637" max-vertical-offset="1275">
+        <state line="3" column="6" selection-start="99" selection-end="99" vertical-scroll-proportion="0.07908612" vertical-offset="0" max-vertical-offset="569">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/meals/fatsecret_wrappers/foods.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="3030" selection-end="3030" vertical-scroll-proportion="0.0" vertical-offset="682" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="28" selection-start="4180" selection-end="4180" vertical-scroll-proportion="0.0" vertical-offset="1126" max-vertical-offset="2760">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_modal_container.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="57" selection-start="112" selection-end="112" vertical-scroll-proportion="0.02636204" vertical-offset="0" max-vertical-offset="569">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/static/whattoeat/js/ingredient_search/lookup_ingredient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="39" selection-start="665" selection-end="665" vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="1170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="26" selection-start="3374" selection-end="3374" vertical-scroll-proportion="-17.458334" vertical-offset="1096" max-vertical-offset="1680">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_add_ingredient_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="57" selection-start="162" selection-end="162" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="62" selection-start="1885" selection-end="1885" vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="810">
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/whattoeat/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="24" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1110">
+        <state line="39" column="49" selection-start="1642" selection-end="1642" vertical-scroll-proportion="0.4317032" vertical-offset="329" max-vertical-offset="1095">
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/generation/meal_generation.html">
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/modal/ingredient_lookup_modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="321" selection-end="321" vertical-scroll-proportion="0.22018349" vertical-offset="0" max-vertical-offset="545">
+        <state line="81" column="35" selection-start="2769" selection-end="2805" vertical-scroll-proportion="0.20913884" vertical-offset="1096" max-vertical-offset="1680">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/base/base_no_navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="40" selection-start="0" selection-end="2385" vertical-scroll-proportion="0.18453427" vertical-offset="0" max-vertical-offset="1230">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/pagination/search_pagination.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="0" selection-end="1013" vertical-scroll-proportion="0.685413" vertical-offset="0" max-vertical-offset="569">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/results_display_full.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="82" selection-start="106" selection-end="106" vertical-scroll-proportion="0.028790787" vertical-offset="0" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/results_display_compressed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="4" selection-start="28" selection-end="106" vertical-scroll-proportion="0.027522936" vertical-offset="0" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/ingredients_search_results_compressed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="36" selection-start="36" selection-end="36" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/ingredients_search_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="8" selection-start="448" selection-end="812" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/ingredients_search_compressed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="90" selection-start="274" selection-end="274" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="45" selection-start="2365" selection-end="2365" vertical-scroll-proportion="0.5672414" vertical-offset="526" max-vertical-offset="1140">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/static/whattoeat/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="20" selection-start="244" selection-end="244" vertical-scroll-proportion="0.3288364" vertical-offset="0" max-vertical-offset="1905">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/templates/meal_pages/ingredient_search/results/ingredient_search_results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="36" selection-start="77" selection-end="77" vertical-scroll-proportion="0.02636204" vertical-offset="0" max-vertical-offset="569">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="12" selection-start="2722" selection-end="2722" vertical-scroll-proportion="0.49918962" vertical-offset="757" max-vertical-offset="9255">
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whattoeat/meals/ingredient_search/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="34" selection-start="610" selection-end="610" vertical-scroll-proportion="0.43598056" vertical-offset="1" max-vertical-offset="810">
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

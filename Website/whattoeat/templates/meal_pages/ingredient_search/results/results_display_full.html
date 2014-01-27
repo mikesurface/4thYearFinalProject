@@ -1,0 +1,51 @@
+{% if search_results %}
+    {% include 'meal_pages/ingredient_search/pagination/search_pagination.html' %}
+    <div>
+        <table class="table table-condensed table-striped table-responsive">
+            <tr>
+                <th>Food Name</th>
+                <th>Description</th>
+            </tr>
+            {% for food in search_results %}
+                {% if food.brand %}
+                    <tr>
+                        <td>
+                            <button class="btn btn-link" type="button"
+                                    onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
+                                {{ food.name }} by {{ food.brand }}
+                            </button>
+                        </td>
+
+                        <td>
+                            <button class="btn btn-link" type="button"
+                                    onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
+                                {{ food.description }}
+                            </button>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>
+                            <button class="btn btn-link" type="button"
+                                    onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
+                                {{ food.name }}
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-link" type="button"
+                                    onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
+                                {{ food.description }}
+                            </button>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+{% elif not_searched_yet %}
+    {# display nothing, ingredient_search not yet conducted #}
+{% else %}
+    <div>
+        <p class="largerfont">No Results</p>
+    </div>
+{% endif %}
