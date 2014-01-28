@@ -7,7 +7,10 @@ function fixPageHeights() {
     $('.wrapper').height($(window).height() - ($('.banner').height() + $('.sub_banner').height() + 2 * $('.footer').height() + 10));
 }
 
-
+function max_element_height(){
+    ///return the max height any element can take while respecting the layout
+    return ($(window).height() - ($('.banner').height() + $('.sub_banner').height() + 2 * $('.footer').height() + 10));
+}
 function adjust(){
     fixPageHeights();
 }

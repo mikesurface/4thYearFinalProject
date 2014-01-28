@@ -5,6 +5,7 @@ from whattoeat.accounts.auth_views import *
 from whattoeat.accounts.user_views import user_homepage, edit_diet_profile
 from whattoeat.base_views import home_page
 from whattoeat.forms import meal_generation_prototype
+from whattoeat.meals.generation.views import meal_generation
 from whattoeat.meals.ingredient_search.ajax_methods import lookup, get_results_page
 from whattoeat.meals.ingredient_search.views import search_ingredient_base
 from whattoeat.requirements_management.daily_requirements_views import *
@@ -60,6 +61,10 @@ urlpatterns = patterns('',
                        #search
                        url(r'^search_ingredient/$', search_ingredient_base),
                        url(r'^search_ingredient/', include(search_urls)),
+
+
+                       #generation
+                       url(r'^meal_generator/$',meal_generation),
 
                        #user pages
                        url(r'^user/', include(user_urls)),

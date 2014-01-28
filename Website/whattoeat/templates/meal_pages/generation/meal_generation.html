@@ -1,10 +1,33 @@
 {% extends 'base/base_footer_navbar.html' %}
 {% block sub_banner %}Meal Generator{% endblock %}
 
+{% load static %}
+
+{% block stylesheet_declarations %}
+    {{ block.super }}
+    <link href="{% static "whattoeat/css/pagination_buttons_bootstrap_extension.css" %}" rel="stylesheet"/>
+    <link href="{% static "whattoeat/css/ingredient_search/search_ingredient.css" %}" rel="stylesheet"/>
+{% endblock %}
+
 {% block content %}
 {% if requirements_missing %}
     <h3 class="error_message">You need a requirements set to generate a meal!</h3>
     <p>At least one Meal requirements set is required to generate a meal. </p>
 {% endif %}
 
+    <button onclick="display_compressed_search();">Add An Ingredient</button>
+
+<div id="compressed_search_modal_space" style="display:none">
+    {# space for the ingredients search to be rendered #}
+    {% include 'meal_pages/ingredient_search/ingredients_search_compressed.html' %}
+</div>
+{% endblock %}
+
+{% block script_declarations %}
+    {{ block.super }}
+<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/loadPage.js" %}"></script>
+<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/lookup_ingredient.js" %}"></script>
+
+{# Must be preceeded by loadPage.js #}
+<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/embedded_search/compressed_search.js" %}"></script>
 {% endblock %}

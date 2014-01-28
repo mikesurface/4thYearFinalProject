@@ -1,7 +1,6 @@
 import math
 from django.shortcuts import render_to_response
 from django.http.response import HttpResponseBadRequest
-from whattoeat.meals.ingredient_search.forms import ServingForm
 from whattoeat.meals.ingredient_search.utils import fatSecretFoodLookupCall, fatSecretSearchCall, extractResults, NUMBER_PAGES_TO_DISPLAY, pagination_numbers
 
 
@@ -17,8 +16,14 @@ def lookup(request):
         food_name = str(request.GET['food_name'])
 
         servings = fatSecretFoodLookupCall(food_id)
-        return render_to_response('meal_pages/ingredient_search/modal/ingredient_lookup_modal.html',
-                                  {
+
+        #check to see if the request came from full or compressed search
+        if 'add_ingredient_button' in request.GET and str(request.GET['add_ingredient_button']) == 'True':
+            template = 'meal_pages/ingredient_search/modal/ingredient_lookup_add_ingredient_modal.html'
+        else:
+            template = 'meal_pages/ingredient_search/modal/ingredient_lookup_modal.html'
+
+        return render_to_response(template, {
                                       'servings': servings,
                                       'food_name': food_name,
                                   })
@@ -41,6 +46,15 @@ def get_results_page(request, max_results=50):
         search_text = request.GET['search_text']
         page_number = int(request.GET['page_number'])
 
+        number_pages_to_display = NUMBER_PAGES_TO_DISPLAY
+
+        #make changes if being used in compressed mode
+        compressed = False
+        if 'compressed' in request.GET:
+            compressed = True
+            max_results = 25
+            number_pages_to_display = 10
+
         #call API ingredient_search
         result = fatSecretSearchCall(search_text, page_number, max_results)
 
@@ -53,7 +67,7 @@ def get_results_page(request, max_results=50):
             foods = extractResults(result)
 
             #calculate pages to be displayed
-            page_numbers_to_display = pagination_numbers(page_number, NUMBER_PAGES_TO_DISPLAY, total_number_pages)
+            page_numbers_to_display = pagination_numbers(page_number, number_pages_to_display, total_number_pages)
 
         #catch problems with API
         except (KeyError, TypeError):
@@ -62,7 +76,12 @@ def get_results_page(request, max_results=50):
             page_numbers_to_display = 0
             foods = []
 
-        return render_to_response('meal_pages/ingredient_search/results/ingredient_search_results.html',
+        if compressed:
+            template = 'meal_pages/ingredient_search/results/ingredient_search_results_compressed.html'
+        else:
+            template =  'meal_pages/ingredient_search/results/ingredient_search_results.html'
+
+        return render_to_response(template,
                                   {'search_text': search_text,
                                    'search_results': foods,
                                    'total_results': total_results,

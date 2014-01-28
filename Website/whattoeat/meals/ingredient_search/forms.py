@@ -1,4 +1,4 @@
-from crispy_forms.bootstrap import FormActions, FieldWithButtons
+from crispy_forms.bootstrap import FieldWithButtons
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div
 from whattoeat.forms.custom_crispy_layouts import PlainSubmit
@@ -21,9 +21,17 @@ class FoodSearchForm(forms.Form):
         helper.form_method = "GET"
         helper.form_action = "."
         helper.form_show_labels = False
+        helper.form_id = "ingredients_search_form"
         helper.layout = Layout(
            FieldWithButtons('search_text',PlainSubmit('search','Search',css_class="btn-success",css_id="ingredient_search_submit")),
         )
+
+class FoodSearchFormCompressed(FoodSearchForm):
+    '''Form for ingredients search using AJAX in compressed search'''
+    def __init__(self,*args,**kwargs):
+        super(FoodSearchFormCompressed, self).__init__(*args, **kwargs)
+        self.helper.form_tag = False
+
 
 class ServingForm(forms.Form):
     '''Form for displaying a serving of an ingredient, with info required to manipulate the ingredient further'''

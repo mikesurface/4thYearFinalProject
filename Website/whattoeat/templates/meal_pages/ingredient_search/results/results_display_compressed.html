@@ -1,5 +1,5 @@
 {% if search_results %}
-    {% include 'meal_pages/ingredient_search/pagination/search_pagination.html' %}
+    {% include 'meal_pages/ingredient_search/pagination/pagination_compressed.html' %}
     <div>
         <table class="table table-condensed table-striped table-responsive">
             <tr>
@@ -10,7 +10,7 @@
                     <tr>
                         <td>
                             <button class="btn btn-link" type="button"
-                                    onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
+                                    onclick="lookup_ingredient_with_add({{ food.id }},'{{ food.name }}');">
                                 {{ food.name }} by {{ food.brand }}
                             </button>
                         </td>
@@ -19,7 +19,7 @@
                     <tr>
                         <td>
                             <button class="btn btn-link" type="button"
-                                    onclick="lookup_ingredient({{ food.id }},'{{ food.name }}');">
+                                    onclick="lookup_ingredient_with_add({{ food.id }},'{{ food.name }}');">
                                 {{ food.name }}
                             </button>
                         </td>

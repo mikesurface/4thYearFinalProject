@@ -5,7 +5,6 @@
 /**Ajax method for looking up an ingredient
  On success initialize a dialog containing info on the ingredient
  */
-
 function lookup_ingredient(food_id,food_name){
 
     $.ajax({
@@ -14,6 +13,24 @@ function lookup_ingredient(food_id,food_name){
         data: {
             'food_id': food_id,
             'food_name': food_name
+        },
+        success: create_food_dialog,
+        dataType: 'html'
+  });
+}
+/**
+ * As above but creates the modal with an 'add ingredient' button
+ * @param food_id
+ * @param food_name
+ */
+function lookup_ingredient_with_add(food_id,food_name){
+    $.ajax({
+        type: 'GET',
+        url: '/search_ingredient/lookup/',
+        data: {
+            'food_id': food_id,
+            'food_name': food_name,
+            'add_ingredient_button':'True'
         },
         success: create_food_dialog,
         dataType: 'html'
@@ -68,6 +85,6 @@ function create_food_dialog(data, textStatus, jqXHR){
         modal.dialog("destroy")
     });
 
-    console.log(modal.html())
+    //console.log(modal.html())
 
 }
