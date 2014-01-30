@@ -1,7 +1,8 @@
 import math
 from django.shortcuts import render_to_response
 from django.http.response import HttpResponseBadRequest
-from whattoeat.meals.ingredient_search.utils import fatSecretFoodLookupCall, fatSecretSearchCall, extractResults, NUMBER_PAGES_TO_DISPLAY, pagination_numbers
+from whattoeat.meals.ingredient_search.utils import fatSecretFoodLookupCall, \
+    fatSecretSearchCall, extractResults, NUMBER_PAGES_TO_DISPLAY, pagination_numbers
 
 
 
@@ -15,7 +16,7 @@ def lookup(request):
         food_id = int(request.GET['food_id'])
         food_name = str(request.GET['food_name'])
 
-        servings = fatSecretFoodLookupCall(food_id)
+        servings = fatSecretFoodLookupCall(food_id,food_name)
 
         #check to see if the request came from full or compressed search
         if 'add_ingredient_button' in request.GET and str(request.GET['add_ingredient_button']) == 'True':
@@ -92,4 +93,7 @@ def get_results_page(request, max_results=50):
                                   })
     else: #should never happen problem with request
         return HttpResponseBadRequest()
+
+
+
 

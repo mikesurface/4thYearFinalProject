@@ -5,11 +5,13 @@ from whattoeat.accounts.auth_views import *
 from whattoeat.accounts.user_views import user_homepage, edit_diet_profile
 from whattoeat.base_views import home_page
 from whattoeat.forms import meal_generation_prototype
+from whattoeat.meals.generation.ajax_methods import serving_to_ingredient_form
 from whattoeat.meals.generation.views import meal_generation
 from whattoeat.meals.ingredient_search.ajax_methods import lookup, get_results_page
 from whattoeat.meals.ingredient_search.views import search_ingredient_base
 from whattoeat.requirements_management.daily_requirements_views import *
 from whattoeat.requirements_management.meal_requirements_views import*
+from whattoeat.requirements_management.views import update_requirements_success
 
 admin.autodiscover()
 
@@ -25,6 +27,8 @@ requirements_urls = patterns('',
    url(r'^add_meal_requirements/$',add_meal_requirements),
    url(r'^edit_meal_requirements/(?P<name>[\w ]{1,100})/$',edit_meal_requirements),
    url(r'^remove_meal_requirements/(?P<name>[\w ]{1,100})/$',remove_meal_set),
+
+   url(r'^update_requirements_success/$',update_requirements_success)
 )
 
 
@@ -39,6 +43,7 @@ user_urls = patterns('',
 search_urls = patterns('',
                        url(r'^update/$', get_results_page),
                        url(r'^lookup/$', lookup),
+                       url(r'^serving_to_ingredient/$',serving_to_ingredient_form)
 )
 
 authentication_urls = patterns('',

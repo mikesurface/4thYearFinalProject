@@ -35,5 +35,4 @@ function loadPage_compressed(search_text,page_number){
 /**Changes the results sections to render the new page*/
 function loadSuccess(data, textStatus, jqXHR) {
     $('#ingredient_search_results').html(data);
-    console.log(data);
 }

@@ -30,7 +30,8 @@ class Serving(object):
     nutrient_values is a dictionary mapping nutrient names to their quantity in standard units (kcal for calories, grams for all else).
     See the FatSecretAPI foods.get method for more info.
     '''
-    def __init__(self,food_id,serving_id,nutrient_values,quantity,units,metric_quantity=None,metric_units=None):
+    def __init__(self,food_name,food_id,serving_id,nutrient_values,quantity,units,metric_quantity=None,metric_units=None):
+        self.food_name = food_name
         self.food_id = food_id
         self.serving_id = serving_id
         self.nutrient_vals = nutrient_values #nutrient values dictionary
@@ -50,8 +51,10 @@ class Serving(object):
 
        #form for displaying hidden data when required
         initial = {
+            'food_name':food_name,
             'food_id':food_id,
             'serving_id':serving_id,
+            'description':self.description,
             'quantity':quantity,
             'units':units,
             'calories':nutrient_values['calories'],

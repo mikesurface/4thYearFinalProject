@@ -88,7 +88,7 @@ def extractResults(search_results):
 
     return foods
 
-def extractServing(serving,food_id):
+def extractServing(serving,food_id,food_name):
     '''
     Takes in a serving entry provided by the food.get method of FatSecretAPI and returns a Serving object
     '''
@@ -125,7 +125,8 @@ def extractServing(serving,food_id):
     except (KeyError,TypeError):
         pass
 
-    return Serving(food_id=food_id,
+    return Serving(food_name=food_name,
+                       food_id=food_id,
                        serving_id=serving_id,
                        nutrient_values=nutrient_vals,
                        quantity=quantity,
@@ -136,7 +137,7 @@ def extractServing(serving,food_id):
 
 
 
-def fatSecretFoodLookupCall(food_id):
+def fatSecretFoodLookupCall(food_id,food_name):
     '''
     Returns a list of servings for the food_id.
     Each serving describes the nutritional content for a particular standard quantity than food.
@@ -173,10 +174,10 @@ def fatSecretFoodLookupCall(food_id):
     #Otherwise a list of dictionaries is returned
     if isinstance(result, collections.Mapping):
         #add only serving
-        servings.append(extractServing(result,food_id))
+        servings.append(extractServing(result,food_id,food_name))
     elif isinstance(result, list):
         for i in range(0, len(result)):
-            servings.append(extractServing(result[i],food_id))
+            servings.append(extractServing(result[i],food_id,food_name))
 
     #if result type is neither a list nor dict, empty servings list is returned
     return servings

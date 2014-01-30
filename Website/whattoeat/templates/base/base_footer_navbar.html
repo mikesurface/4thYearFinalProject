@@ -114,7 +114,8 @@ by template blocks rather than context variables
 <script src="{% static "whattoeat/js/base/base_adjust_elements.js" %}"></script>
 {# correctly set the colour of all navbar links at runtime #}
 <script src={% static "whattoeat/js/base/colour_links.js" %}></script>
-
+{# base scripts for formset manipulation #}
+<script src="{% static 'whattoeat/js/base/formset_manipulation.js' %}"></script>
 {% block script_declarations %}
 {% endblock %}
 

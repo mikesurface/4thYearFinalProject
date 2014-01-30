@@ -26,10 +26,13 @@
             </li>
         {% endfor %}
         </ol>
+        <div><a href="/user/requirements/add_meal_requirements/" class="btn btn-success btn-lg">Add A Meal Requirements Set</a></div>
         </div>
     {% else %}
         <h3 class = "error_message">You dont have any meal requirements sets</h3>
         <p>Click the add button to add a new one</p>
+        <div><a href="/user/requirements/add_meal_requirements/" class="btn btn-success btn-lg">Add A Meal Requirements Set</a></div>
     {% endif %}
+
 {% endblock %}
 

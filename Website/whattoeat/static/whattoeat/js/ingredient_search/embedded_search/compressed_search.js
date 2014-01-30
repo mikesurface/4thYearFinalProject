@@ -20,6 +20,12 @@ function display_compressed_search(){
         position: {'my':'center','at':'center top','of':'.wrapper'}
     });
 
+    modal.on("dialogclose",function(){
+        $(this).dialog("close");
+        modal.css('display','none');
+
+    });
+
     modal.css({'display':'block','max-height':max_element_height(),'y-overflow':'scroll'});
 }
 

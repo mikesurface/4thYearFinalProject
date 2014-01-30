@@ -85,6 +85,6 @@ function create_food_dialog(data, textStatus, jqXHR){
         modal.dialog("destroy")
     });
 
-    //console.log(modal.html())
+    $(document).trigger("ing_lookup");
 
 }

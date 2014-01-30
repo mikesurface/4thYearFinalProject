@@ -4,7 +4,6 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from whattoeat.requirements_management.forms import DefiniteRequirementForm, RestrictedRequirementForm, MealRequirementsSetForm, DailyRequirementsSetForm
 from whattoeat.models import DefiniteDietRequirement, RestrictedDietRequirement
-from whattoeat.requirements_management.utils import collate_restricted_requirements, collate_definite_requirements, calculate_daily_requirements_from_profile
 from whattoeat.utilities import build_user_args, build_user_args_for_form
 
 
@@ -17,8 +16,8 @@ def edit_requirements_set(request,daily=False,name=""):
         args['daily'] = True
 
     #define formsets
-    DefiniteRequirementFormSet = modelformset_factory(DefiniteDietRequirement,form=DefiniteRequirementForm)
-    RestrictedRequirementFormSet = modelformset_factory(RestrictedDietRequirement,form=RestrictedRequirementForm)
+    DefiniteRequirementFormSet = modelformset_factory(DefiniteDietRequirement,form=DefiniteRequirementForm,extra=0)
+    RestrictedRequirementFormSet = modelformset_factory(RestrictedDietRequirement,form=RestrictedRequirementForm,extra=0)
 
     #data submitted
     if request.method.upper() == "POST":
@@ -58,7 +57,7 @@ def edit_requirements_set(request,daily=False,name=""):
                 restriction = form.cleaned_data['restriction']
                 req_set.add_restricted_requirement(name,value,restriction)
 
-            return HttpResponseRedirect('/user/requirements/my_daily_requirements/')
+            return HttpResponseRedirect('/user/requirements/update_requirements_success/')
 
         #return form, its not valid
         else:
@@ -87,26 +86,36 @@ def edit_requirements_set(request,daily=False,name=""):
     args['req_set_form'] = req_set_form
 
     #fetch all requirements attached to this profile and use them to initialise appropriate forms
+
+    if req_set:
+        def_reqs = req_set.get_all_definite_requirements()
+        res_reqs =  req_set.get_all_restricted_requirements()
+    else:
+        def_reqs = None
+        res_reqs = None
+
     #definite requirements
-    def_reqs = req_set.get_all_definite_requirements()
     if def_reqs:
         def_req_formset = DefiniteRequirementFormSet(queryset=def_reqs,prefix="definite")
     else:
         #no def requirements
-        def_req_formset = DefiniteRequirementFormSet(prefix="definite")
+        def_req_formset = DefiniteRequirementFormSet(prefix="definite",queryset=None)
+
     args['def_req_formset'] = def_req_formset
 
     #restricted requirements
-    res_reqs =  req_set.get_all_restricted_requirements()
+
     if res_reqs:
         res_req_formset = RestrictedRequirementFormSet(queryset=res_reqs,prefix="restricted")
     else:
         #no restricted requirements
-        res_req_formset = RestrictedRequirementFormSet(prefix="restricted")
+        res_req_formset = RestrictedRequirementFormSet(prefix="restricted",queryset=None)
     args['res_req_formset'] = res_req_formset
 
     return render_to_response('user_pages/profile/requirements/meal_profile_edit.html',args)
 
-
-
+@login_required()
+def update_requirements_success(request):
+    args = build_user_args(request)
+    return render_to_response('user_pages/profile/requirements/requirements_update_success.html',args)
 

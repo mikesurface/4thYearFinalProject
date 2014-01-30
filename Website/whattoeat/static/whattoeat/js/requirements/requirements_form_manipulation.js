@@ -4,20 +4,13 @@
  */
 
 $(document).ready(function () {
-    // Code adapted from http://djangosnippets.org/snippets/1389/
-    function updateElementIndex(el, prefix, ndx) {
-        var id_regex = new RegExp('(' + prefix + '-\\d+-)');
-        var replacement = prefix + '-' + ndx + '-';
-        if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(id_regex,
-        replacement));
-        if (el.id) el.id = el.id.replace(id_regex, replacement);
-        if (el.name) el.name = el.name.replace(id_regex, replacement);
-    }
 
-    function deleteForm(btn, prefix) {
-        var form_id = "."+prefix + "_space";
+    function deleteRequirementsForm(btn,prefix) {
+        var form_id = "." + prefix + "_space";
         var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
-        if (formCount > 1) {
+        var totalFormCount = parseInt($('#id_definite-TOTAL_FORMS').val())
+            + parseInt($('#id_restricted-TOTAL_FORMS').val());
+        if (totalFormCount > 1) {
             // Delete the item/form
             $(btn).parents(form_id).remove();
             var forms = $(form_id); // Get all the forms
@@ -31,7 +24,9 @@ $(document).ready(function () {
                     updateElementIndex(this, prefix, i)
                 );
             }
-        } // End if
+        }else{
+            alert("You must have a least one requirement!");
+        }
         return false;
     }
 
@@ -68,7 +63,7 @@ $(document).ready(function () {
     });
 
     $(".delete_definite").click(function () {
-        return deleteForm(this, "definite");
+        return deleteRequirementsForm(this, "definite");
     });
 
     $("#add_restricted").click(function () {
@@ -76,24 +71,7 @@ $(document).ready(function () {
     });
 
     $(".delete_restricted").click(function () {
-        return deleteForm(this, "restricted");
+        return deleteRequirementsForm(this, "restricted");
     });
-
-    function removeExtraForms(prefix){
-        /*By default django formsets are rendered with an extra empty form,
-         This method overrides that behavior if some data is already rendered
-         */
-        var form_count_input = $('#id_' + prefix + '-TOTAL_FORMS');
-        var formCount = parseInt(form_count_input.val());
-        var form_id = "." + prefix + "_space";
-        if(formCount > 1){
-            //remove last form
-            $(form_id + ":last").remove();
-            //decrement form count
-            form_count_input.val(form_count_input.val() - 1);
-        }
-    }
-    removeExtraForms("definite");
-    removeExtraForms("restricted");
 
 });

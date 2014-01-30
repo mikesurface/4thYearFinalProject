@@ -2,6 +2,7 @@
 {% block sub_banner %}Meal Generator{% endblock %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block stylesheet_declarations %}
     {{ block.super }}
@@ -10,24 +11,90 @@
 {% endblock %}
 
 {% block content %}
-{% if requirements_missing %}
-    <h3 class="error_message">You need a requirements set to generate a meal!</h3>
-    <p>At least one Meal requirements set is required to generate a meal. </p>
-{% endif %}
+    {% if requirements_missing %}
+        <h3 class="error_message">You need a requirements set to generate a meal!</h3>
+        <p>At least one Meal requirements set is required to generate a meal. </p>
+    {% endif %}
 
-    <button onclick="display_compressed_search();">Add An Ingredient</button>
+    <form id="meal_generation_form" method="POST" action=".">
+        {% csrf_token %}
+        <div id="choose_req_set_space">
+            {% crispy meal_req_set_selector %}
+        </div>
+        <div id="meal_ingredients_space">
+            {{ ingredients_formset.management_form }}
 
-<div id="compressed_search_modal_space" style="display:none">
-    {# space for the ingredients search to be rendered #}
-    {% include 'meal_pages/ingredient_search/ingredients_search_compressed.html' %}
-</div>
+            <table id="ingredients_list_table" class="table">
+                <tr>
+                    <th>Ingredient</th>
+                    <th>Fixed?</th>
+                    <th>Restriction</th>
+                    <th>Threshold</th>
+                    <th></th>
+                </tr>
+                {# display forms in formset (may be invalid if page was returned #}
+                {% for ing_form in ingredients_formset %}
+                    <tr class="ingredients_space">
+                        <td class="food_name_and_desc"></td>
+                        <td>{{ ing_form.fixed }}</td>
+                        <td>{{ ing_form.restriction }}</td>
+                        <td>{{ ing_form.threshold }}</td>
+                        <td><input type="button" class="btn btn-danger delete_ingredient" value="Remove">
+                            {# render the hidden fields. Have to enumerate these since we have used some above #}
+                            {{ ing_form.food_id }}
+                            {{ ing_form.food_name }}
+                            {{ ing_form.serving_id }}
+                            {{ ing_form.description }}
+                            {{ ing_form.calories }}
+                            {{ ing_form.protein }}
+                            {{ ing_form.carbs }}
+                            {{ ing_form.fat }}
+                            {{ ing_form.salt }}
+                            {{ ing_form.sugar }}
+                            {{ ing_form.fibre }}
+                            {{ ing_form.satfat }}
+                            {{ ing_form.quantity }}
+                            {{ ing_form.units }}
+                            {{ ing_form.metric_quantity }}
+                            {{ ing_form.metric_units }}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+            <button type="button" onclick="display_compressed_search();">Add An Ingredient</button>
+        </div>
+
+
+        <button type="submit" class="btn btn-lg btn-success" style="margin-top:20px">Generate Meal</button>
+    </form>
+
+    {% if quantities %}
+        <p>{{ quantities }}</p>
+    {% endif %}
+    {% if content %}
+        <p>{{ content }}</p>
+    {% endif %}
+    {% if no_solution %}
+        <h1>NO SOLUTION</h1>
+    {% endif %}
+
+
+
+    <div id="compressed_search_modal_space" style="display:none">
+        {# space for the ingredients search to be rendered #}
+        {% include 'meal_pages/ingredient_search/ingredients_search_compressed.html' %}
+    </div>
 {% endblock %}
 
 {% block script_declarations %}
     {{ block.super }}
-<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/loadPage.js" %}"></script>
-<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/lookup_ingredient.js" %}"></script>
+    <script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/loadPage.js" %}"></script>
+    <script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/lookup_ingredient.js" %}"></script>
 
-{# Must be preceeded by loadPage.js #}
-<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/embedded_search/compressed_search.js" %}"></script>
+    {# Must be preceeded by loadPage.js #}
+    <script type="text/javascript"
+            src="{% static "whattoeat/js/ingredient_search/embedded_search/compressed_search.js" %}"></script>
+    {# for adding ingredients from search #}
+    <script type="text/javascript" src="{% static "whattoeat/js/meal_generation/manipulate_ingredients.js" %}"></script>
 {% endblock %}

@@ -58,13 +58,13 @@ class DietProfile(models.Model):
             return 'Gain Weight'
 
     def height_in_inches(self):
-        return UnitConversions.roundToDecimalPlaces(self.height / UnitConversions.INCHES_TO_M, 1)
+        return round(self.height / UnitConversions.INCHES_TO_M, 1)
 
     def height_in_cm(self):
-        return UnitConversions.roundToDecimalPlaces(self.height * 100, 1)
+        return round(self.height * 100, 1)
 
     def weight_in_lbs(self):
-        return UnitConversions.roundToDecimalPlaces(self.weight / UnitConversions.POUNDS_TO_KILOS, 1)
+        return round(self.weight / UnitConversions.POUNDS_TO_KILOS, 1)
 
     def __str__(self):
         return (
@@ -136,12 +136,11 @@ class DietProfile(models.Model):
             return errors
         try:
             set = MealRequirementsSet.objects.get(profile=self.pk, name=name)
-            errors.append("Meal requirements set with this name already exists")
-            return errors
-        except ObjectDoesNotExist:
-            set = MealRequirementsSet(profile=self.pk, name=name)
             set.save()
             return set
+        except ObjectDoesNotExist:
+            return None
+
 
     def delete_meal_requirements_set(self,name):
         '''
@@ -512,6 +511,9 @@ class MealRequirementsSet(RequirementsSet):
 
         return reqs
 
+    def __str__(self):
+        return self.name
+
 
 class DietRequirement(models.Model):
     """
@@ -544,7 +546,7 @@ class DietRequirement(models.Model):
         return output
 
     def value_rounded(self):
-        return UnitConversions.roundToDecimalPlaces(self.value, 1)
+        return round(self.value, 1)
 
     def value_mg(self):
         return self.value * 1000
