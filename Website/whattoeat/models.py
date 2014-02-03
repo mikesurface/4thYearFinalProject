@@ -1,11 +1,9 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes import generic
-#defaults
 from whattoeat.solver_backend import UnitConversions
 
+#defaults
 DEFAULT_ERROR_MARGIN = 5
 
 #choices

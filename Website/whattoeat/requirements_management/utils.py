@@ -120,9 +120,9 @@ def calculate_daily_requirements_from_profile(request):
                                                       value = fibre/num_meals_per_day,
                                                       restriction=">=")
 
-
-
-
         return True
     else:
         return False
+
+
+

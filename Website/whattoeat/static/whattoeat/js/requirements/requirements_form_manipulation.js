@@ -8,9 +8,7 @@ $(document).ready(function () {
     function deleteRequirementsForm(btn,prefix) {
         var form_id = "." + prefix + "_space";
         var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
-        var totalFormCount = parseInt($('#id_definite-TOTAL_FORMS').val())
-            + parseInt($('#id_restricted-TOTAL_FORMS').val());
-        if (totalFormCount > 1) {
+        if (formCount > 1) {
             // Delete the item/form
             $(btn).parents(form_id).remove();
             var forms = $(form_id); // Get all the forms
@@ -26,11 +24,9 @@ $(document).ready(function () {
                 }
             }
         }else{
-            alert("You must have a least one requirement!");
+            alert("if you dont want any " + prefix + " requirements, just set the last space to have no nutrient.");
         }
-        console.log($('body').html());
-
-         return false;
+        return false;
     }
 
     function addForm(btn, prefix) {

@@ -35,6 +35,6 @@ function deleteForm(btn, prefix) {
                 updateElementIndex(this, prefix, i)
             );
         }
-    } // End if
+    }
     return false;
 }

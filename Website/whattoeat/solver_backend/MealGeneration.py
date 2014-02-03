@@ -12,6 +12,12 @@ class MealGeneratorException(Exception):
     def __str__(self):
         return str(self.msg)
 
+class TooFewIngredientsException(Exception):
+    '''special exception class alerting that more ingredients are required'''
+    def __init__(self,msg):
+        self.msg = msg
+    def __str__(self):
+        return str(self.msg)
     
 def number_places_decimal_accuracy():
     '''The number of decimal places to which the solver is accurate'''
@@ -192,7 +198,7 @@ class MealGenerator(object):
     def __generate_meal(self,ingredients,printStats=False):
         #decision variables
         #Each variable x_j is the quantity of ingredient I_j in the meal
-        quantities = VarArray(len(self.ingredients),1,1000)
+        quantities = VarArray(len(self.ingredients),0,1000)
 
         #compute the upper and lower values for definite requirements from error margins
         upperbounds = {}
@@ -220,22 +226,27 @@ class MealGenerator(object):
             nutrient = r[0]
             requirement = r[1]
 
-            if isinstance(requirement,DefiniteNutrientRequirement): #definite nutrient requirements
-                m.add(Sum(quantities,nutrient_values.get(nutrient)) >= lowerbounds.get(nutrient))
-                m.add(Sum(quantities,nutrient_values.get(nutrient)) <= upperbounds.get(nutrient))
 
-            elif isinstance(requirement,RestrictedNutrientRequirement): #restriction nutrient requirements
-                threshold = self.__convert_to_solver_int(requirement.threshold())
-                if requirement.restriction == "<":
-                    m.add(Sum(quantities,nutrient_values.get(nutrient)) < threshold)
-                elif requirement.restriction == ">":
-                    m.add(Sum(quantities,nutrient_values.get(nutrient)) > threshold)
-                elif requirement.restriction == "<=":
-                    m.add(Sum(quantities,nutrient_values.get(nutrient)) <= threshold)
-                elif requirement.restriction == ">=":
-                    m.add(Sum(quantities,nutrient_values.get(nutrient)) >= threshold)
-                else:
-                    raise MealGeneratorException("Invalid restriction on " + str(nutrient))
+            try:
+                if isinstance(requirement,DefiniteNutrientRequirement): #definite nutrient requirements
+                    m.add(Sum(quantities,nutrient_values.get(nutrient)) >= lowerbounds.get(nutrient))
+                    m.add(Sum(quantities,nutrient_values.get(nutrient)) <= upperbounds.get(nutrient))
+
+                elif isinstance(requirement,RestrictedNutrientRequirement): #restriction nutrient requirements
+                    threshold = self.__convert_to_solver_int(requirement.threshold())
+                    if requirement.restriction == "<":
+                        m.add(Sum(quantities,nutrient_values.get(nutrient)) < threshold)
+                    elif requirement.restriction == ">":
+                        m.add(Sum(quantities,nutrient_values.get(nutrient)) > threshold)
+                    elif requirement.restriction == "<=":
+                        m.add(Sum(quantities,nutrient_values.get(nutrient)) <= threshold)
+                    elif requirement.restriction == ">=":
+                        m.add(Sum(quantities,nutrient_values.get(nutrient)) >= threshold)
+                    else:
+                        raise MealGeneratorException("Invalid restriction on " + str(nutrient))
+
+            except NotImplementedError: #only thrown by very rare numberjack errors
+                continue
 
         #add constraints for restricted ingredients
         qCursor = 0 #resolves the the quantity variable for the current ingredient
@@ -269,7 +280,11 @@ class MealGenerator(object):
 
 
         #build a solver and solve
-        solver = Solver(m,quantities)
+        try:
+            solver = Solver(m,quantities)
+        except NotImplementedError:
+            raise TooFewIngredientsException("Empty expressions occured due to a lack of ingredients") #occurs ocassionaly when only one ingredient is user
+
         solver.setVerbosity(0) #turn off solver stats
         solver.solve()
 

@@ -1,7 +1,4 @@
 #Module containing representations of key components in meal generation
-
-
-
 from whattoeat.solver_backend import UnitConversions
 from whattoeat.solver_backend.default_values import ALLOWED_INGREDIENT_RESTRICTIONS
 
@@ -98,6 +95,7 @@ class RestrictedIngredient(Ingredient):
             raise MealClassException(str(restriction) + " is not a valid restriction on an ingredient.")
         self.restriction = restriction
         self.threshold = float(threshold)
+
 
 class Quantity(object):
     def __init__(self,name,quantity,unit):

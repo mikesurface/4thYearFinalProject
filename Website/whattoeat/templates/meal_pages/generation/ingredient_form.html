@@ -2,7 +2,7 @@
     <td class="food_name_and_desc">{{ food_name }}: {{ ing_desc }}</td>
     <td>{{ ing_form.fixed }}</td>
     <td>{{ ing_form.restriction }}</td>
-    <td>{{ ing_form.value }}</td>
+    <td>{{ ing_form.threshold }}</td>
     <td><input type="button" class="btn btn-danger delete_ingredient" value = "Remove">
     {# render the hidden fields. Have to enumerate these since we have used some above #}
         {{ ing_form.food_id }}

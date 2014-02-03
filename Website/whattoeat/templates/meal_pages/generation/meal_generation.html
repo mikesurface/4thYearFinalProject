@@ -62,12 +62,34 @@
                 {% endfor %}
 
             </table>
-            <button type="button" onclick="display_compressed_search();">Add An Ingredient</button>
+            <button type="button" class ="btn btn-default" onclick="display_compressed_search();">Add An Ingredient</button>
         </div>
 
 
         <button type="submit" class="btn btn-lg btn-success" style="margin-top:20px">Generate Meal</button>
     </form>
+
+    {#Modal for alerting that no ingredients have been added#}
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="problems" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title error_message" id="myModalLabel">Error</h4>
+                </div>
+                <div class="modal-body">
+                    {% if no_ingredients %}
+                        <h4>You need at least one ingredient!</h4>
+                    {% elif need_more_ingredients %}
+                        <h4>There are too few ingredients to make a meal. Add some more.</h4>
+                    {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {#Modal for displaying solutions#}
     <div class="modal fade" id="solutionModal" tabindex="-1" role="dialog" aria-labelledby="Neal" aria-hidden="true">
@@ -78,11 +100,44 @@
                     <h4 class="modal-title" id="myModalLabel">Meal</h4>
                 </div>
                 <div class="modal-body">
+                    {% if no_solution %}
+                        <h4>No Solution Could Be Found</h4>
+                        <p>Try altering the restrictions on the ingredients or using other ingredients.</p>
+                    {% else %}
+                        <h4>Solution Found!</h4>
 
+                        <h5>Recipe</h5>
+                        <table class="table">
+                            <tr>
+                                <th>Ingredient</th><th>Amount</th>
+                            </tr>
+                            {% for q in quantities %}
+                            <tr>
+                                <td>{{ q.0.title }}</td> {# ingredient name #}
+                                <td>{{ q.1}}</td> {# quantity required #}
+                            </tr>
+                            {% endfor %}
+                        </table>
+
+                        <h5>Nutritional Content</h5>
+                            <table class="table">
+                            <tr>
+                                <th>Nutrient</th><th>Amount</th>
+                            </tr>
+                            {% for n in content %}
+                                <tr>
+                                    {% if n.0 == 'calories' %}
+                                        <td>{{ n.0.title }}</td><td>{{ n.1 }} kcal</td> {#  calories have kcal as units #}
+                                    {% else %}
+                                        <td>{{ n.0.title }}</td><td>{{ n.1 }} g</td> {# grams for all else #}
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -112,6 +167,13 @@
             if ({{ generator_used }}) {
                 $('#solutionModal').modal('show');
             }
+
+            if({{ error }}){
+                $('#errorModal').modal('show');
+            }
+
+            removeButtons = $('.deleteIngredient')
+
         });
     </script>
 {% endblock %}

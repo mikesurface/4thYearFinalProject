@@ -25,10 +25,8 @@ function add_ingredient(data, textStatus, jqXHR) {
         updateElementIndex(forms[i], 'ingredients', i);
     }
 
-    //register delete buttons
-    $(".delete_ingredient").click(function () {
-        $(this).parents('.ingredients_space').remove();
-    });
+
+
 
 }
 
@@ -58,6 +56,28 @@ $(document).on("ing_lookup", function () {
     }
 });
 
+function registerDeletes(){
+     //register delete buttons
+    $(".delete_ingredient").click(function () {
+        var formid = '.ingredients_space';
+        $(this).parents(formid).remove();
+        var formCount = parseInt($('#id_ingredients-TOTAL_FORMS').val());
+        var forms = $(formid); // Get all the forms
+        // Update the total number of forms (1 less than before)
+        formCount = forms.length;
+        $('#id_ingredients-TOTAL_FORMS').val(formCount);
+        console.log($('#meal_generation_form').html())
+
+        for (i = 0; i < formCount; i++) {
+                var inputs = $(forms[i]).find('*');
+                for(j=0;j<inputs.length;j++){
+                    updateElementIndex(inputs[j],'ingredients',i);
+            }
+        }
+
+    });
+}
+
 $(document).ready(function () {
     //make food name visible in forms
     var forms = $('.ingredients_space');
@@ -68,7 +88,13 @@ $(document).ready(function () {
         var desc = $(form.find('#id_ingredients-'+i+'-description')).val();
         var target = $(form.find('.food_name_and_desc'));
         target.html(name+": " + desc);
+
+        registerDeletes();
     }
+
+
+
+
 
 
 

@@ -257,6 +257,7 @@ class MealGenerationTest(unittest.TestCase):
         self.g.add_restricted_requirement("satfat",10,"<")
 
         result = self.g.generate()
+        print result
         #should produce the same solution as for
         # 'test_solving_all_fixed_restricted_ingredients' case
         # however there is a slight variation due to rounding errors in the oz-g conversion

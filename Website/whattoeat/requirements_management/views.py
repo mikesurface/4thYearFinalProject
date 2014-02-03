@@ -200,3 +200,101 @@ def update_requirements_success(request):
     args = build_user_args(request)
     return render_to_response('user_pages/profile/requirements/requirements_update_success.html', args)
 
+
+def recalculate_base_meal_set(request):
+    args = build_user_args(request)
+    profile = args['profile']
+    daily_req_set = profile.get_daily_requirements_set()
+
+    daily_calories = daily_req_set.get_requirement_by_name('calories')
+    daily_protein = daily_req_set.get_requirement_by_name('protein')
+    daily_carbs = daily_req_set.get_requirement_by_name('carbs')
+    daily_fat = daily_req_set.get_requirement_by_name('fat')
+    daily_satfat = daily_req_set.get_requirement_by_name('satfat')
+    daily_fibre = daily_req_set.get_requirement_by_name('fibre')
+    daily_salt = daily_req_set.get_requirement_by_name('salt')
+    daily_sugar = daily_req_set.get_requirement_by_name('sugar')
+
+    num_meals_per_day = daily_req_set.num_meals_per_day
+
+    #build meal profile to match daily requirements
+    profile.add_meal_requirements_set("Derived from Daily Requirements")
+    meal_set = profile.get_meal_requirements_set("Derived from Daily Requirements")
+
+    if daily_calories != None:
+        if isinstance(daily_calories,DefiniteDietRequirement):
+            meal_set.add_definite_requirement(nutrient_name="calories",
+                                              value = daily_calories.value/num_meals_per_day,
+                                              error = daily_calories.error)
+        else:
+            meal_set.add_restricted_requirement(nutrient_name='calories',
+                                              value=daily_calories.value/num_meals_per_day,
+                                              restriction=daily_calories.restriction)
+
+    if daily_protein != None:
+        if isinstance(daily_protein,DefiniteDietRequirement):
+            meal_set.add_definite_requirement(nutrient_name="protein",
+                                              value = daily_protein.value/num_meals_per_day,
+                                              error = daily_protein.error)
+        else:
+            meal_set.add_restricted_requirement(nutrient_name='protein',
+                                              value=daily_protein.value/num_meals_per_day,
+                                              restriction=daily_protein.restriction)
+
+    if daily_carbs != None:
+        if isinstance(daily_carbs,DefiniteDietRequirement):
+            meal_set.add_definite_requirement(nutrient_name="carbs",
+                                              value = daily_carbs.value/num_meals_per_day,
+                                              error = daily_carbs.error)
+        else:
+            meal_set.add_restricted_requirement(nutrient_name='carbs',
+                                              value=daily_carbs.value/num_meals_per_day,
+                                              restriction=daily_carbs.restriction)
+    if daily_carbs != None:
+        if isinstance(daily_fat,DefiniteDietRequirement):
+            meal_set.add_definite_requirement(nutrient_name="fat",
+                                              value = daily_fat.value/num_meals_per_day,
+                                              error = daily_fat.error)
+        else:
+            meal_set.add_restricted_requirement(nutrient_name='fat',
+                                              value=daily_fat.value/num_meals_per_day,
+                                              restriction=daily_fat.restriction)
+    if daily_satfat != None:
+        if isinstance(daily_satfat,DefiniteDietRequirement):
+            meal_set.add_definite_requirement(nutrient_name="satfat",
+                                              value = daily_satfat.value/num_meals_per_day,
+                                              error = daily_satfat.error)
+        else:
+            meal_set.add_restricted_requirement(nutrient_name='satfat',
+                                              value=daily_satfat.value/num_meals_per_day,
+                                              restriction=daily_satfat.restriction)
+    if daily_fibre != None:
+        if isinstance(daily_fibre,DefiniteDietRequirement):
+            meal_set.add_definite_requirement(nutrient_name="fibre",
+                                              value = daily_fibre.value/num_meals_per_day,
+                                              error = daily_fibre.error)
+        else:
+            meal_set.add_restricted_requirement(nutrient_name='fibre',
+                                              value=daily_fibre.value/num_meals_per_day,
+                                              restriction=daily_fibre.restriction)
+
+    if daily_salt != None:
+        if isinstance(daily_salt,DefiniteDietRequirement):
+            meal_set.add_definite_requirement(nutrient_name="salt",
+                                              value = daily_salt.value/num_meals_per_day,
+                                              error = daily_salt.error)
+        else:
+            meal_set.add_restricted_requirement(nutrient_name='salt',
+                                              value=daily_salt.value/num_meals_per_day,
+                                              restriction=daily_salt.restriction)
+    if daily_sugar != None:
+        if isinstance(daily_sugar,DefiniteDietRequirement):
+            meal_set.add_definite_requirement(nutrient_name="sugar",
+                                              value = daily_sugar.value/num_meals_per_day,
+                                              error = daily_sugar.error)
+        else:
+            meal_set.add_restricted_requirement(nutrient_name='sugar',
+                                              value=daily_sugar.value/num_meals_per_day,
+                                              restriction=daily_sugar.restriction)
+
+    return HttpResponseRedirect('/user/requirements/update_requirements_success/')

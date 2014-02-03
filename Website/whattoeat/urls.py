@@ -11,7 +11,7 @@ from whattoeat.meals.ingredient_search.ajax_methods import lookup, get_results_p
 from whattoeat.meals.ingredient_search.views import search_ingredient_base
 from whattoeat.requirements_management.daily_requirements_views import *
 from whattoeat.requirements_management.meal_requirements_views import*
-from whattoeat.requirements_management.views import update_requirements_success
+from whattoeat.requirements_management.views import update_requirements_success, recalculate_base_meal_set
 
 admin.autodiscover()
 
@@ -19,6 +19,7 @@ requirements_urls = patterns('',
    url(r'^auto_calculate/$',calculate_daily_requirements),
    url(r'^auto_calculate_success/$',auto_calculate_requirements_success),
    url(r'^auto_calculate_fail/$',auto_calculate_requirements_fail),
+   url(r'^auto_calculate_base_meal_requirements/$',recalculate_base_meal_set),
 
    url(r'^edit_daily_requirements/$',edit_daily_requirements),
    url(r'^my_daily_requirements/$',view_daily_requirements),
