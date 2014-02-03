@@ -24,6 +24,7 @@ class DailyRequirementsSetForm(forms.ModelForm):
         helper = self.helper
         helper.form_tag=False
         helper.disable_csrf = True
+        helper.error_text_inline = False
         helper.layout = Layout(
             Field('num_meals_per_day'),
         )
@@ -43,6 +44,7 @@ class MealRequirementsSetForm(forms.ModelForm):
         helper = self.helper
         helper.form_tag = False
         helper.disable_csrf = True
+        helper.error_text_inline = False
         helper.layout = Layout(
             Field('name'),
         )

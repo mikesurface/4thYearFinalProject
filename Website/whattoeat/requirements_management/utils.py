@@ -121,6 +121,8 @@ def calculate_daily_requirements_from_profile(request):
                                                       restriction=">=")
 
 
+
+
         return True
     else:
         return False

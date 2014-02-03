@@ -63,10 +63,11 @@ class Serving(object):
             'fat':nutrient_values['fat'],
         }
         #now consider optional data
-        if 'satfat' in nutrient_values: initial['satfat'] = nutrient_values['satfat']
-        if 'sugar' in nutrient_values: initial['sugar'] = nutrient_values['sugar']
-        if 'salt' in nutrient_values: initial['salt'] = nutrient_values['salt']
-        if 'fibre' in nutrient_values: initial['fibre'] = nutrient_values['fibre']
+        initial['satfat'] = nutrient_values.get('satfat',0.0)
+        initial['sugar'] = nutrient_values.get('sugar',0.0)
+        initial['salt'] = nutrient_values.get('salt',0.0)
+        initial['fibre'] = nutrient_values.get('fibre',0.0)
+
 
         if self.metric_quantity: initial['metric_quantity'] = self.metric_quantity
         if self.metric_units: initial['metric_units'] = self.metric_units

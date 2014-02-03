@@ -12,7 +12,11 @@ class MealRequirementsSelectorForm(forms.Form):
                                                                                 #set in init method
     def __init__(self,*args,**kwargs):
         user = kwargs.pop('user',None)
+        selected = kwargs.pop('selected',None)
         super(MealRequirementsSelectorForm,self).__init__(*args,**kwargs)
+
+        if selected != None: #must come after super constructor
+            self.fields['req_set'].initial = selected #make the selected field appear again when the form is loaded
         req_sets = user.profile.get_all_meal_requirements_sets()
         self.fields['req_set'].queryset = req_sets
         self.helper = FormHelper()

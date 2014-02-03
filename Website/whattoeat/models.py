@@ -126,20 +126,14 @@ class DietProfile(models.Model):
         """
             Add a new meal requirements set
             Returns the set if a new set added
-            returns a list of error strings if something else went wrong
-            DOES NOT overwrite the existing set with this name
+
         """
-        errors = []
-        #check for existing
-        if name == "":
-            errors.append("Name cannot be empty")
-            return errors
         try:
             set = MealRequirementsSet.objects.get(profile=self.pk, name=name)
-            set.save()
-            return set
         except ObjectDoesNotExist:
-            return None
+            set = MealRequirementsSet(profile=self.pk,name=name)
+        set.save()
+        return set
 
 
     def delete_meal_requirements_set(self,name):

@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render_to_response
-from whattoeat.requirements_management.views import edit_requirements_set
+from whattoeat.requirements_management.views import edit_requirements_set, add_meal_requirements_set
 from whattoeat.utilities import build_user_args
 
 __author__ = 'michael'
@@ -20,7 +20,7 @@ def edit_meal_requirements(request,name):
 
 @login_required
 def add_meal_requirements(request):
-    return edit_requirements_set(request)
+    return add_meal_requirements_set(request)
 
 @login_required()
 def remove_meal_set(request,name):

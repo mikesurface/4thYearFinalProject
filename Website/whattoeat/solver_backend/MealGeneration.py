@@ -357,11 +357,24 @@ class MealGenerator(object):
                 #finally, now that the nutrients/threshold have been degraded set the quantity to 1
                 ingredient.quantity = 1
 
+            else:
+                #if the ingredient is fixed, we need to consider the threshold as a multiple
+                #of the given serving
+                if isinstance(ingredient,RestrictedIngredient):
+                    ingredient.threshold = ingredient.threshold / ingredient.quantity
+
         if printStats:
             print "____________________________"
+            print "REQUIREMENTS: "
+            for req in self.requirements:
+                print str(req) + " " + str(self.requirements[req])
+            print
             print "INGREDIENTS POST CONVERSION:"
             for i in ingredients:
-                print str(i.name) + ": " + str(i.nutrient_values)
+                print str(i.name) + ": "
+                for n in i.nutrient_values:
+                    print " " + str(n) + ": " + str(i.get_nutrient_val(n))
+            print
 
         #Attempt to generate the meal
         output = self.__generate_meal(ingredients,printStats)

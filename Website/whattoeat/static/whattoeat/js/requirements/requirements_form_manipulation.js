@@ -20,14 +20,17 @@ $(document).ready(function () {
 
             // Go through the forms and set their indices, names and IDs
             for (i = 0; i < formCount; i++) {
-                $(forms.get(i)).children().children().each(
-                    updateElementIndex(this, prefix, i)
-                );
+                var inputs = $(forms[i]).find('*');
+                for(j=0;j<inputs.length;j++){
+                    updateElementIndex(inputs[j],prefix,i);
+                }
             }
         }else{
             alert("You must have a least one requirement!");
         }
-        return false;
+        console.log($('body').html());
+
+         return false;
     }
 
     function addForm(btn, prefix) {

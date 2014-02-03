@@ -108,9 +108,9 @@ def extractServing(serving,food_id,food_name):
         #sometimes available
         if 'fiber' in serving: nutrient_vals['fibre'] = float(serving['fiber'])
         if 'sodium' in serving:
-            nutrient_vals['salt'] = float(serving['sodium']) * 2.5
-        if 'sugar' in serving: nutrient_vals['sugar'] = serving['sugar']
-        if 'saturated_fat' in serving: nutrient_vals['satfat'] = serving['saturated_fat']
+            nutrient_vals['salt'] = (float(serving['sodium']) * 2.5) /1000 #convert to g
+        if 'sugar' in serving: nutrient_vals['sugar'] = float(serving['sugar'])
+        if 'saturated_fat' in serving: nutrient_vals['satfat'] = float(serving['saturated_fat'])
     except (KeyError,TypeError):
         pass
 

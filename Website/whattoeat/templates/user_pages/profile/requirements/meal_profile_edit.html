@@ -20,23 +20,18 @@
             If you are unsure, click here to have WhatToEat estimate your requirements</p>
         <form action="." method="POST" id="daily_requirements_edit" class="form-inline">
         {% csrf_token %}
-        <table>
-            <tr>
-                <th>Number of Meals Per Day</th>
-                <th>{{ req_set_form.num_meals_per_day }}</th>
-            </tr>
-        </table>
+        {% crispy req_set_form %}
 
     {% else %}
         {# meal requirements set #}
         <form action="." method="POST" id="meal_requirements_edit" class="form-inline">
         {% csrf_token %}
-        <table>
-            <tr>
-                <th>Meal Name</th>
-                <th>{{ req_set_form.name }}</th>
-            </tr>
-        </table>
+        {% if edit_mode %}
+            <h3>{{ req_set_name }}</h3>
+            <div style="display: none">{% crispy req_set_form %}</div>
+        {% else %}
+            {% crispy req_set_form %}
+        {% endif %}
     {% endif %}
 
 {# form id fields must be included; required by Django ModelFormSets (see Django Docs) #}
@@ -50,6 +45,7 @@
 
     {% for form in def_req_formset %}
         <div class="definite_space"> {% crispy form %}</div>
+        <div class="error_message">{{form|as_crispy_errors}}</div>
     {% endfor %}
     <button class="btn btn-success formset_add_button" type="button" id="add_definite">Add Definite Requirement</button>
 </div>
@@ -57,12 +53,11 @@
 <div class="component_vertical_spacing">
     <h4>Restricted Requirements</h4>
     {{ res_req_formset.management_form|crispy }}
-
-
-
     {% for form in res_req_formset %}
         <div class="restricted_space">{% crispy form %}</div>
+        <div class="error_message">{{form|as_crispy_errors}}</div>
     {% endfor %}
+
     <button class="btn btn-success formset_add_button" type="button" id="add_restricted">Add Restricted Requirement
     </button>
 </div>
@@ -75,6 +70,8 @@
 </div>
 
 </form>
+
+
 {% endblock %}
 
 {% block script_declarations %}

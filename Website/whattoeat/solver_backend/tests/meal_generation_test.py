@@ -219,7 +219,7 @@ class MealGenerationTest(unittest.TestCase):
     def test_non_fixed_with_oz_kg_and_lbs(self):
 
         #Same test again but with unusual units and degredation
-        i1 = RestrictedIngredient("Tuna 100g","100","g",300,restriction="<=")
+        i1 = RestrictedIngredient("Tuna 100g","100","g",100,restriction="=")
         i1.add_nutrient_val("Calories",116)
         i1.add_nutrient_val("Protein",26)
         i1.add_nutrient_val("Fat",1)
@@ -257,7 +257,6 @@ class MealGenerationTest(unittest.TestCase):
         self.g.add_restricted_requirement("satfat",10,"<")
 
         result = self.g.generate()
-
         #should produce the same solution as for
         # 'test_solving_all_fixed_restricted_ingredients' case
         # however there is a slight variation due to rounding errors in the oz-g conversion
