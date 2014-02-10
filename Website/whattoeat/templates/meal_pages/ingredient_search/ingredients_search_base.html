@@ -12,12 +12,24 @@
 {% endblock %}
 
 {% block content %}
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            {% if not_searched_yet %}
+                Search For An Ingredient
+            {% else %}
+                Results for "{{ search_text }}": {{ total_results }} entries over {{ total_pages }} pages.
+            {% endif %}
+        </div>
+    <div class="panel-body full_height">
     {# search bar #}
     {% include 'meal_pages/ingredient_search/search_bars/ingredient_search_base_searchbar.html' %}
     {# results section #}
     {% include 'meal_pages/ingredient_search/results/ingredient_search_results.html' %}
+    </div>
+    </div>
     {# container for rendering modal content #}
     {% include 'meal_pages/ingredient_search/modal/ingredient_modal_container.html' %}
+
 {% endblock %}
 
 {% block script_declarations %}

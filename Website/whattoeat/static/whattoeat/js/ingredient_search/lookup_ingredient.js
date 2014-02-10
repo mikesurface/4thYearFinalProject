@@ -59,7 +59,7 @@ function create_food_dialog(data, textStatus, jqXHR){
                 $(this).dialog("close");
             }
         },
-        position: {'my':'center','at':'center top','of':'.wrapper'}
+        position: {'my':'center','at':'center','of':window}
     });
 
     //handle a change to the selection

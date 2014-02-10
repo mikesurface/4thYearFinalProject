@@ -1,4 +1,25 @@
 
+function registerDeletes(){
+     //register delete buttons
+    $(".delete_ingredient").click(function () {
+        var formid = '.ingredients_space';
+        $(this).parents(formid).remove();
+        var formCount = parseInt($('#id_ingredients-TOTAL_FORMS').val());
+        var forms = $(formid); // Get all the forms
+        // Update the total number of forms (1 less than before)
+        formCount = forms.length;
+        $('#id_ingredients-TOTAL_FORMS').val(formCount);
+
+        for (i = 0; i < formCount; i++) {
+                var inputs = $(forms[i]).find('*');
+                for(j=0;j<inputs.length;j++){
+                    updateElementIndex(inputs[j],'ingredients',i);
+            }
+        }
+
+    });
+}
+
 function add_ingredient(data, textStatus, jqXHR) {
     $('#ingredients_list_table').append(data); //add new ingredient to list
 
@@ -25,58 +46,46 @@ function add_ingredient(data, textStatus, jqXHR) {
         updateElementIndex(forms[i], 'ingredients', i);
     }
 
+    //register delete button for this new entry
+    registerDeletes();
 
 
 
 }
 
+function generate_form_handler(form){
+    return function() {
+        //e.preventDefault();
+        var serializedform = form.serialize();
+        $.ajax({
+                type: form.attr('method'),
+                url: '/search_ingredient/serving_to_ingredient/',
+                data: serializedform,
+                success: function(data, textStatus, jqHXR){
+                    add_ingredient(data, textStatus, jqHXR);
+                },
+                error: function () {
+                    alert("Ingredient could not be added");
+                }
+            }
+        );
+        $('#ingredient_modal').trigger("dialogclose"); //close serving modal
+        $('#ingredients_search_modal').trigger("dialogclose");//close compressed search
+        return false;
+    }
+
+}
 
 $(document).on("ing_lookup", function () {
     //when an ingredient is looked up, register form behaviour for the different servings
     var serving_forms = $('.serving_data_form');
-    for (i = 0; i < serving_forms.length; i++) {
+    for (var i = 0; i < serving_forms.length; i++) {
         var form = $('#serving_data_form_' + i);
-        form.submit(function (e) {
-                e.preventDefault();
-                $.ajax({
-                        type: form.attr('method'),
-                        url: '/search_ingredient/serving_to_ingredient/',
-                        data: form.serialize(),
-                        success: add_ingredient,
-                        error: function () {
-                            alert("Ingredient could not be added");
-                        }
-                    }
-                );
-                $('#ingredient_modal').trigger("dialogclose"); //close serving modal
-                $('#ingredients_search_modal').trigger("dialogclose");//close compressed search
-                return false;
-            }
-        );
+        form.submit( generate_form_handler(form) );
     }
+
+
 });
-
-function registerDeletes(){
-     //register delete buttons
-    $(".delete_ingredient").click(function () {
-        var formid = '.ingredients_space';
-        $(this).parents(formid).remove();
-        var formCount = parseInt($('#id_ingredients-TOTAL_FORMS').val());
-        var forms = $(formid); // Get all the forms
-        // Update the total number of forms (1 less than before)
-        formCount = forms.length;
-        $('#id_ingredients-TOTAL_FORMS').val(formCount);
-        console.log($('#meal_generation_form').html())
-
-        for (i = 0; i < formCount; i++) {
-                var inputs = $(forms[i]).find('*');
-                for(j=0;j<inputs.length;j++){
-                    updateElementIndex(inputs[j],'ingredients',i);
-            }
-        }
-
-    });
-}
 
 $(document).ready(function () {
     //make food name visible in forms

@@ -27,6 +27,10 @@
 
 }
 
+.full-height{
+    height:100%;
+    overflow-y: auto;
+}
 .navbar_container_override{
     /*To be used on the 'container' class within the navbar*/
     margin:0 15px 0 15px;

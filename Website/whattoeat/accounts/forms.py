@@ -3,10 +3,9 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from whattoeat.forms.custom_crispy_layouts import PlainSubmit
 from whattoeat.models import DietProfile
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Fieldset,Layout
+from crispy_forms.layout import Fieldset,Layout, Submit
 from whattoeat.solver_backend import UnitConversions
 
 
@@ -68,8 +67,9 @@ class UserRegistrationForm(UserCreationForm):
                 'first_name',
                 'last_name',
             ),
+
             FormActions(
-                PlainSubmit('submit','Submit',css_class='btn-default btn-lg',)
+                Submit('submit','Submit',css_class='btn-primary btn-lg',)
             )
         )
 

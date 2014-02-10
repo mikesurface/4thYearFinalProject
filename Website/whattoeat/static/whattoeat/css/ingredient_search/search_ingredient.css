@@ -16,9 +16,17 @@
     margin: 0;
 
 }
+#search_paginator{
+    padding:0;
+    margin:0;
+    margin-left:auto;
+    margin-right:auto;
+
+}
 #searchpanel{
     height: 60px;
-    padding: 0px 20px;
+    margin:0px;
+    padding:0px;
 }
 
 .full_width_no_vertical_spacing{
@@ -26,10 +34,7 @@
     margin-bottom:-15px;
 }
 
-.searchbutton{
-    height:40px;
-    min-width: 60px
-}
+
 
 
 .largerfont{

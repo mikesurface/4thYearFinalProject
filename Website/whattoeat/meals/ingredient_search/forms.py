@@ -9,10 +9,10 @@ from whattoeat.solver_backend.default_values import ALLOWED_INGREDIENT_RESTRICTI
 class FoodSearchForm(forms.Form):
     '''Form for ingredients search bar'''
     search_text = forms.CharField(
-        initial="Enter search text",
         required=True,
-        widget=forms.TextInput,
+        widget=forms.TextInput(attrs={'placeholder':'Enter an ingredient name to search for'}),
         min_length=1,
+
     )
 
     def __init__(self, *args, **kwargs):
