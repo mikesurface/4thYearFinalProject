@@ -1,4 +1,4 @@
-from crispy_forms.bootstrap import InlineField
+from crispy_forms.bootstrap import InlineField, PrependedAppendedText
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, Hidden, HTML
 from django import forms
@@ -71,9 +71,12 @@ class DefiniteRequirementForm(forms.ModelForm):
          helper.field_template = 'bootstrap3/layout/inline_field.html'
          helper.layout = Layout(
             'id',
-            'name',
-            InlineField('value',css_class="rounded_decimal"),
+            InlineField('name',css_class="nutrient_name_field"),
+            HTML("within"),
             'error',
+            HTML("% of"),
+            InlineField('value',css_class="rounded_decimal"),
+            HTML('<span class="requirements_unit" style="padding: 0px 10px 0px 10px;min-width:60px;display:inline-block;"></span>'),
             HTML('<a href="#" class="btn btn-danger delete_definite">Remove</a><br/>'),
          )
 
@@ -94,8 +97,9 @@ class RestrictedRequirementForm(forms.ModelForm):
         helper.disable_csrf = True
         helper.layout = Layout(
             'id',
-            'name',
+            InlineField('name',css_class="nutrient_name_field"),
             'restriction',
             InlineField('value',css_class="rounded_decimal"),
+            HTML('<span class="requirements_unit" style="padding: 0px 10px 0px 10px;min-width:60px;display:inline-block;"></span>'),
             HTML('<a href="#" class="btn btn-danger delete_restricted">Remove</a><br/>'),
         )

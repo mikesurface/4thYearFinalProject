@@ -7,3 +7,6 @@ def home_page(request):
     return render_to_response("base/home.html",args)
 
 
+def help_page(request):
+    args = build_user_args(request)
+    return render_to_response("base/tutorial.html",args)

@@ -26,10 +26,44 @@
 
             <table id="ingredients_list_table" class="table">
                 <tr>
-                    <th>Ingredient</th>
-                    <th>Fix Portion</th>
-                    <th>Restriction</th>
-                    <th>Threshold</th>
+                    <th>Ingredient
+                        <button type="button" class="btn btn-default helpPopover" data-container="body" data-toggle="popover"
+                                data-placement="bottom"
+                                data-content="Each ingredient comes in a serving which is an amount of the ingredient in
+                                certain units (e.g. 100g). Choose the serving which you prefer. Note that the quantity of
+                                the ingredient will be put in the meal will be in the same units as the original serving.
+                                So if you choose 1 ounce, the recipe generated will give the ingredient quantity in ounces.">
+                            <strong>?</strong>
+                        </button>
+                    </th>
+                    <th>Fix Portion
+                           <button type="button" class="btn btn-default helpPopover" data-container="body" data-toggle="popover"
+                                data-placement="bottom"
+                                data-content="By fixing a portion, you are saying that you only want exact multiples of the serving
+                                you have chosen to appear in the meal. For example, if the serving in question is 100g of Chicken,
+                                the recipe generated would only include multiples of 100g (eg 0g, 100g, 200g ,etc).">
+                            <strong>?</strong>
+                        </button>
+                    </th>
+                    <th>Restriction
+                             <button type="button" class="btn btn-default helpPopover" data-container="body" data-toggle="popover"
+                                data-placement="bottom"
+                                data-content="You can restrict an ingredient to be above, below or equal to the threshold value.
+                                Use this to ensure that the generator tries to include the amount of the ingredient that you want.">
+                            <strong>?</strong>
+                        </button>
+                    </th>
+                    <th>Threshold
+                         <button type="button" class="btn btn-default helpPopover" data-container="body" data-toggle="popover"
+                                data-placement="bottom"
+                                data-content="The threshold you set on an ingredient is only important if you have set a restriction.
+                                If you have set a restriction, the threshold specifies a limit to how much of the ingredient you want.
+                                So for example if your ingredient is 100g of chicken, your restriction is 'less than' and the threshold
+                                is 300, you are saying you want the amount of chicken put in to the generated recipe to be less that
+                                300g.">
+                            <strong>?</strong>
+                        </button>
+                    </th>
                     <th></th>
                 </tr>
                 {# display forms in formset (may be invalid if page was returned #}
@@ -62,7 +96,8 @@
                 {% endfor %}
 
             </table>
-            <button type="button" class ="btn btn-default" onclick="display_compressed_search();">Add An Ingredient</button>
+            <button type="button" class="btn btn-default" onclick="display_compressed_search();">Add An Ingredient
+            </button>
         </div>
 
 
@@ -109,27 +144,33 @@
                         <h5>Recipe</h5>
                         <table class="table">
                             <tr>
-                                <th>Ingredient</th><th>Amount</th>
+                                <th>Ingredient</th>
+                                <th>Amount</th>
                             </tr>
                             {% for q in quantities %}
-                            <tr>
-                                <td>{{ q.0.title }}</td> {# ingredient name #}
-                                <td>{{ q.1}}</td> {# quantity required #}
-                            </tr>
+                                <tr>
+                                    <td>{{ q.0.title }}</td>
+                                    {# ingredient name #}
+                                    <td>{{ q.1 }}</td>
+                                    {# quantity required #}
+                                </tr>
                             {% endfor %}
                         </table>
 
                         <h5>Nutritional Content</h5>
-                            <table class="table">
+                        <table class="table">
                             <tr>
-                                <th>Nutrient</th><th>Amount</th>
+                                <th>Nutrient</th>
+                                <th>Amount</th>
                             </tr>
                             {% for n in content %}
                                 <tr>
                                     {% if n.0 == 'calories' %}
-                                        <td>{{ n.0.title }}</td><td>{{ n.1 }} kcal</td> {#  calories have kcal as units #}
+                                        <td>{{ n.0.title }}</td>
+                                        <td>{{ n.1 }} kcal</td> {#  calories have kcal as units #}
                                     {% else %}
-                                        <td>{{ n.0.title }}</td><td>{{ n.1 }} g</td> {# grams for all else #}
+                                        <td>{{ n.0.title }}</td>
+                                        <td>{{ n.1 }} g</td> {# grams for all else #}
                                     {% endif %}
                                 </tr>
                             {% endfor %}
@@ -164,16 +205,22 @@
     {# script decides when to display the modal#}
     <script type="text/javascript">
         $(document).ready(function () {
+            //handle display of modals
             if ({{ generator_used }}) {
                 $('#solutionModal').modal('show');
             }
 
-            if({{ error }}){
+            if ({{ error }}) {
                 $('#errorModal').modal('show');
             }
 
             removeButtons = $('.deleteIngredient')
 
+            //set up popovers
+            var popovers = $('.helpPopover');
+            for(i = 0; i < popovers.length; i++){
+                $(popovers[i]).popover();
+            }
         });
     </script>
 {% endblock %}

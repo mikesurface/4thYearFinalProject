@@ -1,5 +1,6 @@
 {% extends 'base/base_footer_navbar.html' %}
 {% block content %}
+    <div class = "well">
     <h3>Thanks for signing up to WhatToEat!</h3>
     <p>
         In order to use meal generation and get the most out of this site, we need a few more
@@ -7,6 +8,7 @@
     nutritional requirements. You can enter these now by clicking the link below or edit them at any time using
     the 'Edit My Info' link in the top right dropdown.<br>
     <br>
-    Click <a href="{% url 'whattoeat.accounts.profile_views.edit_diet_profile' %}">here</a> to start building your profile.
+    Click <a href="/user/edit_stats/">here</a> to start building your profile.
     </p>
+    </div>
 {% endblock %}

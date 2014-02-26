@@ -54,6 +54,7 @@ function create_food_dialog(data, textStatus, jqXHR){
     var modal = $('#ingredient_modal');
     modal.dialog({
         modal: true,
+        width: '75%',
         buttons: {
             'Close': function () {
                 $(this).dialog("close");
@@ -61,6 +62,7 @@ function create_food_dialog(data, textStatus, jqXHR){
         },
         position: {'my':'center','at':'center','of':window}
     });
+    modal.css({'max-height':max_element_height(),'y-overflow':'scroll'});
 
     //handle a change to the selection
     $('#serving_selector').change(function () {

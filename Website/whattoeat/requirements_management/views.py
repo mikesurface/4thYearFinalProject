@@ -68,7 +68,11 @@ def edit_requirements_set(request, daily=False, name=""):
                 except KeyError:
                     pass
 
-            return HttpResponseRedirect('/user/requirements/update_requirements_success/')
+            #redirect back to view page
+            if daily:
+                return HttpResponseRedirect('/user/requirements/my_daily_requirements/')
+            else:
+                return HttpResponseRedirect('/user/requirements/my_meal_requirements/')
 
         #return form, its not valid
         else:
@@ -218,8 +222,8 @@ def recalculate_base_meal_set(request):
     num_meals_per_day = daily_req_set.num_meals_per_day
 
     #build meal profile to match daily requirements
-    profile.add_meal_requirements_set("Derived from Daily Requirements")
-    meal_set = profile.get_meal_requirements_set("Derived from Daily Requirements")
+    profile.add_meal_requirements_set("One meal out of " + str(num_meals_per_day) + " per day")
+    meal_set = profile.get_meal_requirements_set("One meal out of " + str(num_meals_per_day) + " per day")
 
     if daily_calories != None:
         if isinstance(daily_calories,DefiniteDietRequirement):
@@ -297,4 +301,4 @@ def recalculate_base_meal_set(request):
                                               value=daily_sugar.value/num_meals_per_day,
                                               restriction=daily_sugar.restriction)
 
-    return HttpResponseRedirect('/user/requirements/update_requirements_success/')
+    return HttpResponseRedirect('/user/requirements/my_meal_requirements/')

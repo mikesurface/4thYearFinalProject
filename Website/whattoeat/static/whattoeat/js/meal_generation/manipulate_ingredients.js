@@ -41,6 +41,8 @@ function add_ingredient(data, textStatus, jqXHR) {
         cursor.attr('id', 'id_ingredients-'+(noForms-1)+'-'+ cursor.attr('id').substring(3));
         cursor.attr('name','ingredients-' + (noForms-1) + '-' +cursor.attr('name'));
     }
+
+
     //and update the index of each form
     for (i = 0; i < noForms; i++) {
         updateElementIndex(forms[i], 'ingredients', i);

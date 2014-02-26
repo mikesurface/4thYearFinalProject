@@ -5,7 +5,7 @@
 
 {% block content %}
 
-    <div>
+    <div class="well full">
         {% if requirements %}
             <div class="table_banner">
                 <p>Daily Nutritional Requirements</p>
@@ -32,7 +32,7 @@
                 {% endfor %}
             </table>
             <div>
-                <a class="btn btn-success" href="/user/requirements/auto_calculate_base_meal_requirements/">
+                <a class="btn btn-lg btn-success" href="/user/requirements/auto_calculate_base_meal_requirements/">
                     Generate a base meal requirements set
                 </a>
             </div>

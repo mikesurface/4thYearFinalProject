@@ -1,0 +1,40 @@
+{% extends 'base/base_footer_navbar.html' %}
+
+{% block sub_banner %}Help and Documentation {% endblock %}
+
+{% block content %}
+<h3>Nutrients and Meal Requirements</h3>
+    <p>WhatToEat considers the following 8 nutrients:
+    <ol>
+        <li>Calories (in kcals)</li>
+        <li>Protein (in grams)</li>
+        <li>Total Carbohydrate (in grams)</li>
+        <li>Total Fat (in grams)</li>
+        <li>Saturated Fat (in grams)</li>
+        <li>Salt (in grams)</li>
+        <li>Sugar (in grams)</li>
+        <li>Fibre (in grams)</li>
+    </ol>
+    </p>
+
+<h3>Generating a Meal</h3>
+
+        <h4>Adding an Ingredient</h4>
+        <p>
+            A search feature is provided to find and add ingredients to meals. Typically, there will be several portions
+            available for an ingredient. Choose whichever one suits you.
+        </p>
+        <h4>Portion Fixing</h4>
+        <p>
+        You can fix the portion of an ingredient in the meal generator. The means only an exact multiple of the provided
+         serving may be included within the ingredient. If for example you provide "100g of Chicken" as a fixed portion,
+        valid meals may include 0g,100g,200g,etc of chicken. Otherwise any amount of chicken may be included.
+        </p>
+        <h4>Restricting Ingredients</h4>
+        <p>You can restrict ingredients by setting a restriction on the ingredient with a threshold value. The restricts
+        the quantity of the ingredient which may be allowed in a generated meal.
+
+        The threshold must be specified in grams or millilitres. Which one to use is determined by the metric value
+        for the serving size (given in brackets after the sercing size).</p>
+
+{% endblock %}

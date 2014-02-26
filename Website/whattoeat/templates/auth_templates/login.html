@@ -5,7 +5,7 @@ Login
 {% endblock %}
 
 {% block content %}
-<div class="login_box">
+<div class="login_box well ">
     <p class="form-prompt-large">Please sign in or <a href="/accounts/register/">register</a>.</p>
     <form id="login_form" action="" method="POST">
         {% csrf_token %}

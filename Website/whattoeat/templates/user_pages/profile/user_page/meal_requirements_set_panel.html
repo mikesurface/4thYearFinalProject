@@ -1,9 +1,9 @@
-<div id="meal_requirements_set_panel">
-<div id="meal_requirements_set_space">
+<div class="well">
+<div >
     {% with user.profile.get_all_meal_requirements_sets as req_sets %}
         {% if req_sets %}
             {% for set in req_sets %}
-                <div class="meal_requirements_set_block">
+                <div>
                         <p>
                             <strong>{{ set.name }}</strong>
                             <button type="button">Edit</button>

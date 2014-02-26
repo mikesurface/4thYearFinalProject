@@ -76,13 +76,9 @@ def meal_generation(request):
                     food_id = data['food_id']
                     serving_id = data['serving_id']
 
-                    #get quantity data: if metric data is available prefer this over non-metric
-                    if data['metric_quantity'] is not None and data['metric_units'] is not None:
-                        quantity = data['metric_quantity']
-                        units = data['metric_units']
-                    else:
-                        quantity = data['quantity']
-                        units = data['units']
+
+                    quantity = data['quantity']
+                    units = data['units']
 
                     #check if the ingredient is restricted
                     restriction = None

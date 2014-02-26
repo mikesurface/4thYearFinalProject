@@ -14,7 +14,7 @@ def serving_to_ingredient_form(request):
             args['ing_form'] = form
             args['food_name'] =  data['food_name']
             args['ing_desc'] = data['description']
-            args['data'] = str(data)
+            args['units'] = data['units']
             return render_to_response('meal_pages/generation/ingredient_form.html',args)
 
     return HttpResponseBadRequest()

@@ -20,6 +20,11 @@ function display_compressed_search(){
         position: {'my':'center','at':'center top','of':'.wrapper'}
     });
 
+    //close help popovers if they are open
+    var popovers = $('.helpPopover');
+    for(i=0; i < popovers.length; i++){
+        $(popovers[i]).popover('hide');
+    }
     modal.on("dialogclose",function(){
         $(this).dialog("close");
         modal.css('display','none');

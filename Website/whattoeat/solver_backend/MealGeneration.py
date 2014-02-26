@@ -288,12 +288,13 @@ class MealGenerator(object):
         solver.setVerbosity(0) #turn off solver stats
         solver.solve()
 
-        if printStats:
-            print "QUANTITIES:"
-            print quantities
-
-
-        output = str(quantities)
+        try:
+            if printStats:
+                print "QUANTITIES:"
+                print quantities
+            output = str(quantities)
+        except(AttributeError):
+            return None #sometimes a failed solution causes numberjack to produce faulty output
 
         #curly brace indicate no solution (the solver prints out the partial assignment it made before failure)
         if '{' in output:

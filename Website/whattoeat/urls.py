@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from whattoeat.accounts.auth_views import *
 from whattoeat.accounts.user_views import user_homepage, edit_diet_profile
-from whattoeat.base_views import home_page
+from whattoeat.base_views import home_page, help_page
 from whattoeat.meals.generation.ajax_methods import serving_to_ingredient_form
 from whattoeat.meals.generation.views import meal_generation
 from whattoeat.meals.ingredient_search.ajax_methods import lookup, get_results_page
@@ -57,6 +57,7 @@ authentication_urls = patterns('',
 urlpatterns = patterns('',
                        url(r'^$', home_page),
 
+                       url(r'^help/',help_page),
                        #admin page
                        url(r'^admin/', include(admin.site.urls)),
 
