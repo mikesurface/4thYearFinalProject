@@ -1,7 +1,7 @@
 from django.core.context_processors import csrf
 __author__ = 'michael'
 
-DEFAULT_ADDITIONAL_MEAL_PROFILES = 4 #defines how many extra meal profiles the user may have (on top of the
+DEFAULT_POINTS_OF_DECIMAL_ACCURACY = 1
 
 def build_user_args(request):
     '''

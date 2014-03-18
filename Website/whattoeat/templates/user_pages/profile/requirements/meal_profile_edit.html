@@ -141,6 +141,7 @@
         }
 
         $(document).ready(function(){
+            console.log($('body').html())
              //set up popovers
             var popovers = $('.helpPopover');
             for(i = 0; i < popovers.length; i++){
@@ -157,8 +158,7 @@
             $('.nutrient_name_field').change(function(){
                 addUnits('definite');
                 addUnits('restricted');
-            })
-
+            });
         });
     </script>
 {% endblock %}

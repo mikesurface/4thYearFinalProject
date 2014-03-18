@@ -1,0 +1,100 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\title{}
+\author{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+\end{abstract}
+
+\chapter{Company Outline}
+BT is a global telecommunications and network provider. BT stems from the world's oldest telecommunications company and are well known for building and to this day maintaining the majority of the United Kingdom's telephone infrastructure. Today they continue to provide telecomms services for the UK and over 170 countries worldwide. They also provide internet and network solutions, television and more through their customer facing divisions BT Openreach and BT Retail. It is these services that the average person is most likely to have been exposed to.\\
+However BT also undertake a large amount of software development and research through various subdivisions. In particular, Group Engineering Services (GES), with whom I undertook my placement, provide development and research for both other BT departments and outside customers.\\
+GES sits within BT Security, a subdivision concerned with providing security services to BT and it's customers. GES is further subdivided internally into Processing and Research and Development. These subdivisions in many cases are not clearly seperated so instead it is easier to describe the work of GES as a whole. Firstly they develop bespoke systems for BT's clients. The majority of these systems are security based and focus on subjects such as malware detection and forensic computing. Many of these systems are built for the UK government. To support this GES has a close relationship with GCHQ for this reason. At the time of writing a new GES division is about to be opened in Cheltenham to ease interation with GCHQ at Bletchley Park[ref].\\
+
+Research and Development in GES is not limited to security-centric fields of computing, and includes research into machine learning, mobile development, natural language processing and more. The aim of this research is to find new and improved solutions to exisiting problems, to keep existing projects using modern techniques and to explore the feasibility of new ideas and assess if they may be pursued to develop new technologies in the future.\\
+Naturally because of GES's ties to national security it can be difficult even for an employee to gain a detailed view of exactly what GES does. There are also some aspects of the department that cannot be discussed. Where details are ommited from this report for this reason it will be mentioned.\\
+
+\subsection{My Project within GES}
+My project was part of the broader Innovation group within Reserch and Development (R\&D) within GES. In their own words Innovation is concerned with  "blue sky thinking" ideas. This group performs research to find new areas of development for BT through what they call 'Discovery Tasks'. These are short, research driven projects carried out by student interns in GES or by students/faculty of universities as final year projects.\\
+Often the result of these projects is a proof-of-concept (POC) system demonstrating what, if anything, was learned. From here if the POC shows signs of being worth developing further, it is passed or 'pulled through' to Product R\&D who can develop it further. If this further development is again successful, the system may be pulled through to Product Development.\\
+My project covers as far as developing initial POC systems based on our research. From here our supervisors may pull it through to Product R\&D in the future. Alternatively if considered too undeveloped the project may be carried on by other student groups in future years.
+
+\chapter{Project Overview}
+The title of the project was "Content Analysis". The overall aim was to investigate way  to filter down large amounts of user generated content by assigning content to meaningful categories and groupings. To acheive this we looked into two areas: Content Classification and Sentiment Analysis. The combined research and development in these two areas constitues the project and final system.\\
+Content Classification is the process of assigning a piece of content to one or more of a finite group of predefined categories. So for example if given a news article about the Large Hadron Collider at CERN, we may assign the tag 'Science' to the document. A classfier is fed in training data: example documents with pre-assigned tags denoting what category they belong to. Using these it can then assign new,unseen documents to the same categories it was trained on. This training data must be tagged manually and can be expensive to produce. An example dataset which we used in the project is the Reuter-21578 dataset.\\
+To acheive this we investigated tools and frameworks which could support Content Classification. As it is already a relatively well understood problem, there are many existing implementations. We would compare and contrast the various tools available and select the best to take forward and build a POC classifier. This POC was then evaluated.\\
+
+Sentiment Analysis is the process of trying to determine the underlying mood or opinion a piece of content conveys. This may be directed at a target (such as in a review) or just expressed in a more general sense (as in a blog post).\\
+There is a large amount of exisiting research into sentiment analysis, despite it being a relatively new technique. The general idea is to look through a document and identify the sentiment from words or phrases that appear. This can be done at the sentence level or at the level of individual words (though often a combination of the two is used). Identifying the sentiment of a word/sentence can be though of as a classification problem using training data or by using a lexicon; a dictionary like structure associating words with the sentiment(s) they convey in a context.  After analysing all of the document an overall sentiment is calculated and returned.\\
+In classification problems and important problem to consider is the relevance of training data. If a classifier is trained on news articles, it will probably handle news articles well, but would struggle to assign a scientific paper for example. This is because the style of language used in these document types is generally rather different.\\
+Likewise in Sentiment Analysis the assumptions we make regarding the meaning of sentences and the training data used affect the accuracy to analysis. Two people may convey the same sentiment using very different language. In an attempt to address this, the aim of this project was to consider analysis using an 'individual approach': focussing on a single user's language as training data and testing the system using more content from the same user.\\
+To do this we start with a sample of the user's language (a 'snapshot ontology' as it was known). This may be 100 emails,facebook posts or tweets from the user. We then use these as the basis for constructing a sentiment analyser for that individual. We then evaluate this and contrast the accuracy to tradtional sentiment analysis methods. \\
+Any system built was to be implemented in Java.
+
+\chapter{Team Structure And Development Process}
+The team consisted of myself and my partner David. The team was supervised by two members of staff, Alex and Steve. Throughout the project David and I were given full control of design decisions and process choices. In Alex and Steve's own words, after several weeks of researching we were more knowledgable in the domain than they were. hey did not directly play a technical role: all research and coding was conducted by David and I. Their role was to guide the project in the right direction by acting as a pseudo-customer to us, as well as supporting us with the necessary resources and general tips to elp us succeed.\\
+We chose an Agile approach to support the small team size and rapidly changing requirements resulting from the experimental nature of the project. Since we were only a team of two, we felt it unnecessary to stick rigidly to any particular agile process such as XP or Scrum. Instead we borrowed the following techniques from various processes:
+\begin{itemize}
+\item{\textbf{Incremental Delivery:} Development was defined in terms of successive deliveries, each implementing a new set of features \cite[p.~84]{PSDNotes}. These were not actually deployed to a customer as such, but demonstrated to our supervisors. These served as checkpoints at which we could re-evaluate our aims and adjust the project scope with our supervisors, as in the model of the prototyping process \cite[fig.~16.1]{PSDNotes}. Development periods began at about 1-2 weeks and increased in size as the project progressed. The short inital development periods helped to deal with rapid changes in aim and scope as we delved further into the project. These increased as we gained a better understanding of the domain and our requirements became 'locked down'. It shuld be noted that incremental prototyping can be high risk: as the system grows change management becomes challenging and poor development can result from labelling the entire development as a prototype\cite[sec.~16.4.6]{PSDNotes}. We managed these risks using the other techniques described in this chapter. }
+\item{\textbf{Stand-ups (A.K.A Daily Scrum):} Borrowing from the Scrum model, each day David and I would begin with a short meeting with a whiteboard to establish the aims of the day and discuss any ideas or problems. This was not as formal or intricate a process as daily scrums are usually described. Instead it was simply used to keep us on track, by establishing what we had done, what we would do today, and what (if any) problems were impeding us \cite{ScrumStandup}.
+\item{\textbf{Constant Refactoring:} Refactoring was carried out wherever possible to improve code quality, as in XP \cite[fig.~3.4]{Sommerville}. In addition to refactoring each component throughout development, a larger period of refactoring would be carried out before each delivery to remove unnecessary functionality from components, simplify compont interfaces and remove any unnecessary components. Unit tests were employed to support the refactoring (see testing). Using these we adhered to the Refactoring process as described in PSD \cite[fig.~28.1]{PSDNotes}, preventing refactorings from accidentally changing system behaviour and causing setbacks. Following this process proved very effective.}
+\item{\textbf{Pair Programming:} With only two of us in the team we could not afford to pair program all the time, but it was a useful tool for working through the trickiest parts of development. In particular, occasional pair programming helped improve collective system ownership between David and I, as it was easy for each of us to stick to 'our part' of the system and obscure our work from eac other unintentionally. By both being exposed to parts of the system we gained a shared understanding of them. \cite[sec.~3.3.1,pt 1.]{Sommerville}.} 
+\item{\textbf{System Metaphors:} Throughout the project we employed a simple metaphor of the system as a pipeline (in line with the Pipe \& Filter architectural design, see Design). We used simple block diagrams and stripped-down UML to present an overall view of the system. This was refined over time as we gained a better understanding of what we wanted to build. These diagrams and metaphors allowed myself, David and our supervisors to gain a common vision of the system. We also established a shared vocabulary of technical terms and component names to keep our conversations unambigious \cite[ch.~14]{BeckXP},\cite{SystemMetaphor}.}
+\item{\textbf{Agile Testing:} Testing is discussed in detail later in this report. It suffices to say that testing was conducted using agile testing techniques, such as unit testing and continuous integration. Automated testing was used wherever possible.}
+\end{itemize}
+
+\section{Requirements Gathering & Customer Interaction}
+As mentioned, our supervisors did not take a direct role in development. Their role, as well as supervising our work, was to provide the projects requirement's and evaluate the prototype's we produced. An advantage of this setup was that we were able to involve them frequently with the development process \cite[pg.~60]{Sommerville}. Often other commitments meant that they could not be involved as often as we would have liked; Steve in particular was very hard to get hold of.\\ However at least one of them was available at all times. \\
+Our initial requirements were provided as User Stories. These gave a brief outline of what features were required for content classification \& sentiment analysis, plus acceptance criteria for each part of the project. From these we derived an initial requirements set and planned out some rough project milestones. Unlike in Extreme Programming, where user stories are provided regularly to plan iterations \cite[sec.~4.7.1]{PSDNotes}, we were only provided with this one initial set of stories. As a result  almost no constraints were put on what features the system should have or in what order features should be implemented: at least from a customer-centrice view. Thankfully as discussed in the Design chapter the natural ordering of an NLP system design helped to guide us.
+
+\section{Project Management \& Change Managementl}
+The Ophelia Redmine project management system was used for issure tracking. This was not a choice made by David or myself: Redmine is the in-house management system for the Innovation group. With onl two of us sitting in a group we did not require it to report defects, ticket tasks, etc. While these features are useful,we felt the time taken to write up tickets and so forth was too expensive for such a small team.  We did however us it to lay out the plan for each development iteration and the features we wished to acheive. The Wiki section was also used to share research and document ideas we wished to revisit.\\
+Git was used for version control. Again this was provided to us from that start.\\
+In such a small team we were able to keep our change management process very simple. In general work on content classification and sentiment analysis would be occurring in parallel with one of us doing each, making it very rare that we ever needed to work on the same files. However when we did we would foresee this during stand-up meetings, when both of us expressed desire to work on the same component. In essence the process we used for resolving this is similar to the concept of a token ring network\cite{TokenRing}. Each of us would write, on a witeboard, the classes we were using (ie the classes we held te 'token' for). We then held access to that class until we relinquished it, either by completing our task or at our partner's request. Though incredibly basic this method was sufficient for our needs to avoid change conflict.
+
+(MOVE TO REFLECTION)
+Upon reflection, the combination of techniques we used listed above, combined with our supervisor's acting as on-site customers and our incremental planning, means that overall the process we used is very similar to Extreme Programming (XP) \cite[pg.~66]{Sommerville}.
+
+\chapter{Design}
+\section{Overview}
+As is the case in many NLP systems, our system follows a Pipe \& Filter architecture.Each part of the system is a self-contained component with well defined input. A high level view of the system can be seen in figure [ref]. This was gradually defined as the project progressed by refining the system metaphor and high-level design of the system over time. The view shown is that of the final POC system.\\
+We highly stressed modularity and low coupling between components in our design, since only parts of the system may be used in the future
+
+\section{Design Process}
+As mentioned in the previous section, incremental protoyping was used to progress the system implementation. Likewise, at each iteration a next wave of components were defined to be implemened in each protoype.
+
+Due to the research driven nature of the project it was impossible for us to define the entire system architecture before development. As such we could not clear define each component's services and interface in advance. Instead we used the following process:
+\begin{enumerate}
+\item{Using the previous component's output and features, a new component could be planned out. Its input is naturally defined in terms of the output of the previous component.}
+\item{A basic implementation would then be developed and tested. An iterative process of refactoring and redesigning then occurs to improve the component and its interface. At this stage we could often begin to see the services the next component would require.}
+\item{Eventually the design of the component would be finalised and documented.}
+\end{enumerate}
+In effect we wished to follow the Design By Contract paradigm \cite{DesignByContract}: each component ultimately specifies its benefits and obligations through its public Java API. Sadly an example component cannot be shown to highlight this due to security restrictions on sharing BT software.
+
+\section{System Walkthrough}
+From left to right the blocks in fig[ref] show the following:
+\begin{enumerate}
+\item{\textbf{Content Pre-Processing:} This section takes in user content from various sources and converts it into a common format to be used by both content classification and sentiment analysis. The resulting common datatype, known simply as 'Content', is a generic representation of user-generated content.}
+\item{\textbf{Content Classifier:}
+
+
+
+
+
+
+\chapter{Testing}
+We heaviy used Automated/Unit testing and Intergration testing techniques to support development.\\
+We chose the JUnit framework was chosen for these tests, as we both had previous familiarity with it and it comes with excellent Eclipse integration.\\
+Unit tests in JUnit provided black box testing [ref]; tests were conducted for all public/protected methods of the component. In addition tests were written to perform white box testing on components. These were normally main methods within each class. This allowed greater test coverage for components.\\
+In bringing the system together, a process of continuous intergration testing was used [ref]. This was again supported by the system's Pipe \& Filter architecture. Each new component to be tested could be integrated with previous components in the pipeline and this pipeline subsection tested. Earlier the process for designing anf implementing a component was described in section [ref]. After each component was implemented it was tested in isolation then, once it had passed thesd been checked thoroughly [revise], it was integrated. In this manner we moved towards incremental, tested protoypes which would ultimately evolve into the final system.\\
+ 
+Not that unfortunately test driven development could not used due to a lack of prior understanding of each components functionality. Also, though this technique is used a lot within GES, we were unable to use automated integration and testing[ref] due to a lack of resources. However, we tried to come as close to these as possible using the techniques we had available to us.
+\end{document}

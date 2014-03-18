@@ -45,6 +45,17 @@
                             <strong>?</strong>
                         </button>
                     </th>
+
+                    <th>Use Metric
+                           <button type="button" class="btn btn-default helpPopover" data-container="body" data-toggle="popover"
+                                data-placement="bottom"
+                                data-content="It may be preferable to use metric quantities where they are available. The metric
+                                quantity for an ingredient is in brackets next to the portion size, if it is known. This is only
+                                useful if the original quantity is in a non-metric unit, such as cups. This means the recipe will
+                                allow multiples of the metric unit, giving more freedom in creating the recipe.">
+                            <strong>?</strong>
+                        </button>
+                    </th>
                     <th>Restriction
                              <button type="button" class="btn btn-default helpPopover" data-container="body" data-toggle="popover"
                                 data-placement="bottom"
@@ -71,8 +82,9 @@
                     <tr class="ingredients_space">
                         <td class="food_name_and_desc"></td>
                         <td>{{ ing_form.fixed }}</td>
+                        <td>{{ ing_form.use_metric_units }}</td>
                         <td>{{ ing_form.restriction }}</td>
-                        <td>{{ ing_form.threshold }}</td>
+                        <td>{{ ing_form.threshold }} {{ ing_form.units }} {{ ing_form.unitsPrintable }}</td>
                         <td><input type="button" class="btn btn-danger delete_ingredient" value="Remove">
                             {# render the hidden fields. Have to enumerate these since we have used some above #}
                             {{ ing_form.food_id }}
@@ -88,7 +100,6 @@
                             {{ ing_form.fibre }}
                             {{ ing_form.satfat }}
                             {{ ing_form.quantity }}
-                            {{ ing_form.units }}
                             {{ ing_form.metric_quantity }}
                             {{ ing_form.metric_units }}
                         </td>

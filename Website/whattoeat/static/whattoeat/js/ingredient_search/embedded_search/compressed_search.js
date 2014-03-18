@@ -25,13 +25,24 @@ function display_compressed_search(){
     for(i=0; i < popovers.length; i++){
         $(popovers[i]).popover('hide');
     }
+
+    //set close behaviour
     modal.on("dialogclose",function(){
         $(this).dialog("close");
         modal.css('display','none');
 
     });
 
+    //display the modal
     modal.css({'display':'block','max-height':max_element_height(),'y-overflow':'scroll'});
+
+    //makes pressing enter while in the search text box trigger the search
+    $("#id_search_text").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#ingredient_search_submit").click();
+    }
+    });
+
 }
 
 

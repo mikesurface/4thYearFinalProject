@@ -1,4 +1,5 @@
 from whattoeat.solver_backend.Formulae import calculate_calories_per_day, daily_protein, daily_carbs, daily_fat, default_min_fibre_grams, daily_sugar, default_max_salt_grams, daily_satfat, default_error_margin
+from whattoeat.utilities import DEFAULT_POINTS_OF_DECIMAL_ACCURACY
 
 __author__ = 'michael'
 
@@ -36,14 +37,14 @@ def calculate_daily_requirements_from_profile(request):
     #check that none of these fields are empty, as this will raise exceptions
     if gender and age and height and weight and goal:
         #calculate recommended base daily requirements
-        daily_calories = calculate_calories_per_day(height,weight,age,gender,goal)
-        protein = daily_protein(daily_calories)
-        carbs = daily_carbs(daily_calories)
-        fat = daily_fat(daily_calories)
-        salt = default_max_salt_grams()
-        fibre = default_min_fibre_grams()
-        sugar = daily_sugar(daily_calories)
-        satfat = daily_satfat(daily_calories)
+        daily_calories = round(calculate_calories_per_day(height,weight,age,gender,goal),DEFAULT_POINTS_OF_DECIMAL_ACCURACY)
+        protein = round(daily_protein(daily_calories),DEFAULT_POINTS_OF_DECIMAL_ACCURACY)
+        carbs = round(daily_carbs(daily_calories),DEFAULT_POINTS_OF_DECIMAL_ACCURACY)
+        fat = round(daily_fat(daily_calories),DEFAULT_POINTS_OF_DECIMAL_ACCURACY)
+        salt = round(default_max_salt_grams(),DEFAULT_POINTS_OF_DECIMAL_ACCURACY)
+        fibre = round(default_min_fibre_grams(),DEFAULT_POINTS_OF_DECIMAL_ACCURACY)
+        sugar = round(daily_sugar(daily_calories),DEFAULT_POINTS_OF_DECIMAL_ACCURACY)
+        satfat = round(daily_satfat(daily_calories),DEFAULT_POINTS_OF_DECIMAL_ACCURACY)
         num_meals_per_day = 3
         error_margin = default_error_margin()
 
@@ -86,38 +87,46 @@ def calculate_daily_requirements_from_profile(request):
                                                       restriction=">=")
 
         #build meal profile to match daily requirements
-        profile.add_meal_requirements_set("Derived from Daily Requirements")
-        meal_set = profile.get_meal_requirements_set("Derived from Daily Requirements")
+        profile.add_meal_requirements_set("One meal out of " + str(num_meals_per_day) + " per day")
+        meal_set = profile.get_meal_requirements_set("One meal out of " + str(num_meals_per_day) + " per day")
         meal_set.add_definite_requirement(nutrient_name="calories",
-                                                      value = daily_calories/num_meals_per_day,
+                                                      value = round(daily_calories/num_meals_per_day,
+                                                                    DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                                       error = error_margin)
 
         meal_set.add_definite_requirement(nutrient_name="protein",
-                                                      value = protein/num_meals_per_day,
+                                                      value = round(protein/num_meals_per_day,
+                                                                    DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                                       error = error_margin)
 
         meal_set.add_definite_requirement(nutrient_name="carbs",
-                                                    value = carbs/num_meals_per_day,
+                                                    value = round(carbs/num_meals_per_day,
+                                                                  DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                                       error = error_margin)
 
         meal_set.add_definite_requirement(nutrient_name="fat",
-                                                      value = fat/num_meals_per_day,
+                                                      value = round(fat/num_meals_per_day,
+                                                                    DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                                       error = error_margin)
 
         meal_set.add_restricted_requirement(nutrient_name="salt",
-                                                      value = salt/num_meals_per_day,
+                                                      value = round(salt/num_meals_per_day,
+                                                                    DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                                       restriction="<=")
 
         meal_set.add_restricted_requirement(nutrient_name="satfat",
-                                                      value = satfat/num_meals_per_day,
+                                                      value = round(satfat/num_meals_per_day,
+                                                                    DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                                       restriction="<=")
 
         meal_set.add_restricted_requirement(nutrient_name="sugar",
-                                                      value = sugar/num_meals_per_day,
+                                                      value = round(sugar/num_meals_per_day,
+                                                                    DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                                       restriction="<=")
 
         meal_set.add_restricted_requirement(nutrient_name="fibre",
-                                                      value = fibre/num_meals_per_day,
+                                                      value = round(fibre/num_meals_per_day,
+                                                                    DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                                       restriction=">=")
 
         return True

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="11.3">
+  <zoom_level>7</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>343</x>
+      <y>77</y>
+      <w>140</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>(base_views)
+/&lt;root&gt; -&gt; Home Page/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>189</x>
+      <y>84</y>
+      <w>237</w>
+      <h>188</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>21;175;21;126;224;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>133</x>
+      <y>259</y>
+      <w>168</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>(accounts.auth_views)
+
+/ /accounts /
+
+--
+/register/$  -&gt; user registration
+/login/$ -&gt; log user in
+/logout/$ -&gt; log user out</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>84</y>
+      <w>76</w>
+      <h>118</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>21;105;21;70;63;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>287</x>
+      <y>189</y>
+      <w>196</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>(accounts.user_views)
+/ /user /
+--
+/$  -&gt; user's profile page
+/edit_stats/$ -&gt; edit the user's profile
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>343</x>
+      <y>301</y>
+      <w>189</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>(requirements_management)
+/ /requirements /
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>364</x>
+      <y>224</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>77;77;77;56;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>133</x>
+      <y>364</y>
+      <w>308</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>(requirements_managament.daily_requirements_views)
+--
+/auto_calculate/$ -&gt; calculate daily requirements
+/my_daily_requirements/$ -&gt; view daily requirements
+/edit_daily_requirements/$ -&gt; edit the daily requirements</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>448</x>
+      <y>364</y>
+      <w>420</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>(requirements_management.meal_requirements_views)
+--
+/my_meal_requirements/$ -&gt; view all meal requirements sets
+/add_meal_requirements/$ -&gt; add a new meal requirements set
+/edit_meal_requiremenets/&lt;set_name&gt;/$ -&gt; edit the set named &lt;set_name&gt;
+/remove_meal_requirements_set/&lt;set_name&gt;/$ -&gt; remove the set named &lt;set_name&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>245</x>
+      <y>308</y>
+      <w>202</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>21;56;21;35;189;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>413</x>
+      <y>308</y>
+      <w>244</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>231;56;231;42;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>595</x>
+      <y>203</y>
+      <w>273</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>(meals.ingredient_search)
+/ /search_ingredient/$ -&gt; search for an ingredient/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>560</x>
+      <y>294</y>
+      <w>301</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>(meals.generation)
+/ /meal_generator/ -&gt; open the meal generator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>392</x>
+      <y>84</y>
+      <w>349</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>336;119;336;91;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>392</x>
+      <y>84</y>
+      <w>342</w>
+      <h>223</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>329;210;329;175;140;175;21;21</additional_attributes>
+  </element>
+</diagram>

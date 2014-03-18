@@ -13,6 +13,9 @@ def pagination_numbers(active_page, number_pages_displayed, total_pages):
     '''
     Calculate the pages to be displayed in the paginator and return this as a list
     '''
+
+    if number_pages_displayed > total_pages: #catch case where there are less pages than the default number to display
+        return range(0,total_pages)
     if active_page <= (number_pages_displayed / 2):#page is close to start
         return range(0, number_pages_displayed + 1)
     elif active_page >= (total_pages - (number_pages_displayed / 2)): #page is close to end

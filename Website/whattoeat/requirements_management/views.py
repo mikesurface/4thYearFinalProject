@@ -4,7 +4,7 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from whattoeat.requirements_management.forms import DefiniteRequirementForm, RestrictedRequirementForm, MealRequirementsSetForm, DailyRequirementsSetForm
 from whattoeat.models import DefiniteDietRequirement, RestrictedDietRequirement
-from whattoeat.utilities import build_user_args, build_user_args_for_form
+from whattoeat.utilities import build_user_args, build_user_args_for_form, DEFAULT_POINTS_OF_DECIMAL_ACCURACY
 
 
 @login_required
@@ -34,51 +34,59 @@ def edit_requirements_set(request, daily=False, name=""):
         def_req_formset = DefiniteRequirementFormSet(request.POST, request.FILES, prefix="definite")
         res_req_formset = RestrictedRequirementFormSet(request.POST, request.FILES, prefix="restricted")
 
-        #form input is valid
-        if req_set_form.is_valid() and def_req_formset.is_valid() and res_req_formset.is_valid():
+        try:
+            #form input is valid
+            if req_set_form.is_valid() and def_req_formset.is_valid() and res_req_formset.is_valid():
 
-            if daily:
-                #update daily requirements profile
-                req_set = profile.add_daily_requirements_set(req_set_form.cleaned_data['num_meals_per_day'])
+                if daily:
+                    #update daily requirements profile
+                    req_set = profile.add_daily_requirements_set(req_set_form.cleaned_data['num_meals_per_day'])
+                else:
+                    #update meal requirements profile
+                    req_set = profile.add_meal_requirements_set(req_set_form.cleaned_data['name'])
+
+                #clear old requirements
+                req_set.clear_requirements()
+
+                #add definite requirements
+                for form in def_req_formset:
+                    try:
+                        name = form.cleaned_data['name']
+                        value = form.cleaned_data['value']
+                        error = form.cleaned_data['error']
+                        req_set.add_definite_requirement(name, value, error)
+                    except KeyError:
+                        #empty form not removed
+                        pass
+
+                #add restricted requirements
+                for form in res_req_formset:
+                    try:
+                        name = form.cleaned_data['name']
+                        value = form.cleaned_data['value']
+                        restriction = form.cleaned_data['restriction']
+                        req_set.add_restricted_requirement(name, value, restriction)
+                    except KeyError:
+                        pass
+
+                #redirect back to view page
+                if daily:
+                    return HttpResponseRedirect('/user/requirements/my_daily_requirements/')
+                else:
+                    return HttpResponseRedirect('/user/requirements/my_meal_requirements/')
+
+            #return form, its not valid
             else:
-                #update meal requirements profile
-                req_set = profile.add_meal_requirements_set(req_set_form.cleaned_data['name'])
+                args['req_set_form'] = req_set_form
+                args['def_req_formset'] = def_req_formset
+                args['res_req_formset'] = res_req_formset
+                return render_to_response('user_pages/profile/requirements/meal_profile_edit.html', args)
 
-            #clear old requirements
-            req_set.clear_requirements()
-
-            #add definite requirements
-            for form in def_req_formset:
-                try:
-                    name = form.cleaned_data['name']
-                    value = form.cleaned_data['value']
-                    error = form.cleaned_data['error']
-                    req_set.add_definite_requirement(name, value, error)
-                except KeyError:
-                    #empty form not removed
-                    pass
-
-            #add restricted requirements
-            for form in res_req_formset:
-                try:
-                    name = form.cleaned_data['name']
-                    value = form.cleaned_data['value']
-                    restriction = form.cleaned_data['restriction']
-                    req_set.add_restricted_requirement(name, value, restriction)
-                except KeyError:
-                    pass
-
-            #redirect back to view page
-            if daily:
-                return HttpResponseRedirect('/user/requirements/my_daily_requirements/')
-            else:
-                return HttpResponseRedirect('/user/requirements/my_meal_requirements/')
-
-        #return form, its not valid
-        else:
+        except ValueError: #catch case where a form was partly empty
             args['req_set_form'] = req_set_form
             args['def_req_formset'] = def_req_formset
             args['res_req_formset'] = res_req_formset
+            args['empty_forms_left'] = "True" #empty forms caused an error
             return render_to_response('user_pages/profile/requirements/meal_profile_edit.html', args)
 
 
@@ -228,77 +236,93 @@ def recalculate_base_meal_set(request):
     if daily_calories != None:
         if isinstance(daily_calories,DefiniteDietRequirement):
             meal_set.add_definite_requirement(nutrient_name="calories",
-                                              value = daily_calories.value/num_meals_per_day,
+                                              value = round(daily_calories.value/num_meals_per_day,
+                                                            DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               error = daily_calories.error)
         else:
             meal_set.add_restricted_requirement(nutrient_name='calories',
-                                              value=daily_calories.value/num_meals_per_day,
+                                              value=round(daily_calories.value/num_meals_per_day,
+                                                          DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               restriction=daily_calories.restriction)
 
     if daily_protein != None:
         if isinstance(daily_protein,DefiniteDietRequirement):
             meal_set.add_definite_requirement(nutrient_name="protein",
-                                              value = daily_protein.value/num_meals_per_day,
+                                              value = round(daily_protein.value/num_meals_per_day,
+                                                            DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               error = daily_protein.error)
         else:
             meal_set.add_restricted_requirement(nutrient_name='protein',
-                                              value=daily_protein.value/num_meals_per_day,
+                                              value=round(daily_protein.value/num_meals_per_day,
+                                                          DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               restriction=daily_protein.restriction)
 
     if daily_carbs != None:
         if isinstance(daily_carbs,DefiniteDietRequirement):
             meal_set.add_definite_requirement(nutrient_name="carbs",
-                                              value = daily_carbs.value/num_meals_per_day,
+                                              value = round(daily_carbs.value/num_meals_per_day,
+                                                            DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               error = daily_carbs.error)
         else:
             meal_set.add_restricted_requirement(nutrient_name='carbs',
-                                              value=daily_carbs.value/num_meals_per_day,
+                                              value=round(daily_carbs.value/num_meals_per_day,
+                                                          DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               restriction=daily_carbs.restriction)
     if daily_carbs != None:
         if isinstance(daily_fat,DefiniteDietRequirement):
             meal_set.add_definite_requirement(nutrient_name="fat",
-                                              value = daily_fat.value/num_meals_per_day,
+                                              value = round(daily_fat.value/num_meals_per_day,
+                                                            DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               error = daily_fat.error)
         else:
             meal_set.add_restricted_requirement(nutrient_name='fat',
-                                              value=daily_fat.value/num_meals_per_day,
+                                              value=round(daily_fat.value/num_meals_per_day,
+                                                          DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               restriction=daily_fat.restriction)
     if daily_satfat != None:
         if isinstance(daily_satfat,DefiniteDietRequirement):
             meal_set.add_definite_requirement(nutrient_name="satfat",
-                                              value = daily_satfat.value/num_meals_per_day,
+                                              value = round(daily_satfat.value/num_meals_per_day,
+                                                            DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               error = daily_satfat.error)
         else:
             meal_set.add_restricted_requirement(nutrient_name='satfat',
-                                              value=daily_satfat.value/num_meals_per_day,
+                                              value= round(daily_satfat.value/num_meals_per_day,
+                                                           DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               restriction=daily_satfat.restriction)
     if daily_fibre != None:
         if isinstance(daily_fibre,DefiniteDietRequirement):
             meal_set.add_definite_requirement(nutrient_name="fibre",
-                                              value = daily_fibre.value/num_meals_per_day,
+                                              value = round(daily_fibre.value/num_meals_per_day,
+                                                            DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               error = daily_fibre.error)
         else:
             meal_set.add_restricted_requirement(nutrient_name='fibre',
-                                              value=daily_fibre.value/num_meals_per_day,
+                                              value=round(daily_fibre.value/num_meals_per_day,
+                                                          DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               restriction=daily_fibre.restriction)
 
     if daily_salt != None:
         if isinstance(daily_salt,DefiniteDietRequirement):
             meal_set.add_definite_requirement(nutrient_name="salt",
-                                              value = daily_salt.value/num_meals_per_day,
+                                              value = round(daily_salt.value/num_meals_per_day,
+                                                            DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               error = daily_salt.error)
         else:
             meal_set.add_restricted_requirement(nutrient_name='salt',
-                                              value=daily_salt.value/num_meals_per_day,
+                                              value=round(daily_salt.value/num_meals_per_day,
+                                                          DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               restriction=daily_salt.restriction)
     if daily_sugar != None:
         if isinstance(daily_sugar,DefiniteDietRequirement):
             meal_set.add_definite_requirement(nutrient_name="sugar",
-                                              value = daily_sugar.value/num_meals_per_day,
+                                              value = round(daily_sugar.value/num_meals_per_day,
+                                                            DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               error = daily_sugar.error)
         else:
             meal_set.add_restricted_requirement(nutrient_name='sugar',
-                                              value=daily_sugar.value/num_meals_per_day,
+                                              value=round(daily_sugar.value/num_meals_per_day,
+                                                          DEFAULT_POINTS_OF_DECIMAL_ACCURACY),
                                               restriction=daily_sugar.restriction)
 
     return HttpResponseRedirect('/user/requirements/my_meal_requirements/')

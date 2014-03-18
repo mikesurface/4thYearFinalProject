@@ -54,11 +54,26 @@ class ServingForm(forms.Form):
     metric_quantity = forms.FloatField(widget=forms.HiddenInput())
     metric_units = forms.CharField(widget=forms.HiddenInput())
 
+    def __init__(self, *args, **kwargs):
+        super(ServingForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, 'instance', None)
+        if instance and instance.pk:
+            self.fields['units'].widget.attrs['readonly'] = True
+
+    def unitsPrintable(self):
+        instance = getattr(self, 'instance', None)
+        if instance and instance.pk:
+            return instance.units
+        else:
+            return self.cleaned_data['units']
+
+
 class IngredientForm(ServingForm):
     restriction_choices = ((None,'No Restriction'),('=','equal to'),('<','less than'),('>','more than'),
                            ('<=','no more than'),('>=','at least'))
     fixed = forms.BooleanField(initial=False,required=False)
     restriction = forms.ChoiceField(widget=forms.Select(), choices=restriction_choices,required=False)
+    use_metric_units = forms.BooleanField(initial=False,required=False)
     threshold = forms.FloatField(required=False)
 
 

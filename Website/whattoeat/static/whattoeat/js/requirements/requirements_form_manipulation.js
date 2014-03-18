@@ -26,6 +26,7 @@ $(document).ready(function () {
         }else{
             alert("if you dont want any " + prefix + " requirements, just set the last space to have no nutrient.");
         }
+        console.log($('body').html());
         return false;
     }
 

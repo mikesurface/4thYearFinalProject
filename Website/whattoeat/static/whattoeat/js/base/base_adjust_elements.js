@@ -16,5 +16,5 @@ function adjust(){
 }
 $(window).ready(adjust());
 $(window).resize(function(){
-    adjust(); //only works when defined in a function like this, dont really know why
+    adjust();
 });

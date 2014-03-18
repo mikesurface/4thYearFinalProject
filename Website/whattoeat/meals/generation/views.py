@@ -76,9 +76,13 @@ def meal_generation(request):
                     food_id = data['food_id']
                     serving_id = data['serving_id']
 
-
-                    quantity = data['quantity']
-                    units = data['units']
+                    if data['use_metric_units'] == True:
+                        if data['metric_quantity'] != None and data['metric_units'] != None:
+                            quantity = data['metric_quantity']
+                            units = data['metric_units']
+                    else:
+                        quantity = data['quantity']
+                        units = data['units']
 
                     #check if the ingredient is restricted
                     restriction = None
@@ -140,6 +144,7 @@ def meal_generation(request):
                 return render_to_response('meal_pages/generation/meal_generation.html',args)
 
         else:
+            #invalid forms
             return render_to_response('meal_pages/generation/meal_generation.html',args)
 
     else:

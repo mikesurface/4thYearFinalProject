@@ -526,7 +526,7 @@ class DietRequirement(models.Model):
     set_id = models.PositiveIntegerField()
     daily = models.BooleanField()
     name = models.CharField(max_length=60, choices=ALLOWED_NUTRIENTS, blank=False)
-    value = models.FloatField(blank=False)
+    value = models.FloatField(blank=False, default=0)
 
     class Meta:
         abstract = True #does not exist as a table in the model
