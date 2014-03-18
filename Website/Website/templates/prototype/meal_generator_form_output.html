@@ -1,9 +1,0 @@
-{% extends "base_with_footer.html" %}
-{%  block sub_banner  %}OUTPUT {% endblock %}
-{% block content %}
-<table>
-    {% for q in quantities %}
-    <tr><td>{{ q.name }}</td><td>{{ q.quantity }}</td><td>{{ q.unit }}</td></tr>
-    {%  endfor %}
-</table>
-{% endblock %}

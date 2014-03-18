@@ -1,0 +1,26 @@
+<div id="search_paginator">
+    <ul class="pagination" id="search_paginator">
+        <li> {# Skip to first page #}
+            <button class="pagination_button" onclick="loadPage('{{ search_text }}', 0);"> &laquo; </button>
+        </li>
+
+        {% for pn in page_numbers_to_display %} {# display paginations #}
+            {% if pn == page_number %}
+                <li class="active">
+                    <button id="active_button" class="pagination_button"
+                            onclick="loadPage('{{ search_text }}',{{ pn }});"> {{ pn }} </button>
+                </li>
+            {% else %}
+                <li>
+                    <button class="pagination_button"
+                            onclick="loadPage('{{ search_text }}',{{ pn }});"> {{ pn }} </button>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        <li> {# skip to last page #}
+            <button class="pagination_button"
+                    onclick="loadPage('{{ search_text }}', {{ last_page }});"> &raquo; </button>
+        </li>
+    </ul>
+</div>

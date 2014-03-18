@@ -1,0 +1,18 @@
+<div class="well">
+<div >
+    {% with user.profile.get_all_meal_requirements_sets as req_sets %}
+        {% if req_sets %}
+            {% for set in req_sets %}
+                <div>
+                        <p>
+                            <strong>{{ set.name }}</strong>
+                            <button type="button">Edit</button>
+                            <button type="button">Remove</button>
+                        </p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+<a href="{% url 'whattoeat.requirements_management.views.add_meal_requirements' %}">Add New Meal</a>
+</div>

@@ -1,0 +1,39 @@
+{% extends 'base/base_footer_navbar.html' %}
+{% block sub_banner %}
+        Search for an ingredient.
+{% endblock %}
+
+{% load static %}
+
+{% block stylesheet_declarations %}
+    {{ block.super }}
+    <link href="{% static "whattoeat/css/pagination_buttons_bootstrap_extension.css" %}" rel="stylesheet"/>
+    <link href="{% static "whattoeat/css/ingredient_search/search_ingredient.css" %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            {% if not_searched_yet %}
+                Search For An Ingredient
+            {% else %}
+                Results for "{{ search_text }}": {{ total_results }} entries over {{ total_pages }} pages.
+            {% endif %}
+        </div>
+    <div class="panel-body full_height">
+    {# search bar #}
+    {% include 'meal_pages/ingredient_search/search_bars/ingredient_search_base_searchbar.html' %}
+    {# results section #}
+    {% include 'meal_pages/ingredient_search/results/ingredient_search_results.html' %}
+    </div>
+    </div>
+    {# container for rendering modal content #}
+    {% include 'meal_pages/ingredient_search/modal/ingredient_modal_container.html' %}
+
+{% endblock %}
+
+{% block script_declarations %}
+    {{ block.super }}
+<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/loadPage.js" %}"></script>
+<script type="text/javascript" src="{% static "whattoeat/js/ingredient_search/lookup_ingredient.js" %}"></script>
+{% endblock %}

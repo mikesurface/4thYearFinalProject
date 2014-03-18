@@ -22,7 +22,7 @@ var SelectBox = {
     },
     filter: function(id, text) {
         // Redisplay the HTML select box, displaying only the choices containing ALL
-        // the words in text. (It's an AND search.)
+        // the words in text. (It's an AND ingredient_search.)
         var tokens = text.toLowerCase().split(/\s+/);
         var node, token;
         for (var i = 0; (node = SelectBox.cache[id][i]); i++) {

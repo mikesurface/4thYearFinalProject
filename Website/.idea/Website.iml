@@ -4,7 +4,7 @@
     <facet type="django" name="Django">
       <configuration>
         <option name="rootFolder" value="$MODULE_DIR$" />
-        <option name="settingsModule" value="Website/settings.py" />
+        <option name="settingsModule" value="whattoeat/settings.py" />
         <option name="manageScript" value="manage.py" />
       </configuration>
     </facet>
@@ -18,6 +18,16 @@
     <option name="myDocStringFormat" value="Plain" />
   </component>
   <component name="TemplatesService">
+    <option name="templateFileTypes">
+      <list>
+        <option value="XML" />
+        <option value="HTML" />
+        <option value="XHTML" />
+        <option value="CSS" />
+        <option value="JavaScript" />
+        <option value="JSON" />
+      </list>
+    </option>
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>

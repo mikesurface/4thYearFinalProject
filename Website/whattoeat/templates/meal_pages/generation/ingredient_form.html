@@ -1,0 +1,25 @@
+<tr class="ingredients_space">
+    <td class="food_name_and_desc">{{ food_name }}: {{ ing_desc }}</td>
+    <td>{{ ing_form.fixed }}</td>
+    <td>{{ ing_form.restriction }}</td>
+    <td>{{ ing_form.threshold }} {{ units}} </td>
+    <td><input type="button" class="btn btn-danger delete_ingredient" value = "Remove">
+    {# render the hidden fields. Have to enumerate these since we have used some above #}
+        {{ ing_form.food_id }}
+        {{ ing_form.food_name }}
+        {{ ing_form.serving_id }}
+        {{ ing_form.description }}
+        {{ ing_form.calories }}
+        {{ ing_form.protein }}
+        {{ ing_form.carbs }}
+        {{ ing_form.fat }}
+        {{ ing_form.salt }}
+        {{ ing_form.sugar }}
+        {{ ing_form.fibre }}
+        {{ ing_form.satfat }}
+        {{ ing_form.quantity}}
+        {{ ing_form.units}}
+        {{ ing_form.metric_quantity }}
+        {{ ing_form.metric_units }}
+    </td>
+</tr>

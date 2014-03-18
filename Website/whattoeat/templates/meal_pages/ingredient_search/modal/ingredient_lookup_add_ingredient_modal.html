@@ -1,0 +1,8 @@
+{% extends 'meal_pages/ingredient_search/modal/ingredient_lookup_modal.html' %}
+
+{% block submit_form %}
+    <form  method="GET" class="serving_data_form" id="serving_data_form_{{ forloop.counter0 }}">
+        {{ s.form.as_p }}
+        <input type="submit" value="Add to my ingredients" form="serving_data_form_{{ forloop.counter0 }}">
+    </form>
+{% endblock %}

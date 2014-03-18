@@ -1,0 +1,31 @@
+.meal_requirements_space{
+
+    -moz-border-radius: 15px; /*firefox support*/
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: #999999;
+    border-style: outset;
+    padding: 5px;
+    max-width: 500px;
+    height: 50px;
+
+
+}
+
+.meal_requirements_space > strong{
+    padding-right: 20px;
+    padding-left:20px;
+}
+
+.meal_requirements_space > .btn-group{
+    float:right;
+}
+
+.definite_space{
+    padding-bottom: 20px;
+}
+
+.restricted_space{
+    padding-bottom: 20px;
+}
+

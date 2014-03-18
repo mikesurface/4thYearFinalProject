@@ -1,0 +1,164 @@
+{% extends 'base/base_footer_navbar.html' %}
+
+{% block sub_banner %}
+    {% if daily %}
+        Edit Daily Requirements
+    {% else %}
+        Edit Requirements
+    {% endif %}
+{% endblock %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+{% block stylesheet_declarations %}
+<link rel="stylesheet" type="text/css" href="{% static "whattoeat/css/requirements/requirements.css" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="well full">
+        {# Display the correct form headers for daily or meal requirements set #}
+        {% if daily %}
+            {# daily requirements set #}
+            <h3>Set you daily requirements</h3>
+            <p>First choose the number of meals you want to eat. Then set your nutritional requirements.
+                If you are unsure, click here to have WhatToEat estimate your requirements</p>
+            <p>You can have at most one requirement on each nutrient. If multiple requirements are set on one nutrient,
+                only
+                the last will be saved.</p>
+
+            <form action="." method="POST" id="daily_requirements_edit" class="form-inline">
+            {% csrf_token %}
+            {% crispy req_set_form %}
+
+        {% else %}
+            {# meal requirements set #}
+            <form action="." method="POST" id="meal_requirements_edit" class="form-inline">
+            {% csrf_token %}
+            {% if edit_mode %}
+                <h3>{{ req_set_name }}</h3>
+                <p>First choose the number of meals you want to eat. Then set your nutritional requirements.
+                    If you are unsure, click here to have WhatToEat estimate your requirements</p>
+                <p>You can have at most one requirement on each nutrient. If multiple requirements are set on one
+                    nutrient, only
+                    the last will be saved.</p>
+                <div style="display: none">{% crispy req_set_form %}</div>
+            {% else %}
+                {% crispy req_set_form %}
+            {% endif %}
+        {% endif %}
+
+        {# form id fields must be included; required by Django ModelFormSets (see Django Docs) #}
+        {# id field should be hidden (set in form definition #}
+        {# editing the id field is a sign of form tampering #}
+        <div class="component_vertical_spacing">
+            <h4>Definite Requirements
+
+                <button type="button" class="btn btn-default helpPopover" data-container="body" data-toggle="popover"
+                        data-placement="right"
+                        data-content="A definite requirement is of the form 'I want my (nutrient) to within (error margin)% of
+                        some value. So for example, if you need you Protein intake to be within 5% of 20g, you would use a
+                        definite requirement.
+
+                        Error margins must be a percentage between 0 and 100 inclusive. Given say, 5%, this means that
+                        the quantity of this nutrient present in the meal/day can be 5% above or below the target value.">
+                    <strong>?</strong>
+                </button>
+            </h4>
+            {{ def_req_formset.management_form|crispy }}
+
+
+
+            {% for form in def_req_formset %}
+                <div class="definite_space"> {% crispy form %}</div>
+                <div class="error_message">{{ form|as_crispy_errors }}</div>
+            {% endfor %}
+            <button class="btn btn-success formset_add_button" type="button" id="add_definite">Add Definite
+                Requirement
+            </button>
+        </div>
+
+        <div class="component_vertical_spacing">
+            <h4>Restricted Requirements
+                <button type="button" class="btn btn-default helpPopover" data-container="body" data-toggle="popover"
+                        data-placement="right"
+                        data-content="A restricted requirement is of the form 'I need more than/less than/at least/at most some
+                                 quantity of this nutrient. For example, if you wish to have less than 2g of salt in you meal, you
+                                 would use a restricted requirement.">
+                    <strong>?</strong>
+                </button>
+
+            </h4>
+            {{ res_req_formset.management_form|crispy }}
+            {% for form in res_req_formset %}
+                <div class="restricted_space">{% crispy form %}</div>
+                <div class="error_message">{{ form|as_crispy_errors }}</div>
+            {% endfor %}
+
+            <button class="btn btn-success formset_add_button" type="button" id="add_restricted">Add Restricted
+                Requirement
+            </button>
+        </div>
+
+
+        <div class="formset_submit">
+            <button class="btn btn-success btn-lg" type="submit" name="save_button">
+                Save
+            </button>
+        </div>
+
+        </form>
+
+    </div>
+{% endblock %}
+
+{% block script_declarations %}
+    <script type="text/javascript"
+            src="{% static 'whattoeat/js/requirements/requirements_form_manipulation.js' %}"></script>
+    <script type="text/javascript" >
+
+        function addUnits(type){
+            var forms = $('.'+type+'_space');
+            for(i = 0; i < forms.length; i++){
+                var nutrientName = " ";
+                var units= " ";
+                var f = $(forms[i]);
+                var nutrients = $(f.find('.nutrient_name_field > option'));
+                for(j=0;j<nutrients.length;j++){
+                    if(nutrients[j].selected){
+                        nutrientName = nutrients[j].value;
+                        if(nutrientName.toLowerCase() == "calories"){
+                            units = "kcal";
+                        }else{
+                            units="grams";
+                        }
+                    }
+                }
+
+              f.find('.requirements_unit').html(units);
+
+            }
+        }
+
+        $(document).ready(function(){
+             //set up popovers
+            var popovers = $('.helpPopover');
+            for(i = 0; i < popovers.length; i++){
+                $(popovers[i]).popover();
+            }
+
+            //set up correct units
+            //for definite requirements
+            addUnits('definite');
+            //for restricted
+            addUnits('restricted');
+
+            //set up event handlers for doing this on changes
+            $('.nutrient_name_field').change(function(){
+                addUnits('definite');
+                addUnits('restricted');
+            })
+
+        });
+    </script>
+{% endblock %}

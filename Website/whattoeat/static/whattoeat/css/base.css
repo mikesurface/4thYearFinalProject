@@ -1,0 +1,128 @@
+
+.banner{
+    width: 100%;
+    background-color: #1E771E;
+    color: #ffffff;
+    padding: 15px;
+    min-height: 100px;
+}
+.small_banner{
+    width: 100%;
+    background-color: #1E771E;
+    color: #ffffff;
+    padding: 15px;
+    min-height:50px;
+}
+.navbar-override{
+    /*override Bootstraps default css for navbars to fit the website*/
+    width: 100%;
+    background-color: #47A347;
+    border:none;
+    color:#ffffff;
+    margin-top: -21px;
+    padding: -10px;
+    padding-top: -20px;
+    padding-right:15px;
+
+
+}
+.full{
+    min-height:90%;
+}
+.full-height{
+    height:100%;
+    overflow-y: auto;
+}
+.navbar_container_override{
+    /*To be used on the 'container' class within the navbar*/
+    margin:0 15px 0 15px;
+    width:95%;
+    padding: 5px;
+}
+
+.navbar_text{
+    /*use on all text in the navbar, including the brand*/
+    color: #ffffff;
+    padding:5px;
+}
+
+.dropdown_link{
+    background-color: #ffffff;
+
+}
+
+.wrapper{
+    margin: -20px auto -40px;
+    padding: 20px 20px;
+    border-width: 0px 20px; /*0 top and bottom , 20px left and right*/
+    border-color: #99FF66;
+    border-style: solid;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.footer{
+    position:relative;
+    height: 40px;
+    top: 40px;
+    background-color: #47A347;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.component_vertical_spacing{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.error_message{
+    color: red;
+}
+
+.small_table{
+    max-width: 400px;
+}
+
+.whattoeat-btn{
+    background-color: #FFCF79;
+    color:#333333;
+}
+
+
+.table_banner > p{
+    font-size: 20pt;
+    display: inline-block;
+    margin-right:20px;
+}
+
+.table_banner > a{
+    font-size: 15pt;
+    margin-bottom: 10px;
+}
+
+
+.formset_add_button{
+    margin-top: 10px;
+}
+
+.formset_submit{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.formset_submit > button{
+    font-size: 14pt;
+    padding: 20px;
+    width: 200px;
+}
+
+.info_pane{
+    padding: 10px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border-width:3px;
+    border-color: #999999;
+    border-style: outset;
+    height: 100%;
+}

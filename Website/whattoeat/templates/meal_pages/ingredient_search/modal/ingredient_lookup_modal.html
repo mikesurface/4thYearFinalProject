@@ -1,0 +1,106 @@
+{# content of a modal (dialog) displaying the full information for a given ingredient #}
+<div id="ingredient_modal" title="{{ food_name }}">
+    <select id="serving_selector">
+        {% for s in servings %}
+            <option value="serving{{ forloop.counter0 }}"> {{ s.description }}</option>
+        {% endfor %}
+    </select>
+
+    {% for s in servings %}
+        <div id="serving{{ forloop.counter0 }}" style="display:none">
+            <table class="table table-condensed table-responsive table-striped" >
+                <tr>
+                    <th>Nutrient</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr>
+                    <td>
+                        Calories
+                    </td>
+                    <td>
+                        {{ s.nutrient_vals.calories }} kcal
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Protein
+                    </td>
+                    <td>
+                        {{ s.nutrient_vals.protein }} g
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Total Carbohydrate
+                    </td>
+                    <td>
+                        {{ s.nutrient_vals.carbs }} g
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Total Fat
+                    </td>
+                    <td>
+                        {{ s.nutrient_vals.fat }} g
+                    </td>
+                </tr>
+
+                <tr> {# sugar may not be included #}
+                    <td>
+                        Sugar
+                    </td>
+                    <td>
+                        {% if s.nutrient_vals.sugar %}
+                            {{ s.nutrient_vals.sugar }} g
+                        {% else %}
+                            Unknown
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>{# salt may not be included #}
+                    <td>
+                        Salt
+                    </td>
+                    <td>
+                        {% if s.nutrient_vals.salt %}
+                            {{ s.nutrient_vals.salt }} g
+                        {% else %}
+                            Unknown
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr> {# fibre may not be included #}
+                    <td>
+                        Fibre
+                    </td>
+                    <td>
+                        {% if s.nutrient_vals.fibre %}
+                            {{ s.nutrient_vals.fibre }} g
+                        {% else %}
+                            Unknown
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr> {# fat may not be included #}
+                    <td>
+                        Saturated Fat
+                    </td>
+                    <td>
+                        {% if s.nutrient_vals.satfat %}
+                            {{ s.nutrient_vals.satfat }} g
+                        {% else %}
+                            Unknown
+                        {% endif %}
+                    </td>
+                </tr>
+
+            </table>
+
+            {% block submit_form %}
+
+            {% endblock %}
+
+        </div>
+    {% endfor %}
+</div>

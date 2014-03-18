@@ -1,0 +1,45 @@
+/*Style for standalone ingredients search*/
+/*Note that the style for the searchbar is used in the django form, as is required by django*/
+
+#search_page_content{
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-color:#bbbbbb;
+    border-width: 0;
+    border-right-width: 2px;
+    border-left-width: 2px;
+}
+
+#results{
+    padding: 0;
+    margin: 0;
+
+}
+#search_paginator{
+    padding:0;
+    margin:0;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+#searchpanel{
+    height: 60px;
+    margin:0px;
+    padding:0px;
+}
+
+.full_width_no_vertical_spacing{
+    width:100%;
+    margin-bottom:-15px;
+}
+
+
+
+
+.largerfont{
+    font-size: 16px;
+}
+
+
+

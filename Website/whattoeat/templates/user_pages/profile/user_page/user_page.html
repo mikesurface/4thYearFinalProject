@@ -1,0 +1,9 @@
+{% extends 'base/base_footer_navbar.html' %}
+
+{% block sub_banner %}
+    {{ user.username }}'s Homepage
+{% endblock %}
+
+{% block content %}
+    {% include 'user_pages/profile/user_page/vital_stats_pane.html' %}
+{% endblock %}

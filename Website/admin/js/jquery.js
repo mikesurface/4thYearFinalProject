@@ -1566,7 +1566,7 @@ function internalData( elem, name, data, pvt /* Internal Use Only */ ){
 		cache = isNode ? jQuery.cache : elem,
 
 		// Only defining an ID for JS objects if its cache already exists allows
-		// the code to shortcut on the same path as a DOM node with no cache
+		// the authentication to shortcut on the same path as a DOM node with no cache
 		id = isNode ? elem[ internalKey ] : elem[ internalKey ] && internalKey;
 
 	// Avoid doing any more work than we need to when trying to get data on an
@@ -4178,7 +4178,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// qSa(:focus) reports false when true (Chrome 21),
 	// no need to also add to buggyMatches since matches checks buggyQSA
-	// A support test would require too much code (would include document ready)
+	// A support test would require too much authentication (would include document ready)
 	rbuggyQSA = [ ":focus" ];
 
 	if ( (support.qsa = isNative(doc.querySelectorAll)) ) {
@@ -4949,7 +4949,7 @@ Expr = Sizzle.selectors = {
 
 		"text": function( elem ) {
 			var attr;
-			// IE6 and 7 will map elem.type to 'text' for new HTML5 types (search, etc)
+			// IE6 and 7 will map elem.type to 'text' for new HTML5 types (ingredient_search, etc)
 			// use getAttribute instead to test this case
 			return elem.nodeName.toLowerCase() === "input" &&
 				elem.type === "text" &&
@@ -7199,7 +7199,7 @@ if ( !jQuery.support.opacity ) {
 
 				// Setting style.filter to null, "" & " " still leave "filter:" in the cssText
 				// if "filter:" is present at all, clearType is disabled, we want to avoid this
-				// style.removeAttribute is IE Only, but so apparently is this code path...
+				// style.removeAttribute is IE Only, but so apparently is this authentication path...
 				style.removeAttribute( "filter" );
 
 				// if there is no filter style applied in a css rule or unset inline opacity, we are done

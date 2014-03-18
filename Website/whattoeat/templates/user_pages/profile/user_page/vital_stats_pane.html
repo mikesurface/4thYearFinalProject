@@ -1,0 +1,67 @@
+<div id="homepage_user_stats" class="well">
+    <div class = "table_banner">
+        <p>Vital Statistics</p>
+        <a class="btn btn-default " href="/user/edit_stats/"> Edit Statistics</a>
+    </div>
+    {% if user.profile.age %}
+        <div id="user_stats_table">
+            <table class="table table-responsive small_table ">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <td>
+                        {{ user.get_full_name }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Current Goal
+                    </th>
+                    <td>
+                        {{ user.profile.goal_printable }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Gender
+                    </th>
+                    <td>
+                        {{ user.profile.gender_printable }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Age
+                    </th>
+                    <td>
+                        {{ user.profile.age }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Height
+                    </th>
+                    <td>
+                        <span class="rounded_decimal">{{ user.profile.height_in_cm }}</span> cm (<span
+                            class="rounded_decimal">{{ user.profile.height_in_inches }}</span> inches)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Weight
+                    </th>
+                    <td>
+                        <span class="rounded_decimal">{{ user.profile.weight }}</span> kg (<span
+                            class="rounded_decimal">{{ user.profile.weight_in_lbs }}</span> lbs)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% else %}
+        <p class="error_message">
+            <strong> You have not yet set your profile details. Please click the link below to do so</strong>
+        </p>
+    {% endif %}
+
+</div>

@@ -1,0 +1,38 @@
+{% extends 'base/base_footer_navbar.html' %}
+{% load static %}
+{% block sub_banner %}
+{{ user.username }}'s Meal Requirements
+{% endblock %}
+
+{% block stylesheet_declarations %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "whattoeat/css/requirements/requirements.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% if meal_sets %}
+        <div class="well full">
+        <h3>Meal Requirements Sets</h3>
+        <ol>
+        {% for m in meal_sets %}
+            <li class="meal_requirements_space">
+            <strong>{{ m.name }}</strong>
+
+                <span class="btn-group">
+                    <a class="btn btn-warning" href="/user/requirements/edit_meal_requirements/{{ m.name }}/">Edit</a>
+                    <a class="btn btn-danger" href="/user/requirements/remove_meal_requirements/{{ m.name }}/">Remove</a>
+                </span>
+
+            </li>
+        {% endfor %}
+        </ol>
+        <div><a href="/user/requirements/add_meal_requirements/" class="btn btn-success btn-lg">Add A Meal Requirements Set</a></div>
+        </div>
+    {% else %}
+        <h3 class = "error_message">You dont have any meal requirements sets</h3>
+        <p>Click the add button to add a new one</p>
+        <div><a href="/user/requirements/add_meal_requirements/" class="btn btn-success btn-lg">Add A Meal Requirements Set</a></div>
+    {% endif %}
+
+{% endblock %}
+
